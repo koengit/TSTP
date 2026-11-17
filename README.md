@@ -34,7 +34,7 @@ for automated provers is mostly the *encoding*, not the mathematics:
   needs a handful. Each step of our proofs cites only the axioms it uses, and then E proves it in
   milliseconds; with all axioms it times out.
 * **Missing lemmas, and cuts.** Some problems need an intermediate lemma (or a new defined predicate)
-  that a saturation prover will not invent. The Orevkov formulas (SYN986) need a witness with
+  that a saturation prover will not invent. The Orevkov formulas ([SYN986+1.005](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=SYN&File=SYN986%2B1.005.p) and its variants) need a witness with
   2^65536 successor steps without such lemmas; with a hierarchy of defined predicates every step
   checks in 0.02 s.
 * **Weak equality encodings.** The field problems (FLD) use a relation "equalish" instead of equality,
@@ -72,17 +72,17 @@ found (`% Comments`), and how to check it (`% Checking`).
 `inference(lemma,[status(thm)],[parents])`: it is a logical consequence of its parents (not an
 instance of a fixed calculus rule). Definition steps (`role definition`, `introduced(definition,...)`)
 introduce a fresh, non-recursive predicate symbol and are conservative. (They occur in only five
-proofs: SYN986+1.005/.006, SYN986-10.005/.006 and GRA175-1. Note that GDV checks that a defined symbol is
+proofs: [SYN986+1.005](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=SYN&File=SYN986%2B1.005.p), [SYN986+1.006](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=SYN&File=SYN986%2B1.006.p), [SYN986-10.005](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=SYN&File=SYN986-10.005.p), [SYN986-10.006](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=SYN&File=SYN986-10.006.p) and [GRA175-1](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=GRA&File=GRA175-1.p). Note that GDV checks that a defined symbol is
 new, but in our tests it also accepted a circular definition such as `q <=> ~q`; our own checker rejects
 those, and all 27 definitions here are non-circular.) Checking:
 
 * every proof was checked step by step with E 3.2.5 (each step as an entailment problem from its
   parents), and
-* every proof except the five very large Ramsey proofs (GRA122-1, GRA122+1, GRA123-1, GRA123+1,
-  GRA125-1) was verified with [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (leaves against the
+* every proof except the five very large Ramsey proofs ([GRA122-1](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=GRA&File=GRA122-1.p), [GRA122+1](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=GRA&File=GRA122%2B1.p), [GRA123-1](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=GRA&File=GRA123-1.p), [GRA123+1](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=GRA&File=GRA123%2B1.p),
+  [GRA125-1](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=GRA&File=GRA125-1.p)) was verified with [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (leaves against the
   problem, each inference with Vampire 5.1, or E 3.2.5 for a few steps). The header says which.
 
-**Finite models** (three problems: GRP738-1, GRP739-1, GRP740-1) are also given as TPTP finite
+**Finite models** (three problems: [GRP738-1](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=GRP&File=GRP738-1.p), [GRP739-1](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=GRP&File=GRP739-1.p), [GRP740-1](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=GRP&File=GRP740-1.p)) are also given as TPTP finite
 interpretations (`SAT-FMo` files). These were not written by hand: Lean evaluated the operations of the
 certified Lean model on every domain element and printed the tables, which were then checked again by
 evaluating every clause of the problem over the domain.
@@ -132,7 +132,7 @@ External requirements:
   Lake project with that Mathlib version built.
 
 All 66 models were checked with these tools. Most take seconds; the
-largest, GRP738-1 (a 32-element loop checked by `decide`), takes about 2.5 minutes and 11 GB of memory.
+largest, [GRP738-1](https://tptp.org/cgi-bin/SeeTPTP?Category=Problems&Domain=GRP&File=GRP738-1.p) (a 32-element loop checked by `decide`), takes about 2.5 minutes and 11 GB of memory.
 
 ## How the solutions were found
 
