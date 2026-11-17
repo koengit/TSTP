@@ -7,8 +7,8 @@
 
 % Result   : Unsatisfiable
 % Output   : Refutation
-% Verified : every inference checked with E 3.2.5 (each step an entailment from its parents); GDV
-%            verification pending (very large ground proof)
+% Verified : GDV VerifiedGood with Vampire 5.1 as the trusted ATP; every inference also checked with
+%            E 3.2.5
 % Status   : agrees with TPTP v10.0.0 (Unsatisfiable)
 
 % Comments : Proof written by Claude Opus 5.5 (Anthropic) working in the Claude Code agent harness:

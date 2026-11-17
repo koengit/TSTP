@@ -11,8 +11,8 @@ with a large language model: finding mistakes in the library, settling problems 
 unknown, and adding solutions for problems that no automated theorem prover has solved. The LLM agent
 (Claude Opus 5.5, Anthropic, working in the Claude Code harness) wrote every proof and model itself;
 **nothing is trusted on the LLM's word**: every proof is checked step by step by an independent proof
-checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (five very
-large Ramsey proofs have so far been checked step by step with E only), and every model is checked in
+checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (one very
+large Ramsey proof, GRA125-1 with 97,662 steps, has so far been checked step by step with E only; its GDV run is in progress), and every model is checked in
 the Lean 4 proof assistant.
 
 **Findings in one sentence:** for 546 of the hardest TPTP problems (545 rated 1.00 in TPTP v10.0.0; NUM636+4
@@ -117,8 +117,7 @@ those, and all 27 definitions here are non-circular.) Checking:
 
 * every proof was checked step by step with E 3.2.5 (each step as an entailment problem from its
   parents), and
-* every proof except the five very large Ramsey proofs ([GRA122-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA122-1.p), [GRA122+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA122%2B1.p), [GRA123-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA123-1.p), [GRA123+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA123%2B1.p),
-  [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p)) was verified with [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (leaves against the
+* every proof except the very large Ramsey proof [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p) (GDV run in progress) was verified with [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (leaves against the
   problem, each inference with Vampire 5.1; for four proofs, SEU287+1/+2 and SEU330+1/+2, with E 3.2.5 as
   the prover). The header says which.
 
