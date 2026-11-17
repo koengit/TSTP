@@ -1,6 +1,6 @@
 # Suggested status changes (TPTP v10.0.0 -> verified result)
 
-11 problems whose TPTP status appears to be **wrong**, 37 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 60 problems with status Unknown/Open that are now settled.
+11 problems whose TPTP status appears to be **wrong**, 37 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 69 problems with status Unknown/Open that are now settled.
 
 ## 🔴 Status appears to be wrong
 
@@ -68,8 +68,14 @@ These proofs and models have been independently checked (proofs step by step by 
 
 | Problem | TPTP v10.0.0 | Verified | Evidence |
 |---|---|---|---|
+| [ALG229+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG229%2B2.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/ALG/ALG229+2/ClaudeOpus---5.5.THM-Ref.s) |
+| [ALG229+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG229%2B3.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/ALG/ALG229+3/ClaudeOpus---5.5.THM-Ref.s) |
+| [ALG229+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG229%2B4.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/ALG/ALG229+4/ClaudeOpus---5.5.THM-Ref.s) |
 | [ALG230+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG230%2B2.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/ALG/ALG230+2/ClaudeOpus---5.5.THM-Ref.s) |
 | [ALG230+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG230%2B3.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/ALG/ALG230+3/ClaudeOpus---5.5.THM-Ref.s) |
+| [ALG233+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG233%2B2.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/ALG/ALG233+2/ClaudeOpus---5.5.THM-Ref.s) |
+| [ALG233+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG233%2B3.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/ALG/ALG233+3/ClaudeOpus---5.5.THM-Ref.s) |
+| [ALG233+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG233%2B4.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/ALG/ALG233+4/ClaudeOpus---5.5.THM-Ref.s) |
 | [FLD044-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD044-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/FLD/FLD044-1/ClaudeOpus---5.5.UNS-Ref.s) |
 | [FLD045-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD045-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/FLD/FLD045-1/ClaudeOpus---5.5.UNS-Ref.s) |
 | [FLD045-2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD045-2.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/FLD/FLD045-2/ClaudeOpus---5.5.UNS-Ref.s) |
@@ -128,3 +134,6 @@ These proofs and models have been independently checked (proofs step by step by 
 | [RNG010-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/RNG/RNG010-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/RNG/RNG010-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [RNG010-7](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/RNG/RNG010-7.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/RNG/RNG010-7/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SEU093+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU093%2B1.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU093+1/ClaudeOpus---5.5.THM-Ref.s) |
+| [TOP044+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/TOP/TOP044%2B2.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/TOP/TOP044+2/ClaudeOpus---5.5.THM-Ref.s) |
+| [TOP044+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/TOP/TOP044%2B3.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/TOP/TOP044+3/ClaudeOpus---5.5.THM-Ref.s) |
+| [TOP044+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/TOP/TOP044%2B4.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/TOP/TOP044+4/ClaudeOpus---5.5.THM-Ref.s) |

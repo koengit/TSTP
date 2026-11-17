@@ -15,20 +15,20 @@ checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/Sys
 large Ramsey proofs have so far been checked step by step with E only), and every model is checked in
 the Lean 4 proof assistant.
 
-**Findings in one sentence:** for 241 of the hardest TPTP problems (240 rated 1.00 in TPTP v10.0.0; NUM636+4
-was rated 1.00 until v10.0.0 lowered it to 0.96), 240 of which had no solution in the TSTP, we give
-checked proofs or models, which settle 60 problems of status Unknown, show that 37 further Unknown
+**Findings in one sentence:** for 251 of the hardest TPTP problems (250 rated 1.00 in TPTP v10.0.0; NUM636+4
+was rated 1.00 until v10.0.0 lowered it to 0.96), 250 of which had no solution in the TSTP, we give
+checked proofs or models, which settle 69 problems of status Unknown, show that 37 further Unknown
 problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 11 recorded
 statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
 ## Contributions
 
-* **Checked solutions where none existed.** Proofs and models for 241 hard problems; for 240 of them the
+* **Checked solutions where none existed.** Proofs and models for 251 hard problems; for 250 of them the
   TSTP had no solution. Proofs are TSTP derivations verified by GDV; models are verified in Lean. All
   files use the TSTP's layout and header conventions, so they can be added to the TSTP directly.
 * **Corrections to the library.** 11 recorded statuses that appear to be wrong (each backed by a checked
   proof or model, except one literature-based entry), 37 problems that are non-theorems only because of a
-  missing axiom or hypothesis (with the cause and a suggested fix), and 60 Unknown problems settled.
+  missing axiom or hypothesis (with the cause and a suggested fix), and 69 Unknown problems settled.
 * **A checkable TSTP format for infinite models.** Most of the models here are infinite, so they cannot
   be written as TPTP finite interpretations. Each is a Lean 4 development embedded in an ordinary TSTP
   file, checked against a Lean statement that is generated mechanically from the TPTP problem (never
@@ -61,13 +61,13 @@ solutions that anyone can verify independently.
 
 ## Why could no prover find these proofs?
 
-Many of the proofs are small: of the 152 proofs other than the Ramsey proofs, 34 have at most 10
+Many of the proofs are small: of the 162 proofs other than the Ramsey proofs, 37 have at most 10
 derived steps (not counting the final step to `$false`) and the median is 23 (the 41 SEU proofs from
 Mizar have a median of 10). What made them hard
 for automated provers is mostly the *encoding*, not the mathematics:
 
 * **Large axiom sets.** The Mizar (MPTP) problems solved here have from 46 formulas (median 352 for the
-  SEU problems) up to 37,879 (ALG230+4); the proof needs a handful. Each step of our proofs cites only the axioms it uses, and then E proves it in
+  SEU problems) up to 55,482 (TOP044+4); the proof needs a handful. Each step of our proofs cites only the axioms it uses, and then E proves it in
   milliseconds; with all axioms it times out.
 * **Missing lemmas, and cuts.** Some problems need an intermediate lemma (or a new defined predicate)
   that a saturation prover will not invent. The Orevkov formulas ([SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p) and its variants) need a witness with
