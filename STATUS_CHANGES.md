@@ -1,12 +1,13 @@
 # Suggested status changes (TPTP v10.0.0 -> verified result)
 
-4 problems whose TPTP status appears to be **wrong**, 30 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 58 problems with status Unknown/Open that are now settled.
+5 problems whose TPTP status appears to be **wrong**, 30 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 58 problems with status Unknown/Open that are now settled.
 
 ## 🔴 Status appears to be wrong
 
 | | Problem | TPTP v10.0.0 | Should be | Evidence |
 |---|---|---|---|---|
 | 🔴 | **GRP740-1** | **Unsatisfiable** | **Satisfiable** | [✅ Lean-checked model](Solutions/GRP/GRP740-1/ClaudeOpus---5.5.SAT-Mod.s): The clause set asks for a non-associative commutative Moufang loop. Such loops exist (smallest order 81, Bruck); the file has an 81-element model on Z3^4, checked in Lean by `decide`. |
+| 🔴 | **NUM333+1** | **Theorem** | **CounterSatisfiable** | [✅ Lean-checked model](Solutions/NUM/NUM333+1/ClaudeOpus---5.5.CSA-Mod.s): RDN arithmetic: associativity of sum for ALL elements. The sum axioms only produce sums of numerals and require sum to be functional in each pair of arguments, so on non-numerals it is unconstrained: with fresh elements j0..j6, sum(j0,j1,j3), sum(j3,j2,j4), sum(j1,j2,j5), sum(j0,j5,j6) violate associativity (j4 != j6). Lean-checked countermodel. (Associativity restricted to numerals is presumably the intended theorem.) |
 | 🔴 | **SEU260+1** | **CounterSatisfiable** | **Theorem** | [✅ GDV-checked proof](Solutions/SEU/SEU260+1/ClaudeOpus---5.5.THM-Ref.s): MPTP t53_wellord1 (bushy). Our proof is GDV-verified (Vampire) and checked step by step with E; unless the axioms are inconsistent, the status is Theorem. |
 | 🔴 | **SEU289+1** | **CounterSatisfiable** | **Theorem** | [✅ GDV-checked proof](Solutions/SEU/SEU289+1/ClaudeOpus---5.5.THM-Ref.s): MPTP t28_wellord2 (bushy). Our proof is GDV-verified (Vampire) and checked step by step with E; unless the axioms are inconsistent, the status is Theorem. |
 | 🔴 | **ALG301-1** | **Satisfiable** | **Open** | no solution file: The single identity is the Equational Theories Project law E5093, which has no nontrivial finite model (Kisielewicz 1997, who mentioned it only as a possible Austin law). Whether it has a nontrivial (necessarily infinite) model is open: the ETP blueprint (chapter 'Order 5 Austin laws') lists E5093 and its dual E41179 in Table 20.2, 'trivial finite models, unknown infinite models', and neither is among the 32 order-5 Austin laws certified in arXiv:2609.05690 (Sept 2026). Its sibling ALG300-1 is Kisielewicz's proven Austin law E28770 (Table 20.1). So the status Satisfiable is unsupported; if ALG301-1 was meant to be another known Austin law, the formula was mis-transcribed. |

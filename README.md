@@ -9,10 +9,10 @@ checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/Sys
 large Ramsey proofs have so far been checked step by step with E only), and every model is checked in
 the Lean 4 proof assistant.
 
-**Findings in one sentence:** for 219 of the hardest TPTP problems (rating 1.00), 218 of which had no
+**Findings in one sentence:** for 220 of the hardest TPTP problems (rating 1.00), 219 of which had no
 solution in the TSTP, we give checked proofs or models, which settle 58 problems of status Unknown,
 show that 30 further Unknown problems are non-theorems only because of a missing axiom or hypothesis,
-and indicate that 4 recorded statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
+and indicate that 5 recorded statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
 ## What was investigated, and why
 
@@ -131,7 +131,7 @@ External requirements:
   `Tools/mathlib` (downloads about 5 GB of prebuilt files), or set `MATHLIB` to an existing
   Lake project with that Mathlib version built.
 
-All 65 models were checked from a fresh clone with these tools. Most take seconds; the
+All 66 models were checked with these tools. Most take seconds; the
 largest, GRP738-1 (a 32-element loop checked by `decide`), takes about 2.5 minutes and 11 GB of memory.
 
 ## How the solutions were found
