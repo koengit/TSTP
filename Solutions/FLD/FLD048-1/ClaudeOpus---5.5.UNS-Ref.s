@@ -1,0 +1,86 @@
+%------------------------------------------------------------------------------
+% File     : ClaudeOpus---5.5
+% Problem  : FLD048-1 : TPTP v10.0.0. Bugfixed v2.1.0.
+% Transfm  : none
+% Format   : tptp:raw
+% Command  : none (written by the LLM agent Claude Opus 5.5 in Claude Code; see Comments)
+
+% Result   : Unsatisfiable
+% Output   : Refutation
+% Verified : GDV VerifiedGood with Vampire 5.1 as the trusted ATP; every inference also checked with
+%            E 3.2.5
+% Status   : SUGGESTED CHANGE: Unknown -> Unsatisfiable (TPTP v10.0.0 status is Unknown; this file is
+%            a verified refutation)
+
+% Comments : Proof written by Claude Opus 5.5 (Anthropic) working in the Claude Code agent harness:
+%            the model worked out the mathematical argument and wrote the proof as a chain of lemmas;
+%            E 3.2.5 was used only as a step checker and short-timeout lemma oracle.
+%            inference(lemma,...) means: this formula is a logical consequence of its parents (no
+%            specific calculus rule). Notes: (a/b)(c/d) = (ac)/(bd); one missing premise (nzd)
+% Checking : GDV (TPTP World derivation verifier, e.g. via SystemOnTSTP) with an ATP such as Vampire
+%            5.1 for the lemma steps; parents of each step are listed in its inference record.
+%            Definition steps (role definition) introduce fresh predicate symbols and are
+%            conservative.
+%------------------------------------------------------------------------------
+% SZS status Unsatisfiable for FLD048-1
+% SZS output start Refutation for FLD048-1
+cnf(symmetry_of_equality, axiom, (equalish(X,Y) | ~ equalish(Y,X)), file('Problems/FLD/FLD048-1.p',symmetry_of_equality)).
+cnf(transitivity_of_equality, axiom, (equalish(X,Z) | ~ equalish(X,Y) | ~ equalish(Y,Z)), file('Problems/FLD/FLD048-1.p',transitivity_of_equality)).
+cnf(commutativity_addition, axiom, (equalish(add(X,Y),add(Y,X)) | ~ defined(X) | ~ defined(Y)), file('Problems/FLD/FLD048-1.p',commutativity_addition)).
+cnf(compatibility_of_equality_and_addition, axiom, (equalish(add(X,Z),add(Y,Z)) | ~ defined(Z) | ~ equalish(X,Y)), file('Problems/FLD/FLD048-1.p',compatibility_of_equality_and_addition)).
+cnf(existence_of_identity_addition, axiom, (equalish(add(additive_identity,X),X) | ~ defined(X)), file('Problems/FLD/FLD048-1.p',existence_of_identity_addition)).
+cnf(well_definedness_of_additive_identity, axiom, (defined(additive_identity)), file('Problems/FLD/FLD048-1.p',well_definedness_of_additive_identity)).
+cnf(existence_of_inverse_addition, axiom, (equalish(add(X,additive_inverse(X)),additive_identity) | ~ defined(X)), file('Problems/FLD/FLD048-1.p',existence_of_inverse_addition)).
+cnf(well_definedness_of_additive_inverse, axiom, (defined(additive_inverse(X)) | ~ defined(X)), file('Problems/FLD/FLD048-1.p',well_definedness_of_additive_inverse)).
+cnf(well_definedness_of_addition, axiom, (defined(add(X,Y)) | ~ defined(X) | ~ defined(Y)), file('Problems/FLD/FLD048-1.p',well_definedness_of_addition)).
+cnf(associativity_addition, axiom, (equalish(add(X,add(Y,Z)),add(add(X,Y),Z)) | ~ defined(X) | ~ defined(Y) | ~ defined(Z)), file('Problems/FLD/FLD048-1.p',associativity_addition)).
+cnf(distributivity, axiom, (equalish(add(multiply(X,Z),multiply(Y,Z)),multiply(add(X,Y),Z)) | ~ defined(X) | ~ defined(Y) | ~ defined(Z)), file('Problems/FLD/FLD048-1.p',distributivity)).
+cnf(compatibility_of_equality_and_multiplication, axiom, (equalish(multiply(X,Z),multiply(Y,Z)) | ~ defined(Z) | ~ equalish(X,Y)), file('Problems/FLD/FLD048-1.p',compatibility_of_equality_and_multiplication)).
+cnf(well_definedness_of_multiplication, axiom, (defined(multiply(X,Y)) | ~ defined(X) | ~ defined(Y)), file('Problems/FLD/FLD048-1.p',well_definedness_of_multiplication)).
+cnf(commutativity_multiplication, axiom, (equalish(multiply(X,Y),multiply(Y,X)) | ~ defined(X) | ~ defined(Y)), file('Problems/FLD/FLD048-1.p',commutativity_multiplication)).
+cnf(existence_of_identity_multiplication, axiom, (equalish(multiply(multiplicative_identity,X),X) | ~ defined(X)), file('Problems/FLD/FLD048-1.p',existence_of_identity_multiplication)).
+cnf(well_definedness_of_multiplicative_identity, axiom, (defined(multiplicative_identity)), file('Problems/FLD/FLD048-1.p',well_definedness_of_multiplicative_identity)).
+cnf(existence_of_inverse_multiplication, axiom, (equalish(multiply(X,multiplicative_inverse(X)),multiplicative_identity) | ~ defined(X) | equalish(X,additive_identity)), file('Problems/FLD/FLD048-1.p',existence_of_inverse_multiplication)).
+cnf(well_definedness_of_multiplicative_inverse, axiom, (defined(multiplicative_inverse(X)) | ~ defined(X) | equalish(X,additive_identity)), file('Problems/FLD/FLD048-1.p',well_definedness_of_multiplicative_inverse)).
+cnf(associativity_multiplication, axiom, (equalish(multiply(X,multiply(Y,Z)),multiply(multiply(X,Y),Z)) | ~ defined(X) | ~ defined(Y) | ~ defined(Z)), file('Problems/FLD/FLD048-1.p',associativity_multiplication)).
+cnf(a_is_defined, hypothesis, (defined(a)), file('Problems/FLD/FLD048-1.p',a_is_defined)).
+cnf(b_is_defined, hypothesis, (defined(b)), file('Problems/FLD/FLD048-1.p',b_is_defined)).
+cnf(c_is_defined, hypothesis, (defined(c)), file('Problems/FLD/FLD048-1.p',c_is_defined)).
+cnf(d_is_defined, hypothesis, (defined(d)), file('Problems/FLD/FLD048-1.p',d_is_defined)).
+cnf(b_not_equal_to_additive_identity_5, negated_conjecture, (~ equalish(b,additive_identity)), file('Problems/FLD/FLD048-1.p',b_not_equal_to_additive_identity_5)).
+cnf(d_not_equal_to_additive_identity_6, negated_conjecture, (~ equalish(d,additive_identity)), file('Problems/FLD/FLD048-1.p',d_not_equal_to_additive_identity_6)).
+cnf(multiply_not_equal_to_multiply_7, negated_conjecture, (~ equalish(multiply(multiply(a,multiplicative_inverse(b)),multiply(c,multiplicative_inverse(d))),multiply(multiply(a,c),multiplicative_inverse(multiply(b,d))))), file('Problems/FLD/FLD048-1.p',multiply_not_equal_to_multiply_7)).
+fof(e_sym, plain, (! [X,Y] : (equalish(X,Y) => equalish(Y,X))), inference(lemma,[status(thm)],[symmetry_of_equality])).
+fof(e_tr, plain, (! [X,Y,Z] : ((equalish(X,Y) & equalish(Y,Z)) => equalish(X,Z))), inference(lemma,[status(thm)],[transitivity_of_equality])).
+fof(add_r, plain, (! [X,Y,Z] : ((defined(X) & defined(Y) & defined(Z) & equalish(Y,Z)) => equalish(add(X,Y),add(X,Z)))), inference(lemma,[status(thm)],[commutativity_addition,compatibility_of_equality_and_addition,transitivity_of_equality])).
+fof(add_0r, plain, (! [X] : (defined(X) => equalish(add(X,additive_identity),X))), inference(lemma,[status(thm)],[commutativity_addition,existence_of_identity_addition,transitivity_of_equality,well_definedness_of_additive_identity])).
+fof(c1, plain, (! [X,Y] : ((defined(X) & defined(Y)) => equalish(X,add(X,add(Y,additive_inverse(Y)))))), inference(lemma,[status(thm)],[e_sym,e_tr,add_0r,add_r,existence_of_inverse_addition,well_definedness_of_additive_inverse,well_definedness_of_addition,well_definedness_of_additive_identity])).
+fof(c2, plain, (! [X,Y] : ((defined(X) & defined(Y)) => equalish(add(X,add(Y,additive_inverse(Y))),add(add(X,Y),additive_inverse(Y))))), inference(lemma,[status(thm)],[associativity_addition,well_definedness_of_additive_inverse])).
+fof(c3, plain, (! [X,Y,W] : ((defined(X) & defined(Y) & equalish(add(X,Y),W)) => equalish(add(add(X,Y),additive_inverse(Y)),add(W,additive_inverse(Y))))), inference(lemma,[status(thm)],[compatibility_of_equality_and_addition,well_definedness_of_additive_inverse])).
+fof(canc, plain, (! [U] : ((defined(U) & equalish(add(U,U),U)) => equalish(U,additive_identity))), inference(lemma,[status(thm)],[c1,c2,c3,e_tr,existence_of_inverse_addition])).
+fof(zero_mul, plain, (! [B] : (defined(B) => equalish(multiply(additive_identity,B),additive_identity))), inference(lemma,[status(thm)],[canc,e_tr,distributivity,existence_of_identity_addition,compatibility_of_equality_and_multiplication,well_definedness_of_multiplication,well_definedness_of_additive_identity])).
+fof(mul_r, plain, (! [X,Y,Z] : ((defined(X) & defined(Y) & defined(Z) & equalish(Y,Z)) => equalish(multiply(X,Y),multiply(X,Z)))), inference(lemma,[status(thm)],[commutativity_multiplication,compatibility_of_equality_and_multiplication,transitivity_of_equality])).
+fof(mul_1r, plain, (! [X] : (defined(X) => equalish(multiply(X,multiplicative_identity),X))), inference(lemma,[status(thm)],[commutativity_multiplication,existence_of_identity_multiplication,transitivity_of_equality,well_definedness_of_multiplicative_identity])).
+fof(inv_l1, plain, (! [X] : ((defined(X) & ~ equalish(X,additive_identity)) => (defined(multiplicative_inverse(X)) & equalish(multiply(multiplicative_inverse(X),X),multiplicative_identity)))), inference(lemma,[status(thm)],[existence_of_inverse_multiplication,well_definedness_of_multiplicative_inverse,commutativity_multiplication,transitivity_of_equality])).
+fof(m1, plain, (! [X,Y] : ((defined(X) & defined(Y) & ~ equalish(X,additive_identity)) => equalish(Y,multiply(multiply(multiplicative_inverse(X),X),Y)))), inference(lemma,[status(thm)],[inv_l1,existence_of_identity_multiplication,compatibility_of_equality_and_multiplication,e_sym,e_tr])).
+fof(m2, plain, (! [X,Y] : ((defined(X) & defined(Y) & ~ equalish(X,additive_identity)) => equalish(multiply(multiply(multiplicative_inverse(X),X),Y),multiply(multiplicative_inverse(X),multiply(X,Y))))), inference(lemma,[status(thm)],[inv_l1,associativity_multiplication,e_sym])).
+fof(m3, plain, (! [X,Y] : ((defined(X) & defined(Y) & ~ equalish(X,additive_identity) & equalish(multiply(X,Y),multiplicative_identity)) => equalish(multiply(multiplicative_inverse(X),multiply(X,Y)),multiplicative_inverse(X)))), inference(lemma,[status(thm)],[inv_l1,mul_r,mul_1r,e_tr,well_definedness_of_multiplication,well_definedness_of_multiplicative_identity])).
+fof(muniq, plain, (! [X,Y] : ((defined(X) & defined(Y) & ~ equalish(X,additive_identity) & equalish(multiply(X,Y),multiplicative_identity)) => equalish(Y,multiplicative_inverse(X)))), inference(lemma,[status(thm)],[m1,m2,m3,e_tr])).
+fof(mul_cong, plain, (! [X,Y,U,V] : ((defined(X) & defined(Y) & defined(U) & defined(V) & equalish(X,U) & equalish(Y,V)) => equalish(multiply(X,Y),multiply(U,V)))), inference(lemma,[status(thm)],[compatibility_of_equality_and_multiplication,mul_r,e_tr])).
+fof(r1, plain, (! [X,Y,Z,W] : ((defined(X) & defined(Y) & defined(Z) & defined(W)) => equalish(multiply(multiply(X,Y),multiply(Z,W)),multiply(X,multiply(Y,multiply(Z,W)))))), inference(lemma,[status(thm)],[associativity_multiplication,e_sym,well_definedness_of_multiplication])).
+fof(r2, plain, (! [X,Y,Z,W] : ((defined(X) & defined(Y) & defined(Z) & defined(W)) => equalish(multiply(Y,multiply(Z,W)),multiply(Z,multiply(Y,W))))), inference(lemma,[status(thm)],[associativity_multiplication,commutativity_multiplication,compatibility_of_equality_and_multiplication,e_sym,e_tr,well_definedness_of_multiplication])).
+fof(r3, plain, (! [X,Y,Z,W] : ((defined(X) & defined(Y) & defined(Z) & defined(W)) => equalish(multiply(X,multiply(Z,multiply(Y,W))),multiply(multiply(X,Z),multiply(Y,W))))), inference(lemma,[status(thm)],[associativity_multiplication,well_definedness_of_multiplication])).
+fof(mul4, plain, (! [X,Y,Z,W] : ((defined(X) & defined(Y) & defined(Z) & defined(W)) => equalish(multiply(multiply(X,Y),multiply(Z,W)),multiply(multiply(X,Z),multiply(Y,W))))), inference(lemma,[status(thm)],[r1,r2,r3,mul_r,e_tr,well_definedness_of_multiplication])).
+fof(zero_mul_r, plain, (! [X] : (defined(X) => equalish(multiply(X,additive_identity),additive_identity))), inference(lemma,[status(thm)],[zero_mul,commutativity_multiplication,e_tr,well_definedness_of_additive_identity])).
+fof(nzd1, plain, (! [B,C] : ((defined(B) & defined(C) & ~ equalish(B,additive_identity) & equalish(multiply(B,C),additive_identity)) => equalish(C,multiply(multiplicative_inverse(B),additive_identity)))), inference(lemma,[status(thm)],[m1,m2,inv_l1,mul_r,e_tr,well_definedness_of_multiplication,well_definedness_of_additive_identity])).
+fof(nzd, plain, (! [B,C] : ((defined(B) & defined(C) & ~ equalish(B,additive_identity) & ~ equalish(C,additive_identity)) => ~ equalish(multiply(B,C),additive_identity))), inference(lemma,[status(thm)],[nzd1,zero_mul_r,inv_l1,e_tr])).
+fof(ip1a, plain, (! [B,C] : ((defined(B) & defined(C) & ~ equalish(B,additive_identity) & ~ equalish(C,additive_identity)) => equalish(multiply(multiply(B,C),multiply(multiplicative_inverse(B),multiplicative_inverse(C))),multiply(multiply(B,multiplicative_inverse(B)),multiply(C,multiplicative_inverse(C)))))), inference(lemma,[status(thm)],[mul4,well_definedness_of_multiplication,well_definedness_of_multiplicative_inverse,well_definedness_of_multiplicative_identity])).
+fof(ip1b, plain, (! [B,C] : ((defined(B) & defined(C) & ~ equalish(B,additive_identity) & ~ equalish(C,additive_identity)) => equalish(multiply(multiply(B,multiplicative_inverse(B)),multiply(C,multiplicative_inverse(C))),multiply(multiplicative_identity,multiplicative_identity)))), inference(lemma,[status(thm)],[mul_cong,existence_of_inverse_multiplication,well_definedness_of_multiplication,well_definedness_of_multiplicative_inverse,well_definedness_of_multiplicative_identity])).
+fof(ip1, plain, (! [B,C] : ((defined(B) & defined(C) & ~ equalish(B,additive_identity) & ~ equalish(C,additive_identity)) => equalish(multiply(multiply(B,C),multiply(multiplicative_inverse(B),multiplicative_inverse(C))),multiplicative_identity))), inference(lemma,[status(thm)],[ip1a,ip1b,existence_of_identity_multiplication,e_tr,well_definedness_of_multiplication,well_definedness_of_multiplicative_inverse,well_definedness_of_multiplicative_identity])).
+fof(inv_prod, plain, (! [B,C] : ((defined(B) & defined(C) & ~ equalish(B,additive_identity) & ~ equalish(C,additive_identity)) => equalish(multiply(multiplicative_inverse(B),multiplicative_inverse(C)),multiplicative_inverse(multiply(B,C))))), inference(lemma,[status(thm)],[ip1,muniq,nzd,well_definedness_of_multiplication,well_definedness_of_multiplicative_inverse])).
+fof(main1, plain, (! [A,B,C,D] : ((defined(A) & defined(B) & defined(C) & defined(D) & ~ equalish(B,additive_identity) & ~ equalish(D,additive_identity)) => equalish(multiply(multiply(A,multiplicative_inverse(B)),multiply(C,multiplicative_inverse(D))),multiply(multiply(A,C),multiply(multiplicative_inverse(B),multiplicative_inverse(D)))))), inference(lemma,[status(thm)],[mul4,well_definedness_of_multiplication,well_definedness_of_multiplicative_inverse,well_definedness_of_multiplicative_identity])).
+fof(main2, plain, (! [A,B,C,D] : ((defined(A) & defined(B) & defined(C) & defined(D) & ~ equalish(B,additive_identity) & ~ equalish(D,additive_identity)) => equalish(multiply(multiply(A,C),multiply(multiplicative_inverse(B),multiplicative_inverse(D))),multiply(multiply(A,C),multiplicative_inverse(multiply(B,D)))))), inference(lemma,[status(thm)],[mul_r,inv_prod,nzd,well_definedness_of_multiplication,well_definedness_of_multiplicative_inverse,well_definedness_of_multiplicative_identity])).
+fof(main, plain, (! [A,B,C,D] : ((defined(A) & defined(B) & defined(C) & defined(D) & ~ equalish(B,additive_identity) & ~ equalish(D,additive_identity)) => equalish(multiply(multiply(A,multiplicative_inverse(B)),multiply(C,multiplicative_inverse(D))),multiply(multiply(A,C),multiplicative_inverse(multiply(B,D)))))), inference(lemma,[status(thm)],[main1,main2,e_tr])).
+cnf(done, plain, ($false), inference(lemma,[status(thm)],[main,a_is_defined,b_is_defined,c_is_defined,d_is_defined,b_not_equal_to_additive_identity_5,d_not_equal_to_additive_identity_6,multiply_not_equal_to_multiply_7])).
+% SZS output end Refutation for FLD048-1
+%------------------------------------------------------------------------------

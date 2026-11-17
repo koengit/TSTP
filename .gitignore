@@ -1,0 +1,3 @@
+__pycache__/
+*.olean
+Tools/mathlib/.lake/
