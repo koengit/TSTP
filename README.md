@@ -15,15 +15,15 @@ checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/Sys
 large Ramsey proofs have so far been checked step by step with E only), and every model is checked in
 the Lean 4 proof assistant.
 
-**Findings in one sentence:** for 251 of the hardest TPTP problems (250 rated 1.00 in TPTP v10.0.0; NUM636+4
-was rated 1.00 until v10.0.0 lowered it to 0.96), 250 of which had no solution in the TSTP, we give
+**Findings in one sentence:** for 269 of the hardest TPTP problems (268 rated 1.00 in TPTP v10.0.0; NUM636+4
+was rated 1.00 until v10.0.0 lowered it to 0.96), 268 of which had no solution in the TSTP, we give
 checked proofs or models, which settle 69 problems of status Unknown, show that 37 further Unknown
 problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 11 recorded
 statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
 ## Contributions
 
-* **Checked solutions where none existed.** Proofs and models for 251 hard problems; for 250 of them the
+* **Checked solutions where none existed.** Proofs and models for 269 hard problems; for 268 of them the
   TSTP had no solution. Proofs are TSTP derivations verified by GDV; models are verified in Lean. All
   files use the TSTP's layout and header conventions, so they can be added to the TSTP directly.
 * **Corrections to the library.** 11 recorded statuses that appear to be wrong (each backed by a checked
@@ -79,6 +79,9 @@ for automated provers is mostly the *encoding*, not the mathematics:
   the agent generated with a small program.
 * **Only infinite models.** Finite model finders cannot find a model when every model is infinite;
   here the model is given in Lean (e.g. the rationals, the integers, or a model of NBG set theory).
+  Eighteen SYO problems (Satisfiable, rated 1.00; Lampert's "infinity axioms", which the TPTP marks
+  "Has only infinite models") consist of a few formulas about one binary relation; their models here
+  are `<`, `≤` or successor on ℕ, ℤ or ℚ, or variants of `<` that also look at parity.
 
 ## Layout
 
@@ -168,14 +171,17 @@ External requirements:
   `Tools/mathlib` (downloads about 5 GB of prebuilt files), or set `MATHLIB` to an existing
   Lake project with that Mathlib version built.
 
-All 84 models were checked with these tools. Most take seconds; the
+All 102 models were checked with these tools. Most take seconds; the
 largest, [GRP738-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP738-1.p) (a 32-element loop checked by `decide`), takes about 2.5 minutes and 11 GB of memory.
 
 ## How the solutions were found
 
 The model worked out each mathematical argument itself and wrote the proof as a chain of lemmas
 (sometimes by writing a program that emits the proof, e.g. for the Ramsey and Towers of Hanoi
-problems). E was used only as a step checker and as a lemma oracle with short time limits. Nothing
+problems). The 18 SYO models were produced by a small compiler the agent wrote: given a candidate
+relation on ℕ, ℤ or ℚ (chosen by testing the formulas on a bounded range), it emits a Lean proof with
+explicit witnesses for the existential quantifiers, case splits on parity, and `omega` for the
+quantifier-free parts. E was used only as a step checker and as a lemma oracle with short time limits. Nothing
 was trusted until it was checked as described above. Details are in the paper
 "Curating the TPTP using an LLM" (K. Claessen, in preparation).
 
