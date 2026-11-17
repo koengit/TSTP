@@ -98,7 +98,8 @@ def main(problem):
     if not kinds:
         out.append("  dummy : Unit := ()")
     out += ["", "def Holds {M : Type u} (I : Sig M) : Prop :="]
-    parts = []
+    parts, conjs = [], []
+    nconj = sum(1 for _, _, role, _ in fs if role == "conjecture")
     for lang, name, role, ast in fs:
         if lang == "cnf":
             body = fm(("or", ast))
@@ -107,9 +108,16 @@ def main(problem):
                 body = f"(∀ {' '.join('V' + v for v in vs)} : M, {body})"
         else:
             body = fm(ast)
+        if role == "conjecture" and nconj > 1:
+            conjs.append((name, body))
+            continue
         if role == "conjecture":
             body = f"(¬ {body})"
         parts.append(f"  -- {name} ({role}{', negated' if role == 'conjecture' else ''})\n  {body}")
+    if conjs:
+        # TPTP conjoins several conjectures; the problem asks for a model of the axioms and not(c1 & c2 & ...)
+        parts.append(f"  -- {', '.join(n for n, _ in conjs)} (conjectures, conjoined and negated)\n"
+                     f"  (¬ ({' ∧ '.join(b for _, b in conjs)}))")
     out.append(" ∧\n".join(parts) if parts else "  True")
     out += ["", "def SatisfiableIn : Prop := ∃ (M : Type u) (I : Sig M), Nonempty M ∧ Holds I",
             "/-- a model in Type (e.g. built from Nat, Int, Rat) -/",
