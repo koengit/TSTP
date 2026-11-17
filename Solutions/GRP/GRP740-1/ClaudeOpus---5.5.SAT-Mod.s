@@ -14,8 +14,9 @@
 %            this file contains a Lean-checked model)
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
-%            4 development. The model is usually infinite, so it is not given as a TPTP finite
-%            interpretation. Model description: Elements of Z_3^4.
+%            4 development. The model is finite (81 elements); it is given in Lean, with every clause
+%            checked by `decide`, rather than as a TPTP finite interpretation. Model description:
+%            Elements of Z_3^4.
 % Checking : Tools/check_lean_model.sh GRP740-1 <this file>: extracts the Lean source between the SZS
 %            markers, regenerates Statement.lean from the TPTP problem with Tools/tptp2lean.py
 %            (clauses become Lean propositions over an arbitrary type with the problem's symbols),

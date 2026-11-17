@@ -13,7 +13,7 @@
 % Status   : agrees with TPTP v10.0.0 (CounterSatisfiable)
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
-%            4 development. The model is usually infinite, so it is not given as a TPTP finite
+%            4 development. The model is infinite, so it cannot be given as a TPTP finite
 %            interpretation. Model description: NUN079+1 (Robinson arithmetic, relational, without
 %            equality): the standard model ℕ. r1 = zero, r2 = successor graph, r3 = addition graph,
 %            r4 = multiplication graph. The conjecture "∃ x, x + 2 = 1" is false in ℕ.

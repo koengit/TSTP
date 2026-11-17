@@ -13,14 +13,15 @@
 % Status   : agrees with TPTP v10.0.0 (Satisfiable)
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
-%            4 development. The model is usually infinite, so it is not given as a TPTP finite
-%            interpretation. Model description: GRP738-1 (proper Buchsteiner loop): the Buchsteiner
-%            loop of order 32 of Drápal and Kinyon (arXiv:0812.0412, Lemma 6.1 / Corollary 6.2),
-%            obtained by doubling Q = Q8 × C2: P = Q ∪ zQ with u * v = uv, u * zv =
-%            z·uv·q(u)g(u,v)g(v,u), zu * v = z·uv·g(u,v), zu * zv = uv·q(u)g(v,u), where q(u) = 1 iff
-%            u ∈ {-1, i, j, k} and g(u,v) = q(vu) q(u) q(v) (values in C2). Element n < 32 ↔ (e, s,
-%            u, a) = (n/16, n/8 % 2, n/2 % 4, n % 2): e = z-flag, (s,u) = (-1)^s·u ∈ Q8 with u ∈
-%            {1,i,j,k} = {0,1,2,3}, a ∈ C2. Every clause is checked by `decide`.
+%            4 development. The model is finite (32 elements); it is given in Lean, with every clause
+%            checked by `decide`, rather than as a TPTP finite interpretation. Model description:
+%            GRP738-1 (proper Buchsteiner loop): the Buchsteiner loop of order 32 of Drápal and
+%            Kinyon (arXiv:0812.0412, Lemma 6.1 / Corollary 6.2), obtained by doubling Q = Q8 × C2: P
+%            = Q ∪ zQ with u * v = uv, u * zv = z·uv·q(u)g(u,v)g(v,u), zu * v = z·uv·g(u,v), zu * zv
+%            = uv·q(u)g(v,u), where q(u) = 1 iff u ∈ {-1, i, j, k} and g(u,v) = q(vu) q(u) q(v)
+%            (values in C2). Element n < 32 ↔ (e, s, u, a) = (n/16, n/8 % 2, n/2 % 4, n % 2): e =
+%            z-flag, (s,u) = (-1)^s·u ∈ Q8 with u ∈ {1,i,j,k} = {0,1,2,3}, a ∈ C2. Every clause is
+%            checked by `decide`.
 % Checking : Tools/check_lean_model.sh GRP738-1 <this file>: extracts the Lean source between the SZS
 %            markers, regenerates Statement.lean from the TPTP problem with Tools/tptp2lean.py
 %            (clauses become Lean propositions over an arbitrary type with the problem's symbols),

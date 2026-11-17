@@ -13,7 +13,7 @@
 % Status   : agrees with TPTP v10.0.0 (Satisfiable)
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
-%            4 development. The model is usually infinite, so it is not given as a TPTP finite
+%            4 development. The model is infinite, so it cannot be given as a TPTP finite
 %            interpretation. Model description: FLD102-1 (the relational FLD002-0 ordered field
 %            axioms alone): ℚ, sum/product = graphs of + and *.
 % Checking : Tools/check_lean_model.sh FLD102-1 <this file>: extracts the Lean source between the SZS

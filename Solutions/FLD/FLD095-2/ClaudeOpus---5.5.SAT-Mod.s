@@ -17,7 +17,7 @@
 %            as in the intended 'difficult inequality'.
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
-%            4 development. The model is usually infinite, so it is not given as a TPTP finite
+%            4 development. The model is infinite, so it cannot be given as a TPTP finite
 %            interpretation. Model description: FLD095-2 countermodel: the ordered field ℚ,
 %            everything defined, a = 0, b = -2, c = 1, d = 1, so u = 0, v = 1, w = 1/(-1) = -1 and u
 %            ≤ v but ¬ u ≤ w.

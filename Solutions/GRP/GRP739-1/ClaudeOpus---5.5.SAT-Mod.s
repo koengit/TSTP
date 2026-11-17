@@ -13,12 +13,12 @@
 % Status   : agrees with TPTP v10.0.0 (Satisfiable)
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
-%            4 development. The model is usually infinite, so it is not given as a TPTP finite
-%            interpretation. Model description: GRP739-1 (proper commutative A-loop of odd order): a
-%            nonassociative commutative automorphic loop of order 15 on Z_3 × Z_5, element i ↔ (i /
-%            5, i % 5): (a,x)(b,y) = (a+b, α(a,b) x + α(b,a) y), α(a,b) = 1 if a = 0 or b = 0, 2 if a
-%            = b ≠ 0, 4 otherwise (all mod 3 resp. mod 5). Every clause is checked by `decide` over
-%            the 15 elements.
+%            4 development. The model is finite (15 elements); it is given in Lean, with every clause
+%            checked by `decide`, rather than as a TPTP finite interpretation. Model description:
+%            GRP739-1 (proper commutative A-loop of odd order): a nonassociative commutative
+%            automorphic loop of order 15 on Z_3 × Z_5, element i ↔ (i / 5, i % 5): (a,x)(b,y) =
+%            (a+b, α(a,b) x + α(b,a) y), α(a,b) = 1 if a = 0 or b = 0, 2 if a = b ≠ 0, 4 otherwise
+%            (all mod 3 resp. mod 5). Every clause is checked by `decide` over the 15 elements.
 % Checking : Tools/check_lean_model.sh GRP739-1 <this file>: extracts the Lean source between the SZS
 %            markers, regenerates Statement.lean from the TPTP problem with Tools/tptp2lean.py
 %            (clauses become Lean propositions over an arbitrary type with the problem's symbols),

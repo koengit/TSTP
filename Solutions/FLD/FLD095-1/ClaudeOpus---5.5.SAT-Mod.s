@@ -16,7 +16,7 @@
 %            inequality'.
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
-%            4 development. The model is usually infinite, so it is not given as a TPTP finite
+%            4 development. The model is infinite, so it cannot be given as a TPTP finite
 %            interpretation. Model description: FLD095-1 countermodel: ℚ, a = 0, b = -2, c = 1, d =
 %            1: a/b = 0 ≤ 1 = c/d but (a+c)/(b+d) = -1.
 % Checking : Tools/check_lean_model.sh FLD095-1 <this file>: extracts the Lean source between the SZS
