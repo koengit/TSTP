@@ -11,7 +11,10 @@
 %            Statement.lean generated mechanically from the TPTP file, and depends only on the axioms
 %            propext, Classical.choice, Quot.sound
 % Status   : SUGGESTED CHANGE: Unknown -> Satisfiable (TPTP v10.0.0 status is Unknown; this file
-%            contains a Lean-checked model)
+%            contains a Lean-checked model). PROBLEM FORMULATION: with u=a/b, v=c/d, w=(a+c)/(b+d),
+%            the hypotheses only give b<0<d, and u<=v does not imply u<=w when b+d<0 (a=0, b=-2,
+%            c=d=1: u=0, v=1, w=-1). SUGGESTED FIX: add the missing sign hypothesis on b+d (or on b),
+%            as in the intended 'difficult inequality'.
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
 %            4 development. The model is usually infinite, so it is not given as a TPTP finite

@@ -11,7 +11,11 @@
 %            against a Statement.lean generated mechanically from the TPTP file, and depends only on
 %            the axioms propext, Classical.choice, Quot.sound
 % Status   : SUGGESTED CHANGE: Unknown -> Satisfiable (TPTP v10.0.0 status is Unknown; this file
-%            contains a Lean-checked model)
+%            contains a Lean-checked model). PROBLEM FORMULATION: first and second are only
+%            constrained on members of cross products, while the conjecture is about first/second of
+%            an arbitrary class; in the Lean model they are the universal class on non-pairs.
+%            SUGGESTED FIX: add Quaife's convention as axioms (first(X) = X and second(X) = X when X
+%            is not an ordered pair of sets), or add the hypothesis that X is such a pair.
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
 %            4 development. The model is usually infinite, so it is not given as a TPTP finite

@@ -11,7 +11,10 @@
 %            against a Statement.lean generated mechanically from the TPTP file, and depends only on
 %            the axioms propext, Classical.choice, Quot.sound
 % Status   : SUGGESTED CHANGE: Unknown -> Satisfiable (TPTP v10.0.0 status is Unknown; this file
-%            contains a Lean-checked model)
+%            contains a Lean-checked model). PROBLEM FORMULATION: the conjecture fails when y is a
+%            proper class: then ordered_pair(x,y) is a set but not a genuine pair, and in the Lean
+%            model second(ordered_pair(x,y)) is the universal class. SUGGESTED FIX: add the
+%            hypothesis member(y,universal_class) (y is a set), as in Quaife's theorem.
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
 %            4 development. The model is usually infinite, so it is not given as a TPTP finite

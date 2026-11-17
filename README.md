@@ -80,6 +80,9 @@ External requirements:
   `Tools/mathlib` (downloads about 5 GB of prebuilt files), or set `MATHLIB` to an existing
   Lake project with that Mathlib version built.
 
+All 65 models were checked from a fresh clone with these tools. Most take seconds; the
+largest, GRP738-1 (a 32-element loop checked by `decide`), takes about 2.5 minutes and 11 GB of memory.
+
 ## How the solutions were found
 
 The model worked out each mathematical argument itself and wrote the proof as a chain of lemmas
