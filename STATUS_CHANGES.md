@@ -1,6 +1,6 @@
 # Suggested status changes (TPTP v10.0.0 -> verified result)
 
-27 problems whose TPTP status appears to be **wrong**, 42 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 306 problems with status Unknown/Open that are now settled.
+27 problems whose TPTP status appears to be **wrong**, 42 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 315 problems with status Unknown/Open that are now settled.
 
 ## 🔴 Status appears to be wrong
 
@@ -171,6 +171,9 @@ These proofs and models have been independently checked (proofs step by step by 
 | [NUM072-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM072-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM072-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM073-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM073-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM073-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM074-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM074-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM074-1/ClaudeOpus---5.5.UNS-CRf.s) |
+| [NUM079-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM079-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM079-1/ClaudeOpus---5.5.UNS-CRf.s) |
+| [NUM080-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM080-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM080-1/ClaudeOpus---5.5.UNS-CRf.s) |
+| [NUM081-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM081-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM081-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM082-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM082-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM082-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM084-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM084-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM084-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM085-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM085-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM085-1/ClaudeOpus---5.5.UNS-CRf.s) |
@@ -227,6 +230,12 @@ These proofs and models have been independently checked (proofs step by step by 
 | [NUM177-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM177-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM177-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM178-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM178-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM178-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM179-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM179-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM179-1/ClaudeOpus---5.5.UNS-CRf.s) |
+| [NUM182-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM182-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM182-1/ClaudeOpus---5.5.UNS-CRf.s) |
+| [NUM184-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM184-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM184-1/ClaudeOpus---5.5.UNS-CRf.s) |
+| [NUM188-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM188-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM188-1/ClaudeOpus---5.5.UNS-CRf.s) |
+| [NUM189-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM189-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM189-1/ClaudeOpus---5.5.UNS-CRf.s) |
+| [NUM191-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM191-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM191-1/ClaudeOpus---5.5.UNS-CRf.s) |
+| [NUM192-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM192-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM192-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM193-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM193-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM193-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM250-2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM250-2.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM250-2/ClaudeOpus---5.5.UNS-CRf.s) |
 | [RNG010-5](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/RNG/RNG010-5.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/RNG/RNG010-5/ClaudeOpus---5.5.UNS-CRf.s) |
