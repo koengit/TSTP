@@ -1,6 +1,6 @@
 # Suggested status changes (TPTP v10.0.0 -> verified result)
 
-26 problems whose TPTP status appears to be **wrong**, 37 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 140 problems with status Unknown/Open that are now settled.
+26 problems whose TPTP status appears to be **wrong**, 37 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 150 problems with status Unknown/Open that are now settled.
 
 ## 🔴 Status appears to be wrong
 
@@ -186,14 +186,24 @@ These proofs and models have been independently checked (proofs step by step by 
 | [SET384-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET384-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET384-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET385-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET385-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET385-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET391-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET391-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET391-6/ClaudeOpus---5.5.UNS-CRf.s) |
+| [SET393-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET393-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET393-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET396-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET396-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET396-6/ClaudeOpus---5.5.UNS-CRf.s) |
+| [SET397-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET397-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET397-6/ClaudeOpus---5.5.UNS-CRf.s) |
+| [SET398-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET398-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET398-6/ClaudeOpus---5.5.UNS-CRf.s) |
+| [SET401-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET401-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET401-6/ClaudeOpus---5.5.UNS-CRf.s) |
+| [SET402-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET402-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET402-6/ClaudeOpus---5.5.UNS-CRf.s) |
+| [SET403-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET403-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET403-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET404-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET404-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET404-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET405-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET405-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET405-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET406-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET406-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET406-6/ClaudeOpus---5.5.UNS-CRf.s) |
+| [SET407-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET407-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET407-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET408-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET408-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET408-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET409-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET409-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET409-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET410-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET410-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET410-6/ClaudeOpus---5.5.UNS-CRf.s) |
+| [SET414-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET414-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET414-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET417-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET417-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET417-6/ClaudeOpus---5.5.UNS-CRf.s) |
+| [SET429-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET429-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET429-6/ClaudeOpus---5.5.UNS-CRf.s) |
+| [SET432-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET432-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET432-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET436-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET436-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET436-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET437-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET437-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET437-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET439-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET439-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET439-6/ClaudeOpus---5.5.UNS-CRf.s) |
