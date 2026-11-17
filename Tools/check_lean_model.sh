@@ -5,7 +5,7 @@
 #        MATHLIB  = a Lake project with Mathlib v4.35.0 built (default Tools/mathlib; run
 #                   'lake exe cache get' there once), only needed when the model imports Mathlib
 # Regenerates Statement.lean from the TPTP problem, extracts Model.lean from the solution file,
-# rejects sorry/axiom/opaque/native_decide/extern/implemented_by, compiles both, and prints the
+# rejects constructs that could bypass the check (Tools/lint_model.py), compiles both, and prints the
 # axioms that `sat` depends on (accepted: propext, Classical.choice, Quot.sound).
 set -u
 HERE=$(cd "$(dirname "$0")" && pwd)
@@ -16,7 +16,7 @@ MATHLIB=$(cd "${MATHLIB:-$HERE/mathlib}" && pwd)
 W=$(mktemp -d); trap 'rm -rf "$W"' EXIT
 python3 "$HERE/tptp2lean.py" "$TPTP/Problems/${P:0:3}/$P.p" > "$W/Statement.lean" || { echo "REJECT: cannot translate problem"; exit 1; }
 "$HERE/extract_lean.sh" "$S" > "$W/Model.lean"
-grep -qE '^\s*(axiom|opaque)\b|sorry|native_decide|implemented_by|extern' "$W/Model.lean" && { echo "REJECT: forbidden construct"; exit 1; }
+python3 "$HERE/lint_model.py" "$W/Model.lean" || exit 1   # forbidden constructs (see lint_model.py)
 cd "$W"
 $LEAN -o Statement.olean Statement.lean || { echo "REJECT: statement does not compile"; exit 1; }
 LP=.

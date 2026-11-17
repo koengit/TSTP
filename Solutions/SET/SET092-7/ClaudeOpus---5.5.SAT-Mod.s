@@ -11,12 +11,11 @@
 %            against a Statement.lean generated mechanically from the TPTP file, and depends only on
 %            the axioms propext, Classical.choice, Quot.sound
 % Status   : SUGGESTED CHANGE: Unknown -> Satisfiable (TPTP v10.0.0 status is Unknown; this file
-%            contains a Lean-checked model). PROBLEM FORMULATION: the conjecture uses member_of and
-%            member_of1, but member_of1 is mentioned by no clause, and member_of only by the
-%            member_exists lemma of the -7 version, so it is an uninterpreted symbol and the
-%            conjecture cannot follow; the Lean model interprets member_of(X) as the universal class.
-%            SUGGESTED FIX: add Quaife's axioms for member_of (member_of(X) is the unique member of X
-%            when X is a singleton {x} of a set x); presumably the problem is then a theorem.
+%            contains a Lean-checked model). PROBLEM FORMULATION: member_of is axiomatised here
+%            (member_exists1-4, member_of_singleton_is_unique), but the conjecture also uses
+%            member_of1, which no clause mentions; the Lean model interprets member_of(X) as the
+%            unique member of a singleton of a set, and member_of1(X) as the universal class.
+%            SUGGESTED FIX: axioms for member_of1, or the conjecture was meant to use member_of.
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
 %            4 development. The model is infinite, so it cannot be given as a TPTP finite

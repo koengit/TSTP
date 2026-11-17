@@ -12,11 +12,10 @@
 %            the axioms propext, Classical.choice, Quot.sound
 % Status   : SUGGESTED CHANGE: Unknown -> Satisfiable (TPTP v10.0.0 status is Unknown; this file
 %            contains a Lean-checked model). PROBLEM FORMULATION: the conjecture uses member_of and
-%            member_of1, but no clause of SET004-0 mentions it, so it is an uninterpreted symbol and
-%            the conjecture cannot follow; the Lean model interprets member_of(X) as the universal
-%            class. SUGGESTED FIX: add Quaife's axioms for member_of (member_of(X) is the unique
-%            member of X when X is a singleton {x} of a set x); presumably the problem is then a
-%            theorem.
+%            member_of1; SET004-0 mentions neither. Adding Quaife's axioms for member_of is NOT
+%            enough: the -7 version contains them and is still not a theorem (our Lean model of it).
+%            The cause is the uninterpreted member_of1 (the universal class in the model). SUGGESTED
+%            FIX: axioms for member_of1, or the conjecture was meant to use member_of.
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
 %            4 development. The model is infinite, so it cannot be given as a TPTP finite
