@@ -1,6 +1,6 @@
 # Suggested status changes (TPTP v10.0.0 -> verified result)
 
-26 problems whose TPTP status appears to be **wrong**, 37 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 233 problems with status Unknown/Open that are now settled.
+26 problems whose TPTP status appears to be **wrong**, 37 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 234 problems with status Unknown/Open that are now settled.
 
 ## 🔴 Status appears to be wrong
 
@@ -145,6 +145,7 @@ These proofs and models have been independently checked (proofs step by step by 
 | [FLD099-2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD099-2.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/FLD/FLD099-2/ClaudeOpus---5.5.UNS-Ref.s) |
 | [FLD100-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD100-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/FLD/FLD100-1/ClaudeOpus---5.5.UNS-Ref.s) |
 | [FLD100-2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD100-2.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/FLD/FLD100-2/ClaudeOpus---5.5.UNS-Ref.s) |
+| [GRA019+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA019%2B1.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/GRA/GRA019+1/ClaudeOpus---5.5.THM-Ref.s) |
 | [NUM028-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM028-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM028-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM140-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM140-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM140-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM162-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM162-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM162-1/ClaudeOpus---5.5.UNS-CRf.s) |
