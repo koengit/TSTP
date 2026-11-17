@@ -4,8 +4,10 @@ This repository is the output of an experiment in **curating the [TPTP problem l
 with a large language model: finding mistakes in the library, settling problems whose status is
 unknown, and adding solutions for problems that no automated theorem prover has solved. The LLM agent
 (Claude Opus 5.5, Anthropic, working in the Claude Code harness) wrote every proof and model itself;
-**nothing is trusted on the LLM's word**: every proof is checked step by step by automated provers,
-and every model is checked in the Lean 4 proof assistant.
+**nothing is trusted on the LLM's word**: every proof is checked step by step by an independent proof
+checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (five very
+large Ramsey proofs have so far been checked step by step with E only), and every model is checked in
+the Lean 4 proof assistant.
 
 **Findings in one sentence:** for 219 of the hardest TPTP problems (rating 1.00), 218 of which had no
 solution in the TSTP, we give checked proofs or models, which settle 58 problems of status Unknown,
@@ -69,7 +71,10 @@ found (`% Comments`), and how to check it (`% Checking`).
 **Proofs** are derivations in the TPTP language. Each derived formula has the inference record
 `inference(lemma,[status(thm)],[parents])`: it is a logical consequence of its parents (not an
 instance of a fixed calculus rule). Definition steps (`role definition`, `introduced(definition,...)`)
-introduce a fresh, non-recursive predicate symbol and are conservative. Checking:
+introduce a fresh, non-recursive predicate symbol and are conservative. (They occur in only five
+proofs: SYN986+1.005/.006, SYN986-10.005/.006 and GRA175-1. Note that GDV checks that a defined symbol is
+new, but in our tests it also accepted a circular definition such as `q <=> ~q`; our own checker rejects
+those, and all 27 definitions here are non-circular.) Checking:
 
 * every proof was checked step by step with E 3.2.5 (each step as an entailment problem from its
   parents), and
