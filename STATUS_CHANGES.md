@@ -1,5 +1,18 @@
 # Suggested status changes (TPTP v10.0.0 -> verified result)
 
+4 problems whose TPTP status appears to be **wrong**, then 88 problems with status Unknown/Open that are now settled.
+
+## 🔴 Status appears to be wrong
+
+| | Problem | TPTP v10.0.0 | Should be | Evidence |
+|---|---|---|---|---|
+| 🔴 | **GRP740-1** | **Unsatisfiable** | **Satisfiable** | [ClaudeOpus---5.5.SAT-Mod.s](Solutions/GRP/GRP740-1/ClaudeOpus---5.5.SAT-Mod.s): The clause set asks for a non-associative commutative Moufang loop. Such loops exist (smallest order 81, Bruck); the file has an 81-element model on Z3^4, checked in Lean by `decide`. |
+| 🔴 | **SEU260+1** | **CounterSatisfiable** | **Theorem** | [ClaudeOpus---5.5.THM-Ref.s](Solutions/SEU/SEU260+1/ClaudeOpus---5.5.THM-Ref.s): MPTP t53_wellord1 (bushy). Our proof is GDV-verified (Vampire) and checked step by step with E; unless the axioms are inconsistent, the status is Theorem. |
+| 🔴 | **SEU289+1** | **CounterSatisfiable** | **Theorem** | [ClaudeOpus---5.5.THM-Ref.s](Solutions/SEU/SEU289+1/ClaudeOpus---5.5.THM-Ref.s): MPTP t28_wellord2 (bushy). Our proof is GDV-verified (Vampire) and checked step by step with E; unless the axioms are inconsistent, the status is Theorem. |
+| 🔴 | **ALG301-1** | **Satisfiable** | **Open** | no solution file: The single identity is the Equational Theories Project law E5093, which has no nontrivial finite model; whether it has a nontrivial (necessarily infinite) model is listed there as open, so the status Satisfiable is unsupported. |
+
+## Unknown/Open problems now settled
+
 | Problem | TPTP v10.0.0 | Verified | Solution file |
 |---|---|---|---|
 | FLD044-1 | Unknown | Unsatisfiable | [ClaudeOpus---5.5.UNS-Ref.s](Solutions/FLD/FLD044-1/ClaudeOpus---5.5.UNS-Ref.s) |
@@ -57,7 +70,6 @@
 | FLD099-2 | Unknown | Unsatisfiable | [ClaudeOpus---5.5.UNS-Ref.s](Solutions/FLD/FLD099-2/ClaudeOpus---5.5.UNS-Ref.s) |
 | FLD100-1 | Unknown | Unsatisfiable | [ClaudeOpus---5.5.UNS-Ref.s](Solutions/FLD/FLD100-1/ClaudeOpus---5.5.UNS-Ref.s) |
 | FLD100-2 | Unknown | Unsatisfiable | [ClaudeOpus---5.5.UNS-Ref.s](Solutions/FLD/FLD100-2/ClaudeOpus---5.5.UNS-Ref.s) |
-| GRP740-1 | Unsatisfiable | Satisfiable | [ClaudeOpus---5.5.SAT-Mod.s](Solutions/GRP/GRP740-1/ClaudeOpus---5.5.SAT-Mod.s) |
 | RNG010-5 | Unknown | Unsatisfiable | [ClaudeOpus---5.5.UNS-CRf.s](Solutions/RNG/RNG010-5/ClaudeOpus---5.5.UNS-CRf.s) |
 | RNG010-6 | Unknown | Unsatisfiable | [ClaudeOpus---5.5.UNS-CRf.s](Solutions/RNG/RNG010-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | RNG010-7 | Unknown | Unsatisfiable | [ClaudeOpus---5.5.UNS-CRf.s](Solutions/RNG/RNG010-7/ClaudeOpus---5.5.UNS-CRf.s) |
@@ -91,5 +103,3 @@
 | SET121-6 | Unknown | Satisfiable | [ClaudeOpus---5.5.SAT-Mod.s](Solutions/SET/SET121-6/ClaudeOpus---5.5.SAT-Mod.s) |
 | SET122-6 | Unknown | Satisfiable | [ClaudeOpus---5.5.SAT-Mod.s](Solutions/SET/SET122-6/ClaudeOpus---5.5.SAT-Mod.s) |
 | SEU093+1 | Unknown | Theorem | [ClaudeOpus---5.5.THM-Ref.s](Solutions/SEU/SEU093+1/ClaudeOpus---5.5.THM-Ref.s) |
-| SEU260+1 | CounterSatisfiable | Theorem | [ClaudeOpus---5.5.THM-Ref.s](Solutions/SEU/SEU260+1/ClaudeOpus---5.5.THM-Ref.s) |
-| SEU289+1 | CounterSatisfiable | Theorem | [ClaudeOpus---5.5.THM-Ref.s](Solutions/SEU/SEU289+1/ClaudeOpus---5.5.THM-Ref.s) |
