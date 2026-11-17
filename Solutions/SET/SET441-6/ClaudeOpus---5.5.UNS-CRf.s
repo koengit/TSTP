@@ -61,7 +61,6 @@ cnf(compose1, axiom, (subclass(compose(Yr,Xr),cross_product(universal_class,univ
 cnf(function1, axiom, (~ function(Xf) | subclass(Xf,cross_product(universal_class,universal_class))), file('Problems/SET/SET441-6.p',function1)).
 cnf(function2, axiom, (~ function(Xf) | subclass(compose(Xf,inverse(Xf)),identity_relation)), file('Problems/SET/SET441-6.p',function2)).
 cnf(function3, axiom, (~ subclass(Xf,cross_product(universal_class,universal_class)) | ~ subclass(compose(Xf,inverse(Xf)),identity_relation) | function(Xf)), file('Problems/SET/SET441-6.p',function3)).
-cnf(prove_intersection_of_functions_1, negated_conjecture, (function(x)), file('Problems/SET/SET441-6.p',prove_intersection_of_functions_1)).
 cnf(prove_intersection_of_functions_2, negated_conjecture, (function(y)), file('Problems/SET/SET441-6.p',prove_intersection_of_functions_2)).
 cnf(prove_intersection_of_functions_3, negated_conjecture, (~ function(intersection(x,y))), file('Problems/SET/SET441-6.p',prove_intersection_of_functions_3)).
 cnf(cp1, plain, (~ subclass(X,Y) | ~ member(W,cross_product(X,Z)) | member(W,cross_product(Y,Z))), inference(lemma,[status(thm)],[cartesian_product4,cartesian_product1,cartesian_product2,cartesian_product3,subclass_members])).
@@ -115,7 +114,7 @@ cnf(strans, plain, (~ subclass(X,Y) | ~ subclass(Y,Z) | subclass(X,Z)), inferenc
 cnf(cm0, plain, (~ subclass(A,A2) | ~ subclass(B,B2) | ~ member(ordered_pair(Y,Z),compose(A,B)) | member(ordered_pair(Y,Z),compose(A2,B2))), inference(lemma,[status(thm)],[co1a,co1b,co1s,cmc,pvv1,pvv2,subclass_members,co2])).
 cnf(cmo, plain, (~ subclass(A,A2) | ~ subclass(B,B2) | subclass(compose(A,B),compose(A2,B2))), inference(lemma,[status(thm)],[cm0,cmc,cpw,not_subclass_members1,not_subclass_members2])).
 cnf(fsub, plain, (~ function(F) | ~ subclass(G,F) | function(G)), inference(lemma,[status(thm)],[function1,function2,function3,strans,cmo,inv])).
-cnf(isub1, plain, (subclass(intersection(X,Y),X)), inference(lemma,[status(thm)],[intersection1,not_subclass_members1,not_subclass_members2])).
-cnf(done, plain, ($false), inference(lemma,[status(thm)],[fsub,isub1,prove_intersection_of_functions_1,prove_intersection_of_functions_2,prove_intersection_of_functions_3])).
+cnf(isub2, plain, (subclass(intersection(X,Y),Y)), inference(lemma,[status(thm)],[intersection2,not_subclass_members1,not_subclass_members2])).
+cnf(done, plain, ($false), inference(lemma,[status(thm)],[fsub,isub2,prove_intersection_of_functions_2,prove_intersection_of_functions_3])).
 % SZS output end CNFRefutation for SET441-6
 %------------------------------------------------------------------------------

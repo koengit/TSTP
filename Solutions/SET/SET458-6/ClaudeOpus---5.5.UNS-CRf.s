@@ -138,6 +138,6 @@ cnf(rsub, plain, (subclass(restrict(X,A,B),X)), inference(lemma,[status(thm)],[r
 cnf(fsub, plain, (~ function(F) | ~ subclass(G,F) | function(G)), inference(lemma,[status(thm)],[function1,function2,function3,strans,cmo,inv])).
 cnf(idr, plain, (subclass(identity_relation,restrict(identity_relation,universal_class,universal_class))), inference(lemma,[status(thm)],[idc,rsi,not_subclass_members1,not_subclass_members2])).
 cnf(fid, plain, (function(identity_relation)), inference(lemma,[status(thm)],[fr,idr,fsub])).
-cnf(done, plain, ($false), inference(lemma,[status(thm)],[fsub,fid,rsub,prove_corollary_to_identity_is_a_function_1])).
+cnf(done, plain, ($false), inference(lemma,[status(thm)],[fid,fsub,prove_corollary_to_identity_is_a_function_1,rsub])).
 % SZS output end CNFRefutation for SET458-6
 %------------------------------------------------------------------------------

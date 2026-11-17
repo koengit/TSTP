@@ -115,6 +115,6 @@ cnf(cm0, plain, (~ subclass(A,A2) | ~ subclass(B,B2) | ~ member(ordered_pair(Y,Z
 cnf(cmo, plain, (~ subclass(A,A2) | ~ subclass(B,B2) | subclass(compose(A,B),compose(A2,B2))), inference(lemma,[status(thm)],[cm0,cmc,cpw,not_subclass_members1,not_subclass_members2])).
 cnf(rsub, plain, (subclass(restrict(X,A,B),X)), inference(lemma,[status(thm)],[rsx,not_subclass_members1,not_subclass_members2])).
 cnf(fsub, plain, (~ function(F) | ~ subclass(G,F) | function(G)), inference(lemma,[status(thm)],[function1,function2,function3,strans,cmo,inv])).
-cnf(done, plain, ($false), inference(lemma,[status(thm)],[fsub,rsub,prove_restriction_of_function_is_function_1,prove_restriction_of_function_is_function_2])).
+cnf(done, plain, ($false), inference(lemma,[status(thm)],[fsub,prove_restriction_of_function_is_function_1,prove_restriction_of_function_is_function_2,rsub])).
 % SZS output end CNFRefutation for SET440-6
 %------------------------------------------------------------------------------

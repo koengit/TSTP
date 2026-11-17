@@ -138,6 +138,6 @@ cnf(fsub, plain, (~ function(F) | ~ subclass(G,F) | function(G)), inference(lemm
 cnf(idr, plain, (subclass(identity_relation,restrict(identity_relation,universal_class,universal_class))), inference(lemma,[status(thm)],[idc,rsi,not_subclass_members1,not_subclass_members2])).
 cnf(fid, plain, (function(identity_relation)), inference(lemma,[status(thm)],[fr,idr,fsub])).
 cnf(nsub, plain, (subclass(null_class,X)), inference(lemma,[status(thm)],[nl,not_subclass_members1])).
-cnf(done, plain, ($false), inference(lemma,[status(thm)],[fsub,fid,nsub,prove_null_class_is_a_function_1])).
+cnf(done, plain, ($false), inference(lemma,[status(thm)],[fid,fsub,nsub,prove_null_class_is_a_function_1])).
 % SZS output end CNFRefutation for SET439-6
 %------------------------------------------------------------------------------

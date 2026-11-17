@@ -144,6 +144,6 @@ cnf(iI1, plain, (~ member(Z,inverse(identity_relation)) | member(Z,identity_rela
 cnf(iI2, plain, (~ member(ordered_pair(U,W),identity_relation) | member(ordered_pair(U,W),inverse(identity_relation))), inference(lemma,[status(thm)],[id1,idc,pvv1,i2])).
 cnf(iI3, plain, (~ member(Z,identity_relation) | member(Z,inverse(identity_relation))), inference(lemma,[status(thm)],[idc,cpw,iI2])).
 cnf(iI, plain, (inverse(identity_relation) = identity_relation), inference(lemma,[status(thm)],[iI1,iI3,not_subclass_members1,not_subclass_members2,subclass_implies_equal])).
-cnf(done, plain, ($false), inference(lemma,[status(thm)],[iI,fid,one_to_one3,prove_identity_is_1_to_1_1])).
+cnf(done, plain, ($false), inference(lemma,[status(thm)],[fid,iI,one_to_one3,prove_identity_is_1_to_1_1])).
 % SZS output end CNFRefutation for SET465-6
 %------------------------------------------------------------------------------

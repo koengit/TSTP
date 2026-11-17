@@ -80,6 +80,6 @@ cnf(pvv2, plain, (~ member(ordered_pair(U,W),cross_product(A,B)) | member(W,univ
 cnf(co1s, plain, (~ member(ordered_pair(Y,Z),compose(A,B)) | member(range(inverse(restrict(A,image(B,singleton(Y)),universal_class)),Z,universal_class),universal_class)), inference(lemma,[status(thm)],[compose2,image,r1s])).
 cnf(sr3a, plain, (~ subclass(X,Y) | ~ member(Y,universal_class) | ~ member(ordered_pair(X,Y),compose(complement(element_relation),inverse(element_relation)))), inference(lemma,[status(thm)],[co1a,co1b,co1s,i1,element_relation2,subclass_members,cartesian_product3,element_relation3,complement1])).
 cnf(sr3, plain, (~ subclass(X,Y) | ~ member(ordered_pair(X,Y),cross_product(universal_class,universal_class)) | member(ordered_pair(X,Y),subset_relation)), inference(lemma,[status(thm)],[sr3a,pvv2,complement2,opv,subset_relation,intersection3])).
-cnf(done, plain, ($false), inference(lemma,[status(thm)],[sr3,prove_subset_relation_alternate_defn3_1,prove_subset_relation_alternate_defn3_2,prove_subset_relation_alternate_defn3_3])).
+cnf(done, plain, ($false), inference(lemma,[status(thm)],[prove_subset_relation_alternate_defn3_1,prove_subset_relation_alternate_defn3_2,prove_subset_relation_alternate_defn3_3,sr3])).
 % SZS output end CNFRefutation for SET453-6
 %------------------------------------------------------------------------------

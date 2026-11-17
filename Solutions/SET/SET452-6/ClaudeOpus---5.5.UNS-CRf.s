@@ -77,6 +77,6 @@ cnf(ein, plain, (~ member(Z,U) | ~ member(U,universal_class) | member(ordered_pa
 cnf(enot, plain, (member(Z,W) | ~ member(Z,universal_class) | ~ member(W,universal_class) | member(ordered_pair(Z,W),complement(element_relation))), inference(lemma,[status(thm)],[element_relation2,complement2,opv])).
 cnf(sr1, plain, (~ member(ordered_pair(U,W),subset_relation) | ~ member(Z,U) | member(Z,W)), inference(lemma,[status(thm)],[sr0,sr0c,pvv1,pvv2,ein,enot,mv,co2])).
 cnf(sr2, plain, (~ member(ordered_pair(U,W),subset_relation) | subclass(U,W)), inference(lemma,[status(thm)],[sr1,not_subclass_members1,not_subclass_members2])).
-cnf(done, plain, ($false), inference(lemma,[status(thm)],[sr2,prove_subset_relation_alternate_defn2_1,prove_subset_relation_alternate_defn2_2])).
+cnf(done, plain, ($false), inference(lemma,[status(thm)],[prove_subset_relation_alternate_defn2_1,prove_subset_relation_alternate_defn2_2,sr2])).
 % SZS output end CNFRefutation for SET452-6
 %------------------------------------------------------------------------------
