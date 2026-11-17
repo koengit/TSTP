@@ -15,8 +15,8 @@ checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/Sys
 large Ramsey proofs have so far been checked step by step with E only), and every model is checked in
 the Lean 4 proof assistant.
 
-**Findings in one sentence:** for 225 of the hardest TPTP problems (rating 1.00), 224 of which had no
-solution in the TSTP, we give checked proofs or models, which settle 58 problems of status Unknown,
+**Findings in one sentence:** for 225 of the hardest TPTP problems (224 rated 1.00 in TPTP v10.0.0; NUM636+4
+was rated 1.00 until v10.0.0 lowered it to 0.96), 224 of which had no solution in the TSTP, we give checked proofs or models, which settle 58 problems of status Unknown,
 show that 30 further Unknown problems are non-theorems only because of a missing axiom or hypothesis,
 and indicate that 10 recorded statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
@@ -32,12 +32,13 @@ and indicate that 10 recorded statuses are wrong (see [STATUS_CHANGES.md](STATUS
 
 ## Why could no prover find these proofs?
 
-Many of the proofs are small: of the 148 proofs other than the Ramsey proofs, 34 have at most 10
-steps and the median is 28 steps (the Mizar proofs have a median of 10 steps). What made them hard
+Many of the proofs are small: of the 149 proofs other than the Ramsey proofs, 34 have at most 10
+derived steps (not counting the final step to `$false`) and the median is 25 (the 41 Mizar proofs
+have a median of 10). What made them hard
 for automated provers is mostly the *encoding*, not the mathematics:
 
-* **Large axiom sets.** The Mizar (MPTP) problems include hundreds or thousands of axioms; the proof
-  needs a handful. Each step of our proofs cites only the axioms it uses, and then E proves it in
+* **Large axiom sets.** The Mizar (MPTP) problems solved here have 46 to 755 formulas (median 352);
+  the proof needs a handful. Each step of our proofs cites only the axioms it uses, and then E proves it in
   milliseconds; with all axioms it times out.
 * **Missing lemmas, and cuts.** Some problems need an intermediate lemma (or a new defined predicate)
   that a saturation prover will not invent. The Orevkov formulas ([SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p) and its variants) need a witness with
@@ -77,8 +78,8 @@ found (`% Comments`), and how to check it (`% Checking`).
 **Proofs** are derivations in the TPTP language. Each derived formula has the inference record
 `inference(lemma,[status(thm)],[parents])`: it is a logical consequence of its parents (not an
 instance of a fixed calculus rule). Definition steps (`role definition`, `introduced(definition,...)`)
-introduce a fresh, non-recursive predicate symbol and are conservative. (They occur in only five
-proofs: [SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p), [SYN986+1.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.006.p), [SYN986-10.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.005.p), [SYN986-10.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.006.p) and [GRA175-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA175-1.p). Note that GDV checks that a defined symbol is
+introduce a fresh, non-recursive predicate symbol and are conservative. (They occur in only six
+proofs: [SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p), [SYN986+1.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.006.p), [SYN986-10.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.005.p), [SYN986-10.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.006.p) [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p) and [GRA175-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA175-1.p). Note that GDV checks that a defined symbol is
 new, but in our tests it also accepted a circular definition such as `q <=> ~q`; our own checker rejects
 those, and all 27 definitions here are non-circular.) Checking:
 
@@ -86,7 +87,8 @@ those, and all 27 definitions here are non-circular.) Checking:
   parents), and
 * every proof except the five very large Ramsey proofs ([GRA122-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA122-1.p), [GRA122+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA122%2B1.p), [GRA123-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA123-1.p), [GRA123+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA123%2B1.p),
   [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p)) was verified with [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (leaves against the
-  problem, each inference with Vampire 5.1, or E 3.2.5 for a few steps). The header says which.
+  problem, each inference with Vampire 5.1; for four proofs, SEU287+1/+2 and SEU330+1/+2, with E 3.2.5 as
+  the prover). The header says which.
 
 **Finite models** (three problems: [GRP738-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP738-1.p), [GRP739-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP739-1.p), [GRP740-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP740-1.p)) are also given as TPTP finite
 interpretations (`SAT-FMo` files). These were not written by hand: Lean evaluated the operations of the
