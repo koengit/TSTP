@@ -15,20 +15,20 @@ checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/Sys
 large Ramsey proofs have so far been checked step by step with E only), and every model is checked in
 the Lean 4 proof assistant.
 
-**Findings in one sentence:** for 454 of the hardest TPTP problems (453 rated 1.00 in TPTP v10.0.0; NUM636+4
-was rated 1.00 until v10.0.0 lowered it to 0.96), 453 of which had no solution in the TSTP, we give
-checked proofs or models, which settle 229 problems of status Unknown, show that 37 further Unknown
+**Findings in one sentence:** for 458 of the hardest TPTP problems (457 rated 1.00 in TPTP v10.0.0; NUM636+4
+was rated 1.00 until v10.0.0 lowered it to 0.96), 457 of which had no solution in the TSTP, we give
+checked proofs or models, which settle 233 problems of status Unknown, show that 37 further Unknown
 problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 26 recorded
 statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
 ## Contributions
 
-* **Checked solutions where none existed.** Proofs and models for 454 hard problems; for 453 of them the
+* **Checked solutions where none existed.** Proofs and models for 458 hard problems; for 457 of them the
   TSTP had no solution. Proofs are TSTP derivations verified by GDV; models are verified in Lean. All
   files use the TSTP's layout and header conventions, so they can be added to the TSTP directly.
 * **Corrections to the library.** 26 recorded statuses that appear to be wrong (each backed by a checked
   proof or model, except one literature-based entry), 37 problems that are non-theorems only because of a
-  missing axiom or hypothesis (with the cause and a suggested fix), and 229 Unknown problems settled.
+  missing axiom or hypothesis (with the cause and a suggested fix), and 233 Unknown problems settled.
 * **A checkable TSTP format for infinite models.** Most of the models here are infinite, so they cannot
   be written as TPTP finite interpretations. Each is a Lean 4 development embedded in an ordinary TSTP
   file, checked against a Lean statement that is generated mechanically from the TPTP problem (never
