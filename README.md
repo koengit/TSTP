@@ -15,10 +15,29 @@ checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/Sys
 large Ramsey proofs have so far been checked step by step with E only), and every model is checked in
 the Lean 4 proof assistant.
 
-**Findings in one sentence:** for 225 of the hardest TPTP problems (224 rated 1.00 in TPTP v10.0.0; NUM636+4
-was rated 1.00 until v10.0.0 lowered it to 0.96), 224 of which had no solution in the TSTP, we give checked proofs or models, which settle 58 problems of status Unknown,
-show that 30 further Unknown problems are non-theorems only because of a missing axiom or hypothesis,
-and indicate that 10 recorded statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
+**Findings in one sentence:** for 228 of the hardest TPTP problems (227 rated 1.00 in TPTP v10.0.0; NUM636+4
+was rated 1.00 until v10.0.0 lowered it to 0.96), 227 of which had no solution in the TSTP, we give
+checked proofs or models, which settle 60 problems of status Unknown, show that 30 further Unknown
+problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 11 recorded
+statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
+
+## Contributions
+
+* **Checked solutions where none existed.** Proofs and models for 228 hard problems; for 227 of them the
+  TSTP had no solution. Proofs are TSTP derivations verified by GDV; models are verified in Lean. All
+  files use the TSTP's layout and header conventions, so they can be added to the TSTP directly.
+* **Corrections to the library.** 11 recorded statuses that appear to be wrong (each backed by a checked
+  proof or model, except one literature-based entry), 30 problems that are non-theorems only because of a
+  missing axiom or hypothesis (with the cause and a suggested fix), and 60 Unknown problems settled.
+* **A checkable TSTP format for infinite models.** Most of the models here are infinite, so they cannot
+  be written as TPTP finite interpretations. Each is a Lean 4 development embedded in an ordinary TSTP
+  file, checked against a Lean statement that is generated mechanically from the TPTP problem (never
+  taken from the solution file), with a small checking kit (`Tools/`).
+* **Finite models in both forms.** The three finite models are also given as TPTP finite interpretations,
+  printed by Lean from the certified models and re-checked by an independent evaluator.
+* **Observations about the tools.** GDV accepts circular definitions (a `q <=> ~q` "definition" yields
+  VerifiedGood); E's default mode fails to unfold a wide definition; such findings matter for anyone
+  relying on these tools as checkers.
 
 ## What was investigated, and why
 
@@ -32,13 +51,13 @@ and indicate that 10 recorded statuses are wrong (see [STATUS_CHANGES.md](STATUS
 
 ## Why could no prover find these proofs?
 
-Many of the proofs are small: of the 149 proofs other than the Ramsey proofs, 34 have at most 10
-derived steps (not counting the final step to `$false`) and the median is 25 (the 41 Mizar proofs
-have a median of 10). What made them hard
+Many of the proofs are small: of the 152 proofs other than the Ramsey proofs, 34 have at most 10
+derived steps (not counting the final step to `$false`) and the median is 23 (the 41 SEU proofs from
+Mizar have a median of 10). What made them hard
 for automated provers is mostly the *encoding*, not the mathematics:
 
-* **Large axiom sets.** The Mizar (MPTP) problems solved here have 46 to 755 formulas (median 352);
-  the proof needs a handful. Each step of our proofs cites only the axioms it uses, and then E proves it in
+* **Large axiom sets.** The Mizar (MPTP) problems solved here have from 46 formulas (median 352 for the
+  SEU problems) up to 37,879 (ALG230+4); the proof needs a handful. Each step of our proofs cites only the axioms it uses, and then E proves it in
   milliseconds; with all axioms it times out.
 * **Missing lemmas, and cuts.** Some problems need an intermediate lemma (or a new defined predicate)
   that a saturation prover will not invent. The Orevkov formulas ([SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p) and its variants) need a witness with

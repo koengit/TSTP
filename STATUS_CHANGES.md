@@ -1,11 +1,12 @@
 # Suggested status changes (TPTP v10.0.0 -> verified result)
 
-10 problems whose TPTP status appears to be **wrong**, 30 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 58 problems with status Unknown/Open that are now settled.
+11 problems whose TPTP status appears to be **wrong**, 30 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 60 problems with status Unknown/Open that are now settled.
 
 ## 🔴 Status appears to be wrong
 
 | | Problem | TPTP v10.0.0 | Should be | Evidence |
 |---|---|---|---|---|
+| 🔴 | [**ALG230+4**](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG230%2B4.p) | ~~CounterSatisfiable~~ | **Theorem** | [✅ GDV-checked proof](Solutions/ALG/ALG230+4/ClaudeOpus---5.5.THM-Ref.s): MPTP t11_closure3, chainy large version. Every formula of the normal version ALG230+1 occurs identically in ALG230+4 (same conjecture), and our 12-step proof (which also proves ALG230+1..+3) is GDV-verified against ALG230+4 itself; the TSTP also has a Vampire proof of ALG230+1. So the conjecture follows and CounterSatisfiable is wrong. |
 | 🔴 | [**GRP740-1**](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP740-1.p) | ~~Unsatisfiable~~ | **Satisfiable** | [✅ Lean-checked model](Solutions/GRP/GRP740-1/ClaudeOpus---5.5.SAT-Mod.s): The clause set asks for a non-associative commutative Moufang loop. Such loops exist (smallest order 81, Bruck); the file has an 81-element model on Z3^4, checked in Lean by `decide`. |
 | 🔴 | [**NUM333+1**](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM333%2B1.p) | ~~Theorem~~ | **CounterSatisfiable** | [✅ Lean-checked model](Solutions/NUM/NUM333+1/ClaudeOpus---5.5.CSA-Mod.s): RDN arithmetic: associativity of sum for ALL elements. The sum axioms only produce sums of numerals and require sum to be functional in each pair of arguments, so on non-numerals it is unconstrained: with fresh elements j0..j6, sum(j0,j1,j3), sum(j3,j2,j4), sum(j1,j2,j5), sum(j0,j5,j6) violate associativity (j4 != j6). Lean-checked countermodel. (Associativity restricted to numerals is presumably the intended theorem.) |
 | 🔴 | [**SET113+1**](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET113%2B1.p) | ~~Theorem~~ | **CounterSatisfiable** | [✅ Lean-checked model](Solutions/SET/SET113+1/ClaudeOpus---5.5.CSA-Mod.s): FOF version of Quaife's SE6 lemma: the conjecture quantifies U and V universally (for ALL U,V: X is a pair of sets with X=U=V, or first(X)=U and second(X)=V), which is false in every model with two elements; the CNF version SET113-6 says what was meant (first(x) = x when x is not an ordered pair of sets). Lean model of all 43 SET005+0 axioms (NBG over Mathlib's ZFSet) with x = the empty set. Probable fix: quantify U,V correctly. |
@@ -60,6 +61,8 @@ These proofs and models have been independently checked (proofs step by step by 
 
 | Problem | TPTP v10.0.0 | Verified | Evidence |
 |---|---|---|---|
+| [ALG230+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG230%2B2.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/ALG/ALG230+2/ClaudeOpus---5.5.THM-Ref.s) |
+| [ALG230+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG230%2B3.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/ALG/ALG230+3/ClaudeOpus---5.5.THM-Ref.s) |
 | [FLD044-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD044-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/FLD/FLD044-1/ClaudeOpus---5.5.UNS-Ref.s) |
 | [FLD045-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD045-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/FLD/FLD045-1/ClaudeOpus---5.5.UNS-Ref.s) |
 | [FLD045-2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD045-2.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/FLD/FLD045-2/ClaudeOpus---5.5.UNS-Ref.s) |
