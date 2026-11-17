@@ -1,0 +1,48 @@
+%------------------------------------------------------------------------------
+% File     : ClaudeOpus---5.5
+% Problem  : GRP761+1 : TPTP v10.0.0. Released v4.0.0.
+% Transfm  : none
+% Format   : tptp:raw
+% Command  : none (written by the LLM agent Claude Opus 5.5 in Claude Code; see Comments)
+
+% Result   : Satisfiable
+% Output   : Model (Lean 4 development, as comment lines)
+% Verified : Lean 4.35.0: `sat : TPTP.Satisfiable` (or Satisfiable1) compiles against a
+%            Statement.lean generated mechanically from the TPTP file, and depends only on the axioms
+%            propext, Classical.choice, Quot.sound
+% Status   : agrees with TPTP v10.0.0 (Satisfiable)
+
+% Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
+%            4 development. The model is infinite, so it cannot be given as a TPTP finite
+%            interpretation. Model description: GRP761+1: the ordered group (ℤ, +, ≤) with a = 1. No
+%            finite model exists: e < a gives the infinite chain e < a < a·a < ...
+% Checking : Tools/check_lean_model.sh GRP761+1 <this file>: extracts the Lean source between the SZS
+%            markers, regenerates Statement.lean from the TPTP problem with Tools/tptp2lean.py
+%            (clauses become Lean propositions over an arbitrary type with the problem's symbols),
+%            compiles the model, and prints the axioms `sat` depends on. sorry, axiom, opaque,
+%            native_decide and extern are rejected.
+%------------------------------------------------------------------------------
+% SZS status Satisfiable for GRP761+1
+% SZS output start Model for GRP761+1
+% import Statement
+% open TPTP
+%
+% /-- GRP761+1: the ordered group (ℤ, +, ≤) with a = 1. No finite model exists: e < a gives the infinite chain e < a < a·a < ... -/
+% def I : Sig Int where
+%   c_a := 1
+%   c_e := 0
+%   f_i := fun x => -x
+%   f_mult := (· + ·)
+%   p_o := (· ≤ ·)
+%
+% theorem sat : Satisfiable := by
+%   refine ⟨Int, I, ⟨0⟩, ?_⟩
+%   simp only [Holds, I]
+%   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+%   all_goals first
+%     | (intros; omega)
+%     | omega
+%     | (refine ⟨1, ?_⟩; omega)
+%     | (intros; simp_all)
+% SZS output end Model for GRP761+1
+%------------------------------------------------------------------------------
