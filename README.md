@@ -39,6 +39,16 @@ statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
   VerifiedGood); E's default mode fails to unfold a wide definition; such findings matter for anyone
   relying on these tools as checkers.
 
+## What this is not
+
+This is **not** a comparison between an LLM and automated theorem provers, and the results say nothing
+about which is "better". The setting is entirely different: the LLM worked interactively for hours or
+days per problem family, used E as a step checker and lemma oracle, wrote problem-specific programs, and
+drew on mathematical knowledge from its training. It would break the rules of the CADE ATP System
+Competition (CASC) in many ways, and could not take part in it. The project is purely about increasing
+our knowledge of the TPTP library: finding its mistakes, settling open statuses, and adding checked
+solutions that anyone can verify independently.
+
 ## What was investigated, and why
 
 * **Problems with rating 1.00**: no system in the TPTP's own evaluation solved them within its time
