@@ -1,9 +1,50 @@
-# TSTP solutions by Claude Opus 5.5
+# Curating the TPTP with an LLM: solutions and corrections
 
-Solutions to problems of the [TPTP problem library](https://tptp.org) (v10.0.0), produced by the
-LLM agent Claude Opus 5.5 (Anthropic) working in the Claude Code harness, and independently
-checked. The layout follows the [TSTP solution library](https://tptp.org/TSTP), so that the files
-can be imported there directly:
+This repository is the output of an experiment in **curating the [TPTP problem library](https://tptp.org)**
+with a large language model: finding mistakes in the library, settling problems whose status is
+unknown, and adding solutions for problems that no automated theorem prover has solved. The LLM agent
+(Claude Opus 5.5, Anthropic, working in the Claude Code harness) wrote every proof and model itself;
+**nothing is trusted on the LLM's word**: every proof is checked step by step by automated provers,
+and every model is checked in the Lean 4 proof assistant.
+
+**Findings in one sentence:** for 219 of the hardest TPTP problems (rating 1.00), 218 of which had no
+solution in the TSTP, we give checked proofs or models, which settle 58 problems of status Unknown,
+show that 30 further Unknown problems are non-theorems only because of a missing axiom or hypothesis,
+and indicate that 4 recorded statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
+
+## What was investigated, and why
+
+* **Problems with rating 1.00**: no system in the TPTP's own evaluation solved them within its time
+  limit. These are the problems where a solution adds the most, and where mistakes in the library
+  are most likely to go unnoticed.
+* **Problems with status Unknown or Open**: nobody knows whether they are theorems. For these the
+  agent tried both directions, a proof and a (typically infinite) model.
+* **Problems without a solution in the [TSTP](https://tptp.org/TSTP)** (the TPTP's library of
+  solutions). The files here use the TSTP's own layout, so they can be added to it directly.
+
+## Why could no prover find these proofs?
+
+Many of the proofs are small: of the 148 proofs other than the Ramsey proofs, 34 have at most 10
+steps and the median is 28 steps (the Mizar proofs have a median of 10 steps). What made them hard
+for automated provers is mostly the *encoding*, not the mathematics:
+
+* **Large axiom sets.** The Mizar (MPTP) problems include hundreds or thousands of axioms; the proof
+  needs a handful. Each step of our proofs cites only the axioms it uses, and then E proves it in
+  milliseconds; with all axioms it times out.
+* **Missing lemmas, and cuts.** Some problems need an intermediate lemma (or a new defined predicate)
+  that a saturation prover will not invent. The Orevkov formulas (SYN986) need a witness with
+  2^65536 successor steps without such lemmas; with a hierarchy of defined predicates every step
+  checks in 0.02 s.
+* **Weak equality encodings.** The field problems (FLD) use a relation "equalish" instead of equality,
+  without congruence axioms for some operations, so equational reasoning has to be rebuilt by hand.
+* **Size.** The Ramsey problems need thousands of ground steps (up to 97,662 for r(4,4) = 18), which
+  the agent generated with a small program.
+* **Only infinite models.** Finite model finders cannot find a model when every model is infinite;
+  here the model is given in Lean (e.g. the rationals, the integers, or a model of NBG set theory).
+
+## Layout
+
+The layout follows the TSTP solution library:
 
 ```
 Solutions/<DOMAIN>/<PROBLEM>/ClaudeOpus---5.5.<RESULT>-<OUTPUT>.s
@@ -13,11 +54,11 @@ Solutions/<DOMAIN>/<PROBLEM>/ClaudeOpus---5.5.<RESULT>-<OUTPUT>.s
 |---|---|
 | `THM-Ref`, `UNS-Ref`, `UNS-CRf` | Theorem / Unsatisfiable, with a refutation (CRf: CNF only) in TSTP derivation format |
 | `SAT-Mod`, `CSA-Mod` | Satisfiable / CounterSatisfiable, with a model given as a Lean 4 development |
+| `SAT-FMo` | Satisfiable, with a finite model as a TPTP finite interpretation (printed by Lean from the Lean model) |
 
-All problems here had rating 1.00 (no system solved them in the TPTP evaluation), and almost
-none had a solution in the TSTP. [STATUS_CHANGES.md](STATUS_CHANGES.md) lists the problems for
-which our verified result differs from the status in TPTP v10.0.0 (mostly Unknown problems that are
-now settled; a few where the recorded status appears to be wrong).
+[STATUS_CHANGES.md](STATUS_CHANGES.md) lists every problem for which the verified result differs from
+the status in TPTP v10.0.0: first the statuses that appear to be wrong, then the problems whose
+formulation appears to be buggy, then the Unknown problems that are now settled.
 
 ## The files
 
@@ -36,7 +77,12 @@ introduce a fresh, non-recursive predicate symbol and are conservative. Checking
   GRA125-1) was verified with [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (leaves against the
   problem, each inference with Vampire 5.1, or E 3.2.5 for a few steps). The header says which.
 
-**Models** are mostly infinite, so they cannot be written as finite TPTP interpretations. The Lean
+**Finite models** (three problems: GRP738-1, GRP739-1, GRP740-1) are also given as TPTP finite
+interpretations (`SAT-FMo` files). These were not written by hand: Lean evaluated the operations of the
+certified Lean model on every domain element and printed the tables, which were then checked again by
+evaluating every clause of the problem over the domain.
+
+**Models** in Lean are mostly infinite, so they cannot be written as finite TPTP interpretations. The Lean
 source is embedded between the `% SZS output start Model` and `% SZS output end Model` lines, each
 line prefixed with `% ` (so the file is still valid TPTP). A model is checked against a Lean
 statement that is generated mechanically from the TPTP problem, never trusted from the file:
