@@ -15,18 +15,18 @@ checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/Sys
 large Ramsey proofs have so far been checked step by step with E only), and every model is checked in
 the Lean 4 proof assistant.
 
-**Findings in one sentence:** for 274 of the hardest TPTP problems (273 rated 1.00 in TPTP v10.0.0; NUM636+4
-was rated 1.00 until v10.0.0 lowered it to 0.96), 273 of which had no solution in the TSTP, we give
+**Findings in one sentence:** for 280 of the hardest TPTP problems (279 rated 1.00 in TPTP v10.0.0; NUM636+4
+was rated 1.00 until v10.0.0 lowered it to 0.96), 279 of which had no solution in the TSTP, we give
 checked proofs or models, which settle 70 problems of status Unknown, show that 37 further Unknown
-problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 15 recorded
+problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 21 recorded
 statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
 ## Contributions
 
-* **Checked solutions where none existed.** Proofs and models for 274 hard problems; for 273 of them the
+* **Checked solutions where none existed.** Proofs and models for 280 hard problems; for 279 of them the
   TSTP had no solution. Proofs are TSTP derivations verified by GDV; models are verified in Lean. All
   files use the TSTP's layout and header conventions, so they can be added to the TSTP directly.
-* **Corrections to the library.** 15 recorded statuses that appear to be wrong (each backed by a checked
+* **Corrections to the library.** 21 recorded statuses that appear to be wrong (each backed by a checked
   proof or model, except one literature-based entry), 37 problems that are non-theorems only because of a
   missing axiom or hypothesis (with the cause and a suggested fix), and 70 Unknown problems settled.
 * **A checkable TSTP format for infinite models.** Most of the models here are infinite, so they cannot
