@@ -15,20 +15,20 @@ checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/Sys
 large Ramsey proof, GRA125-1 with 97,662 steps, has so far been checked step by step with E only; its GDV run is in progress), and every model is checked in
 the Lean 4 proof assistant.
 
-**Findings in one sentence:** for 575 of the hardest TPTP problems (574 rated 1.00 in TPTP v10.0.0; NUM636+4
-was rated 1.00 until v10.0.0 lowered it to 0.96), 574 of which had no solution in the TSTP, we give
-checked proofs or models, which settle 344 problems of status Unknown, show that 42 further Unknown
-problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 27 recorded
+**Findings in one sentence:** for 660 of the hardest TPTP problems (659 rated 1.00 in TPTP v10.0.0; NUM636+4
+was rated 1.00 until v10.0.0 lowered it to 0.96), 659 of which had no solution in the TSTP, we give
+checked proofs or models, which settle 426 problems of status Unknown, show that 42 further Unknown
+problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 30 recorded
 statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
 ## Contributions
 
-* **Checked solutions where none existed.** Proofs and models for 575 hard problems; for 574 of them the
+* **Checked solutions where none existed.** Proofs and models for 660 hard problems; for 659 of them the
   TSTP had no solution. Proofs are TSTP derivations verified by GDV; models are verified in Lean. All
   files use the TSTP's layout and header conventions, so they can be added to the TSTP directly.
-* **Corrections to the library.** 27 recorded statuses that appear to be wrong (each backed by a checked
+* **Corrections to the library.** 30 recorded statuses that appear to be wrong (each backed by a checked
   proof or model, except one literature-based entry), 42 problems that are non-theorems only because of a
-  missing axiom or hypothesis (with the cause and a suggested fix), and 344 Unknown problems settled.
+  missing axiom or hypothesis (with the cause and a suggested fix), and 426 Unknown problems settled. Among them: the axiom set SET004-0 + SET004-1 + NUM004-0 (Quaife's NBG with ordinals, included by 277 TPTP problems) is inconsistent, because of one clause of NUM004-0 (see the top of [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 * **A checkable TSTP format for infinite models.** Most of the models here are infinite, so they cannot
   be written as TPTP finite interpretations. Each is a Lean 4 development embedded in an ordinary TSTP
   file, checked against a Lean statement that is generated mechanically from the TPTP problem (never
