@@ -61,9 +61,10 @@ solutions that anyone can verify independently.
 
 ## Why could no prover find these proofs?
 
-Many of the proofs are small: of the 162 proofs other than the Ramsey proofs, 37 have at most 10
-derived steps (not counting the final step to `$false`) and the median is 23 (the 41 SEU proofs from
-Mizar have a median of 10). What made them hard
+Many of the proofs are short: of the 533 proofs other than the Ramsey proofs, 42 have at most 10
+derived steps (not counting the final step to `$false`) and the median is 44; the 41 SEU proofs from
+Mizar have a median of 9, while the Quaife NBG proofs are longer because each one carries the lemmas of
+the agent's library that it uses (numbers computed by `Tools/stats.py`). What made them hard
 for automated provers is mostly the *encoding*, not the mathematics:
 
 * **Large axiom sets.** The Mizar (MPTP) problems solved here have from 46 formulas (median 352 for the
@@ -110,21 +111,25 @@ found (`% Comments`), and how to check it (`% Checking`).
 **Proofs** are derivations in the TPTP language. Each derived formula has the inference record
 `inference(lemma,[status(thm)],[parents])`: it is a logical consequence of its parents (not an
 instance of a fixed calculus rule). Definition steps (`role definition`, `introduced(definition,...)`)
-introduce a fresh, non-recursive predicate symbol and are conservative. (They occur in only six
-proofs: [SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p), [SYN986+1.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.006.p), [SYN986-10.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.005.p), [SYN986-10.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.006.p) [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p) and [GRA175-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA175-1.p). Note that GDV checks that a defined symbol is
+introduce a fresh, non-recursive predicate symbol and are conservative. (They occur in only seven
+proofs: [GRA019+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA019%2B1.p), [SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p), [SYN986+1.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.006.p), [SYN986-10.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.005.p), [SYN986-10.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.006.p) [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p) and [GRA175-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA175-1.p). Note that GDV checks that a defined symbol is
 new, but in our tests it also accepted a circular definition such as `q <=> ~q`; our own checker rejects
-those, and all 27 definitions here are non-circular.) Checking:
+those, and all 28 definitions here are non-circular.) Checking:
 
 * every proof was checked step by step with E 3.2.5 (each step as an entailment problem from its
   parents), and
 * every proof except the very large Ramsey proof [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p) (GDV run in progress) was verified with [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (leaves against the
   problem, each inference with Vampire 5.1; for four proofs, SEU287+1/+2 and SEU330+1/+2, with E 3.2.5 as
   the prover). The header says which.
+* every proof can be re-checked with the kit's own step checker `Tools/check_proof.py` (see below), which
+  also checks what GDV does not: definitions must be fresh, non-circular and closed.
 
 **Finite models** (three problems: [GRP738-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP738-1.p), [GRP739-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP739-1.p), [GRP740-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP740-1.p)) are also given as TPTP finite
 interpretations (`SAT-FMo` files). These were not written by hand: Lean evaluated the operations of the
-certified Lean model on every domain element and printed the tables, which were then checked again by
-evaluating every clause of the problem over the domain.
+certified Lean model on every domain element and printed the tables. The table is a certificate in its own
+right: `Tools/check_finite_model.py PROBLEM FILE` checks that the tables are total and functional and
+evaluates every formula of the problem over the domain (under a second for GRP738-1/739-1, 11 s for
+GRP740-1), without Lean.
 
 **Models** in Lean are mostly infinite, so they cannot be written as finite TPTP interpretations. The Lean
 source is embedded between the `% SZS output start Model` and `% SZS output end Model` lines, each
@@ -143,6 +148,20 @@ negated conjecture), rejects constructs that could bypass the check (`Tools/lint
 `propext`, `Classical.choice` and `Quot.sound` are accepted). Models that import Mathlib need
 Mathlib v4.35.0: run `lake exe cache get` once in `Tools/mathlib` (or point `MATHLIB` at a built
 Mathlib project).
+
+## Checking the proofs: what you need
+
+```
+TPTP=/path/to/TPTP EPROVER=/path/to/eprover VAMPIRE=/path/to/vampire \
+  Tools/check_proof.py PROBLEM Solutions/DOM/PROBLEM/ClaudeOpus---5.5.XXX-Ref.s [--jobs N]
+```
+
+It normalises the problem and the derivation with `tptp4X -x -umachine`, checks every leaf against the
+problem formula it names, checks every definition (fresh symbol, right shape, not circular, no free
+variables), and proves every lemma step from its parents with E (Vampire as a fallback), in parallel. It
+prints the slowest step, so "each step is easy for E" is a measured claim, and it reports a refutation that
+does not use the conjecture as contradictory axioms. `Tools/stats.py` computes the numbers quoted in this
+README from the files.
 
 ## Checking the models: what you need
 
