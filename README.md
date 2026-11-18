@@ -17,15 +17,15 @@ cluster), and every model is checked in
 the Lean 4 proof assistant. The six Ramsey problems, GRA125-1 included, are in addition certified in Lean by a
 short higher-order proof (see [Ramsey proofs in Lean](#ramsey-proofs-in-lean)).
 
-**Findings in one sentence:** for 674 of the hardest TPTP problems (673 rated 1.00 in TPTP v10.0.0; NUM636+4
-was rated 1.00 until v10.0.0 lowered it to 0.96), 673 of which had no solution in the TSTP, we give
+**Findings in one sentence:** for 676 of the hardest TPTP problems (675 rated 1.00 in TPTP v10.0.0; NUM636+4
+was rated 1.00 until v10.0.0 lowered it to 0.96), 675 of which had no solution in the TSTP, we give
 checked proofs or models, which settle 435 problems of status Unknown, show that 45 further Unknown
 problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 30 recorded
 statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
 ## Contributions
 
-* **Checked solutions where none existed.** Proofs and models for 674 hard problems; for 673 of them the
+* **Checked solutions where none existed.** Proofs and models for 676 hard problems; for 675 of them the
   TSTP had no solution. Proofs are TSTP derivations verified by GDV; models are verified in Lean. All
   files use the TSTP's layout and header conventions, so they can be added to the TSTP directly.
 * **Corrections to the library.** 30 recorded statuses that appear to be wrong (each backed by a checked
@@ -226,7 +226,7 @@ External requirements:
   `Tools/mathlib` (downloads about 5 GB of prebuilt files), or set `MATHLIB` to an existing
   Lake project with that Mathlib version built.
 
-All 125 models were checked with these tools. Most take seconds; the
+All 127 models were checked with these tools. Most take seconds; the
 largest, [GRP738-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP738-1.p) (a 32-element loop checked by `decide`), takes about 2.5 minutes and 11 GB of memory.
 
 ## How the solutions were found
