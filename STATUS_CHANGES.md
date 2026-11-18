@@ -533,7 +533,7 @@ These proofs and models have been independently checked (proofs step by step by 
 | [TOP044+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/TOP/TOP044%2B3.p) | Unknown | Theorem | [✅ GDV-checked proof (10 steps)](Solutions/TOP/TOP044+3/ClaudeOpus---5.5.THM-Ref.s) |
 | [TOP044+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/TOP/TOP044%2B4.p) | Unknown | Theorem | [✅ GDV-checked proof (10 steps)](Solutions/TOP/TOP044+4/ClaudeOpus---5.5.THM-Ref.s) |
 
-## Known status, first solution (167 problems)
+## Known status, first solution (168 problems)
 
 For these problems the TPTP v10.0.0 status is confirmed, but the TSTP has no solution with a derivation or a model (only an assurance, or nothing; folders checked on seetptp.tptp.org, 2026-11). The checked solution here would be the first one.
 
@@ -678,6 +678,7 @@ For these problems the TPTP v10.0.0 status is confirmed, but the TSTP has no sol
 | [SEU366+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU366%2B2.p) | Theorem | [✅ GDV-checked proof (14 steps)](Solutions/SEU/SEU366+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
 | [SEU370+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU370%2B2.p) | Theorem | [✅ GDV-checked proof (11 steps)](Solutions/SEU/SEU370+2/ClaudeOpus---5.5.THM-Ref.s) | nothing |
 | [SWX230-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SWX/SWX230-1.p) | Unsatisfiable | [✅ GDV-checked proof (950 steps)](Solutions/SWX/SWX230-1/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
+| [SWX231-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SWX/SWX231-1.p) | Unsatisfiable | [✅ GDV-checked proof (6,178 steps)](Solutions/SWX/SWX231-1/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
 | [SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p) | Theorem | [✅ GDV-checked proof (18 steps)](Solutions/SYN/SYN986+1.005/ClaudeOpus---5.5.THM-Ref.s) | nothing |
 | [SYN986+1.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.006.p) | Theorem | [✅ GDV-checked proof (21 steps)](Solutions/SYN/SYN986+1.006/ClaudeOpus---5.5.THM-Ref.s) | nothing |
 | [SYN986-10.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.005.p) | Unsatisfiable | [✅ GDV-checked proof (17 steps)](Solutions/SYN/SYN986-10.005/ClaudeOpus---5.5.UNS-Ref.s) | nothing |
