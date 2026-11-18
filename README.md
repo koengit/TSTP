@@ -15,20 +15,20 @@ checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/Sys
 large Ramsey proof, GRA125-1 with 97,662 steps, has so far been checked step by step with E only; its GDV run is in progress), and every model is checked in
 the Lean 4 proof assistant.
 
-**Findings in one sentence:** for 660 of the hardest TPTP problems (659 rated 1.00 in TPTP v10.0.0; NUM636+4
-was rated 1.00 until v10.0.0 lowered it to 0.96), 659 of which had no solution in the TSTP, we give
-checked proofs or models, which settle 426 problems of status Unknown, show that 42 further Unknown
+**Findings in one sentence:** for 661 of the hardest TPTP problems (660 rated 1.00 in TPTP v10.0.0; NUM636+4
+was rated 1.00 until v10.0.0 lowered it to 0.96), 660 of which had no solution in the TSTP, we give
+checked proofs or models, which settle 427 problems of status Unknown, show that 42 further Unknown
 problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 30 recorded
 statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
 ## Contributions
 
-* **Checked solutions where none existed.** Proofs and models for 660 hard problems; for 659 of them the
+* **Checked solutions where none existed.** Proofs and models for 661 hard problems; for 660 of them the
   TSTP had no solution. Proofs are TSTP derivations verified by GDV; models are verified in Lean. All
   files use the TSTP's layout and header conventions, so they can be added to the TSTP directly.
 * **Corrections to the library.** 30 recorded statuses that appear to be wrong (each backed by a checked
   proof or model, except one literature-based entry), 42 problems that are non-theorems only because of a
-  missing axiom or hypothesis (with the cause and a suggested fix), and 426 Unknown problems settled. Among them: the axiom set SET004-0 + SET004-1 + NUM004-0 (Quaife's NBG with ordinals, included by 277 TPTP problems) is inconsistent, because of one clause of NUM004-0 (see the top of [STATUS_CHANGES.md](STATUS_CHANGES.md)).
+  missing axiom or hypothesis (with the cause and a suggested fix), and 427 Unknown problems settled. Among them: the axiom set SET004-0 + SET004-1 + NUM004-0 (Quaife's NBG with ordinals, included by 277 TPTP problems) is inconsistent, because of one clause of NUM004-0 (see the top of [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 * **A checkable TSTP format for infinite models.** Most of the models here are infinite, so they cannot
   be written as TPTP finite interpretations. Each is a Lean 4 development embedded in an ordinary TSTP
   file, checked against a Lean statement that is generated mechanically from the TPTP problem (never
@@ -61,15 +61,17 @@ solutions that anyone can verify independently.
 
 ## Why could no prover find these proofs?
 
-Many of the proofs are short: of the 533 proofs other than the Ramsey proofs, 42 have at most 10
+Many of the proofs are short: of the 534 proofs other than the Ramsey proofs, 42 have at most 10
 derived steps (not counting the final step to `$false`) and the median is 44; the 41 SEU proofs from
 Mizar have a median of 9, while the Quaife NBG proofs are longer because each one carries the lemmas of
 the agent's library that it uses (numbers computed by `Tools/stats.py`). What made them hard
 for automated provers is mostly the *encoding*, not the mathematics:
 
 * **Large axiom sets.** The Mizar (MPTP) problems solved here have from 46 formulas (median 352 for the
-  SEU problems) up to 55,482 (TOP044+4); the proof needs a handful. Each step of our proofs cites only the axioms it uses, and then E proves it in
-  milliseconds; with all axioms it times out.
+  SEU problems) up to 55,482 (TOP044+4); the proof needs a handful. Each step of our proofs cites only the axioms it uses, and then E usually proves
+  it quickly; with all axioms it times out. Measured with `Tools/check_proof.py` on all 537 proofs except the
+  two largest Ramsey proofs: in 174 every step takes E under 1 s and in 305 under 10 s; in 49 at least one
+  step exceeds E's default strategy at 30 s and is proved by E's strategy schedule or by Vampire.
 * **Missing lemmas, and cuts.** Some problems need an intermediate lemma (or a new defined predicate)
   that a saturation prover will not invent. The Orevkov formulas ([SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p) and its variants) need a witness with
   2^65536 successor steps without such lemmas; with a hierarchy of defined predicates every step
@@ -122,7 +124,8 @@ those, and all 28 definitions here are non-circular.) Checking:
   problem, each inference with Vampire 5.1; for four proofs, SEU287+1/+2 and SEU330+1/+2, with E 3.2.5 as
   the prover). The header says which.
 * every proof can be re-checked with the kit's own step checker `Tools/check_proof.py` (see below), which
-  also checks what GDV does not: definitions must be fresh, non-circular and closed.
+  also checks what GDV does not: definitions must be fresh, non-circular and closed. All proofs except
+  GRA019+1 and GRA125-1 (the two largest) were re-checked this way (2026-11-18): all pass.
 
 **Finite models** (three problems: [GRP738-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP738-1.p), [GRP739-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP739-1.p), [GRP740-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP740-1.p)) are also given as TPTP finite
 interpretations (`SAT-FMo` files). These were not written by hand: Lean evaluated the operations of the

@@ -1,6 +1,6 @@
 # Suggested status changes (TPTP v10.0.0 -> verified result)
 
-30 problems whose TPTP status appears to be **wrong**, 42 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 426 problems with status Unknown/Open that are now settled.
+30 problems whose TPTP status appears to be **wrong**, 42 problems whose formulation appears to be buggy (missing axioms or hypotheses), and 427 problems with status Unknown/Open that are now settled.
 
 ## ⚠️ The axiom set SET004-0 + SET004-1 + NUM004-0 is inconsistent
 
@@ -498,6 +498,7 @@ These proofs and models have been independently checked (proofs step by step by 
 | [SET498-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET498-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET498-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET499-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET499-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET499-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET500-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET500-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET500-6/ClaudeOpus---5.5.UNS-CRf.s) |
+| [SET520-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET520-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET520-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET532-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET532-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET532-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET533-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET533-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET533-6/ClaudeOpus---5.5.UNS-CRf.s) |
 | [SET534-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET534-6.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/SET/SET534-6/ClaudeOpus---5.5.UNS-CRf.s) |
