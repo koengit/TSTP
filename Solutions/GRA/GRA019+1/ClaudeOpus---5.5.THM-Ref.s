@@ -8,7 +8,10 @@
 % Result   : Theorem
 % Output   : Refutation
 % Verified : GDV VerifiedGood with Vampire 5.1 as the trusted ATP; every inference also checked with
-%            E 3.2.5
+%            E 3.2.5; independently, the problem is certified to have no model in Lean 4 by a short
+%            higher-order proof (Lean/Ramsey/GRA019+1.lean with the Ramsey bound proved in
+%            Lean/Ramsey/Ramsey.lean; check with Tools/check_lean_proof.sh GRA019+1
+%            Lean/Ramsey/GRA019+1.lean Lean/Ramsey/Ramsey.lean)
 % Status   : SUGGESTED CHANGE: Unknown -> Theorem (TPTP v10.0.0 status is Unknown; this file is a
 %            verified refutation)
 
