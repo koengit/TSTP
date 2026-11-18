@@ -532,6 +532,177 @@ These proofs and models have been independently checked (proofs step by step by 
 | [TOP044+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/TOP/TOP044%2B2.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/TOP/TOP044+2/ClaudeOpus---5.5.THM-Ref.s) |
 | [TOP044+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/TOP/TOP044%2B3.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/TOP/TOP044+3/ClaudeOpus---5.5.THM-Ref.s) |
 | [TOP044+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/TOP/TOP044%2B4.p) | Unknown | Theorem | [✅ GDV-checked proof](Solutions/TOP/TOP044+4/ClaudeOpus---5.5.THM-Ref.s) |
+
+## Known status, first solution (163 problems)
+
+For these problems the TPTP v10.0.0 status is confirmed, but the TSTP has no solution with a derivation or a model (only an assurance, or nothing; folders checked on seetptp.tptp.org, 2026-11). The checked solution here would be the first one.
+
+| Problem | TPTP v10.0.0 | Our solution | In the TSTP |
+|---|---|---|---|
+| [ALG229+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG229%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/ALG/ALG229+1/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [FLD101-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD101-1.p) | Satisfiable | [✅ Lean-checked model](Solutions/FLD/FLD101-1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [FLD102-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD102-1.p) | Satisfiable | [✅ Lean-checked model](Solutions/FLD/FLD102-1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [GRA122+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA122%2B1.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/GRA/GRA122+1/ClaudeOpus---5.5.UNS-Ref.s) | nothing |
+| [GRA122-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA122-1.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/GRA/GRA122-1/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
+| [GRA123+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA123%2B1.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/GRA/GRA123+1/ClaudeOpus---5.5.UNS-Ref.s) | assurance only (Infinox) |
+| [GRA123-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA123-1.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/GRA/GRA123-1/ClaudeOpus---5.5.UNS-CRf.s) | assurance only (Infinox) |
+| [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/GRA/GRA125-1/ClaudeOpus---5.5.UNS-Ref.s) | nothing |
+| [GRA175-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA175-1.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/GRA/GRA175-1/ClaudeOpus---5.5.UNS-Ref.s) | assurance only (Infinox) |
+| [GRP738-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP738-1.p) | Satisfiable | [✅ Lean-checked model](Solutions/GRP/GRP738-1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [GRP739-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP739-1.p) | Satisfiable | [✅ Lean-checked model](Solutions/GRP/GRP739-1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [GRP761+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP761%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/GRP/GRP761+1/ClaudeOpus---5.5.SAT-Mod.s) | assurance only (Infinox) |
+| [GRP762+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP762%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/GRP/GRP762+1/ClaudeOpus---5.5.SAT-Mod.s) | assurance only (Infinox) |
+| [GRP763+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP763%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/GRP/GRP763+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [NUM149-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM149-1.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM149-1/ClaudeOpus---5.5.UNS-CRf.s) (includes NUM004-0, see [Fixing NUM004-0](#fixing-num004-0)) | nothing |
+| [NUM347+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM347%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM347+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM348+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM348%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM348+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM349+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM349%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM349+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM350+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM350%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM350+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM351+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM351%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM351+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM352+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM352%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM352+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM353+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM353%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM353+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM354+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM354%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM354+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM355+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM355%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM355+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM356+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM356%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM356+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM357+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM357%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM357+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM358+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM358%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM358+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM359+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM359%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM359+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM360+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM360%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM360+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM361+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM361%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM361+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM362+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM362%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM362+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM363+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM363%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM363+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM364+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM364%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM364+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM365+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM365%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM365+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM366+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM366%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM366+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM367+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM367%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM367+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM368+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM368%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM368+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM369+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM369%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM369+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM370+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM370%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM370+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM371+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM371%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM371+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM372+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM372%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM372+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM373+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM373%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUM/NUM373+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUM546+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM546%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM546+1/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM546+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM546%2B3.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM546+3/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM553+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM553%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM553+1/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM553+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM553%2B3.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM553+3/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM593+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM593%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM593+1/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM593+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM593%2B3.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM593+3/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM608+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM608%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM608+1/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM608+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM608%2B3.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM608+3/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM637+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM637%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM637+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM638+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM638%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM638+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM643+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM643%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM643+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM644+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM644%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM644+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM645+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM645%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM645+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM646+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM646%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM646+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM648+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM648%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM648+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM649+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM649%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM649+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM650+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM650%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM650+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM651+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM651%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM651+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM652+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM652%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM652+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM662+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM662%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM662+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM668+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM668%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM668+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM670+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM670%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM670+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM680+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM680%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM680+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM681+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM681%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM681+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM683+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM683%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM683+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM686+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM686%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM686+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM693+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM693%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM693+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM696+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM696%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM696+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM704+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM704%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM704+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM705+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM705%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM705+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM710+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM710%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM710+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM711+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM711%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM711+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM712+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM712%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM712+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM713+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM713%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM713+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM727+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM727%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM727+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM730+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM730%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM730+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM741+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM741%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM741+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUM784+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM784%2B4.p) | Theorem | [✅ GDV-checked proof](Solutions/NUM/NUM784+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [NUN079+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUN/NUN079%2B1.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUN/NUN079+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
+| [NUN079+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUN/NUN079%2B2.p) | CounterSatisfiable | [✅ Lean-checked model](Solutions/NUN/NUN079+2/ClaudeOpus---5.5.CSA-Mod.s) | assurance only (Infinox) |
+| [PUZ056-10.020](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/PUZ/PUZ056-10.020.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/PUZ/PUZ056-10.020/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
+| [PUZ056-10.030](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/PUZ/PUZ056-10.030.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/PUZ/PUZ056-10.030/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
+| [PUZ056-2.020](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/PUZ/PUZ056-2.020.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/PUZ/PUZ056-2.020/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
+| [PUZ056-2.022](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/PUZ/PUZ056-2.022.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/PUZ/PUZ056-2.022/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
+| [PUZ056-2.025](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/PUZ/PUZ056-2.025.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/PUZ/PUZ056-2.025/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
+| [PUZ056-2.027](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/PUZ/PUZ056-2.027.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/PUZ/PUZ056-2.027/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
+| [PUZ056-2.030](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/PUZ/PUZ056-2.030.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/PUZ/PUZ056-2.030/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
+| [REL051+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/REL/REL051%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/REL/REL051+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [REL052+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/REL/REL052%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/REL/REL052+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [RNG127+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/RNG/RNG127%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/RNG/RNG127+1/ClaudeOpus---5.5.SAT-Mod.s) | assurance only (Infinox) |
+| [SET226-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET226-6.p) | Satisfiable | [✅ Lean-checked model](Solutions/SET/SET226-6/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SET227-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET227-6.p) | Satisfiable | [✅ Lean-checked model](Solutions/SET/SET227-6/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SET228-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET228-6.p) | Satisfiable | [✅ Lean-checked model](Solutions/SET/SET228-6/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SET229-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET229-6.p) | Satisfiable | [✅ Lean-checked model](Solutions/SET/SET229-6/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SET538-6](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SET/SET538-6.p) | Satisfiable | [✅ Lean-checked model](Solutions/SET/SET538-6/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SEU033+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU033%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU033+1/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU088+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU088%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU088+1/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU231+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU231%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU231+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU233+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU233%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU233+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU260+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU260%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU260+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU274+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU274%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU274+1/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [SEU274+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU274%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU274+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU276+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU276%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU276+1/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [SEU276+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU276%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU276+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU279+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU279%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU279+1/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU279+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU279%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU279+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU282+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU282%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU282+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU283+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU283%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU283+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU285+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU285%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU285+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU287+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU287%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU287+1/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU287+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU287%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU287+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU288+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU288%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU288+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU289+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU289%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU289+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU296+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU296%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU296+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU300+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU300%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU300+1/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU300+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU300%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU300+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU301+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU301%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU301+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU302+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU302%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU302+1/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU302+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU302%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU302+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU302+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU302%2B3.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU302+3/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU312+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU312%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU312+1/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [SEU316+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU316%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU316+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU330+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU330%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU330+1/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU330+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU330%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU330+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU331+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU331%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU331+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU333+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU333%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU333+1/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU333+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU333%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU333+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU335+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU335%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU335+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU338+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU338%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU338+1/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [SEU338+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU338%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU338+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU366+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU366%2B1.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU366+1/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU366+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU366%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU366+2/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
+| [SEU370+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SEU/SEU370%2B2.p) | Theorem | [✅ GDV-checked proof](Solutions/SEU/SEU370+2/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p) | Theorem | [✅ GDV-checked proof](Solutions/SYN/SYN986+1.005/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [SYN986+1.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.006.p) | Theorem | [✅ GDV-checked proof](Solutions/SYN/SYN986+1.006/ClaudeOpus---5.5.THM-Ref.s) | nothing |
+| [SYN986-10.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.005.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/SYN/SYN986-10.005/ClaudeOpus---5.5.UNS-Ref.s) | nothing |
+| [SYN986-10.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.006.p) | Unsatisfiable | [✅ GDV-checked proof](Solutions/SYN/SYN986-10.006/ClaudeOpus---5.5.UNS-Ref.s) | nothing |
+| [SYO637+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO637%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO637+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO692+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO692%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO692+1/ClaudeOpus---5.5.SAT-Mod.s) | assurance only (Infinox) |
+| [SYO695+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO695%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO695+1/ClaudeOpus---5.5.SAT-Mod.s) | assurance only (Infinox) |
+| [SYO697+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO697%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO697+1/ClaudeOpus---5.5.SAT-Mod.s) | assurance only (Infinox) |
+| [SYO706+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO706%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO706+1/ClaudeOpus---5.5.SAT-Mod.s) | assurance only (Infinox) |
+| [SYO794+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO794%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO794+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO824+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO824%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO824+1/ClaudeOpus---5.5.SAT-Mod.s) | assurance only (Infinox) |
+| [SYO825+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO825%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO825+1/ClaudeOpus---5.5.SAT-Mod.s) | assurance only (Infinox) |
+| [SYO826+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO826%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO826+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO827+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO827%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO827+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO828+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO828%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO828+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO829+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO829%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO829+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO830+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO830%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO830+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO831+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO831%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO831+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO832+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO832%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO832+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO833+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO833%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO833+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO834+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO834%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO834+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO835+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO835%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO835+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO836+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO836%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO836+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO837+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO837%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO837+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO838+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO838%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO838+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO839+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO839%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO839+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO840+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO840%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO840+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [SYO841+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYO/SYO841%2B1.p) | Satisfiable | [✅ Lean-checked model](Solutions/SYO/SYO841+1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+
 ## Fixing NUM004-0
 
 ### The inconsistency
@@ -542,7 +713,7 @@ Clause `rest_of4` of NUM004-0 puts (u, restrict(x,u,universal_class)) into rest_
 
 With the axioms as published every problem is Unsatisfiable (the axioms alone are contradictory). The columns after the TPTP status give the verifiable status with the fixed `rest_of4` and its evidence: a proof that does not cite `rest_of4` is valid with the fixed axioms unchanged (checked by its leaves, and re-checked with GDV against the fixed axiom file), and a Lean model in [Fixed/NUM004-0](Fixed/NUM004-0/) shows that the conjecture does not follow. With the fix: **195 Unsatisfiable, 22 Satisfiable, 60 Unknown** (Unknown means that the only proofs found so far use `rest_of4`; work on these continues). 🔴 marks a TPTP v10.0.0 status that is wrong for the axioms as published (Satisfiable, although the axioms are contradictory). The status after the fix is new information about a corrected axiom set, not a correction of TPTP v10.0.0.
 
-| | Problem | TPTP v10.0.0 | Status after the fix | Evidence after the fix | Our solution file |
+| | Problem | TPTP v10.0.0 | Status after the fix | Evidence after the fix | Our solution file (axioms as published) |
 |---|---|---|---|---|---|
 |  | [NUM028-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM028-1.p) | Unknown | **Unsatisfiable** | our earlier proof does not use `rest_of4`, still valid | [✅ GDV-checked proof](Solutions/NUM/NUM028-1/ClaudeOpus---5.5.UNS-CRf.s) |
 |  | [NUM029-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM029-1.p) | Unknown | **Unsatisfiable** | our earlier proof does not use `rest_of4`, still valid | [✅ GDV-checked proof](Solutions/NUM/NUM029-1/ClaudeOpus---5.5.UNS-CRf.s) |

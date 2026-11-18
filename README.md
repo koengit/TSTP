@@ -11,8 +11,9 @@ with a large language model: finding mistakes in the library, settling problems 
 unknown, and adding solutions for problems that no automated theorem prover has solved. The LLM agent
 (Claude Opus 5.5, Anthropic, working in the Claude Code harness) wrote every proof and model itself;
 **nothing is trusted on the LLM's word**: every proof is checked step by step by an independent proof
-checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (one very
-large Ramsey proof, GRA125-1 with 97,662 steps, has so far been checked step by step with E only; its GDV run is in progress), and every model is checked in
+checker, the TPTP World's derivation verifier [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (for the very
+large Ramsey proof GRA125-1, 97,662 steps, GDV generated its obligations and these were discharged in parallel on a
+cluster), and every model is checked in
 the Lean 4 proof assistant. The six Ramsey problems, GRA125-1 included, are in addition certified in Lean by a
 short higher-order proof (see [Ramsey proofs in Lean](#ramsey-proofs-in-lean)).
 
@@ -123,9 +124,13 @@ those, and all 28 definitions here are non-circular.) Checking:
 
 * every proof was checked step by step with E 3.2.5 (each step as an entailment problem from its
   parents), and
-* every proof except the very large Ramsey proof [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p) (GDV run in progress) was verified with [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (leaves against the
+* every proof was verified with [GDV](https://tptp.org/cgi-bin/SystemOnTSTP) (leaves against the
   problem, each inference with Vampire 5.1; for four proofs, SEU287+1/+2 and SEU330+1/+2, with E 3.2.5 as
-  the prover). The header says which.
+  the prover). The header says which. For the very large Ramsey proof [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p)
+  a sequential GDV run would take days, so GDV only generated its 97,663 obligations (`GDV -g`), and each was
+  discharged with Vampire 5.1 on the Vera cluster (C3SE), in one hour on 128 cores: all pass. The two checks
+  that the axioms are satisfiable are unresolved; GDV gives only warnings for these in the complete runs of
+  the other Ramsey proofs as well.
 * every proof can be re-checked with the kit's own step checker `Tools/check_proof.py` (see below), which
   also checks what GDV does not: definitions must be fresh, non-circular and closed. All proofs except
   GRA019+1 and GRA125-1 (the two largest) were re-checked this way (2026-11-18): all pass.

@@ -7,11 +7,15 @@
 
 % Result   : Unsatisfiable
 % Output   : Refutation
-% Verified : every inference checked with E 3.2.5 (each step an entailment from its parents); GDV
-%            verification pending (very large ground proof); independently, the problem is certified
-%            to have no model in Lean 4 by a short higher-order proof (Lean/Ramsey/GRA125-1.lean with
-%            the Ramsey bound proved in Lean/Ramsey/Ramsey.lean; check with Tools/check_lean_proof.sh
-%            GRA125-1 Lean/Ramsey/GRA125-1.lean Lean/Ramsey/Ramsey.lean)
+% Verified : GDV obligations: GDV (with -g, i.e. generate the obligations only) produced all 97,663
+%            obligations of this derivation (leaves and every inference); each was discharged with
+%            Vampire 5.1 (97,660 Theorem, the final $false step ContradictoryAxioms). The two checks
+%            that the axioms are satisfiable are unresolved, as in the complete GDV runs of the other
+%            Ramsey proofs, where GDV reports them as warnings and still says VerifiedGood. Every
+%            inference also checked with E 3.2.5; independently, the problem is certified to have no
+%            model in Lean 4 by a short higher-order proof (Lean/Ramsey/GRA125-1.lean with the Ramsey
+%            bound proved in Lean/Ramsey/Ramsey.lean; check with Tools/check_lean_proof.sh GRA125-1
+%            Lean/Ramsey/GRA125-1.lean Lean/Ramsey/Ramsey.lean)
 % Status   : agrees with TPTP v10.0.0 (Unsatisfiable)
 
 % Comments : Proof written by Claude Opus 5.5 (Anthropic) working in the Claude Code agent harness:
