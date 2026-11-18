@@ -204,11 +204,11 @@ These proofs and models have been independently checked (proofs step by step by 
 | [NUM110-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM110-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM110-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM111-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM111-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM111-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM112-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM112-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM112-1/ClaudeOpus---5.5.UNS-CRf.s) |
-| [NUM113-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM113-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM113-1/ClaudeOpus---5.5.UNS-CRf.s) (via the inconsistency of SET004+NUM004-0, see top) |
+| [NUM113-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM113-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM113-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM114-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM114-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM114-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM115-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM115-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM115-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM116-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM116-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM116-1/ClaudeOpus---5.5.UNS-CRf.s) |
-| [NUM117-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM117-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM117-1/ClaudeOpus---5.5.UNS-CRf.s) (via the inconsistency of SET004+NUM004-0, see top) |
+| [NUM117-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM117-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM117-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM118-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM118-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM118-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM119-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM119-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM119-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM120-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM120-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM120-1/ClaudeOpus---5.5.UNS-CRf.s) |
@@ -235,7 +235,7 @@ These proofs and models have been independently checked (proofs step by step by 
 | [NUM152-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM152-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM152-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM153-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM153-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM153-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM157-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM157-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM157-1/ClaudeOpus---5.5.UNS-CRf.s) |
-| [NUM158-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM158-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM158-1/ClaudeOpus---5.5.UNS-CRf.s) (via the inconsistency of SET004+NUM004-0, see top) |
+| [NUM158-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM158-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM158-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM160-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM160-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM160-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM161-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM161-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM161-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM162-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM162-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM162-1/ClaudeOpus---5.5.UNS-CRf.s) |
@@ -285,11 +285,11 @@ These proofs and models have been independently checked (proofs step by step by 
 | [NUM214-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM214-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM214-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM215-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM215-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM215-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM216-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM216-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM216-1/ClaudeOpus---5.5.UNS-CRf.s) (via the inconsistency of SET004+NUM004-0, see top) |
-| [NUM218-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM218-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM218-1/ClaudeOpus---5.5.UNS-CRf.s) (via the inconsistency of SET004+NUM004-0, see top) |
+| [NUM218-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM218-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM218-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM220-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM220-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM220-1/ClaudeOpus---5.5.UNS-CRf.s) (via the inconsistency of SET004+NUM004-0, see top) |
 | [NUM221-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM221-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM221-1/ClaudeOpus---5.5.UNS-CRf.s) (via the inconsistency of SET004+NUM004-0, see top) |
 | [NUM222-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM222-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM222-1/ClaudeOpus---5.5.UNS-CRf.s) (via the inconsistency of SET004+NUM004-0, see top) |
-| [NUM223-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM223-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM223-1/ClaudeOpus---5.5.UNS-CRf.s) (via the inconsistency of SET004+NUM004-0, see top) |
+| [NUM223-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM223-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM223-1/ClaudeOpus---5.5.UNS-CRf.s) |
 | [NUM224-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM224-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM224-1/ClaudeOpus---5.5.UNS-CRf.s) (via the inconsistency of SET004+NUM004-0, see top) |
 | [NUM226-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM226-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM226-1/ClaudeOpus---5.5.UNS-CRf.s) (via the inconsistency of SET004+NUM004-0, see top) |
 | [NUM227-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM227-1.p) | Unknown | Unsatisfiable | [✅ GDV-checked proof](Solutions/NUM/NUM227-1/ClaudeOpus---5.5.UNS-CRf.s) (via the inconsistency of SET004+NUM004-0, see top) |

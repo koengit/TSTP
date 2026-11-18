@@ -53,24 +53,15 @@ cnf(flip3, axiom, (~ member(ordered_pair(ordered_pair(V,U),W),X) | ~ member(orde
 cnf(range_of, axiom, (domain_of(inverse(Z)) = range_of(Z)), file('Problems/NUM/NUM218-1.p',range_of)).
 cnf(image, axiom, (range_of(restrict(Xr,X,universal_class)) = image(Xr,X)), file('Problems/NUM/NUM218-1.p',image)).
 cnf(compose2, axiom, (~ member(ordered_pair(Y,Z),compose(Yr,Xr)) | member(Z,image(Yr,image(Xr,singleton(Y))))), file('Problems/NUM/NUM218-1.p',compose2)).
-cnf(compose3, axiom, (~ member(Z,image(Yr,image(Xr,singleton(Y)))) | ~ member(ordered_pair(Y,Z),cross_product(universal_class,universal_class)) | member(ordered_pair(Y,Z),compose(Yr,Xr))), file('Problems/NUM/NUM218-1.p',compose3)).
-cnf(cartesian_product2, axiom, (~ member(ordered_pair(U,V),cross_product(X,Y)) | member(V,Y)), file('Problems/NUM/NUM218-1.p',cartesian_product2)).
-cnf(subset_relation, axiom, (intersection(cross_product(universal_class,universal_class),intersection(cross_product(universal_class,universal_class),complement(compose(complement(element_relation),inverse(element_relation))))) = subset_relation), file('Problems/NUM/NUM218-1.p',subset_relation)).
-cnf(element_relation3, axiom, (~ member(ordered_pair(X,Y),cross_product(universal_class,universal_class)) | ~ member(X,Y) | member(ordered_pair(X,Y),element_relation)), file('Problems/NUM/NUM218-1.p',element_relation3)).
 cnf(element_relation2, axiom, (~ member(ordered_pair(X,Y),element_relation) | member(X,Y)), file('Problems/NUM/NUM218-1.p',element_relation2)).
-cnf(not_subclass_members2, axiom, (~ member(not_subclass_element(X,Y),Y) | subclass(X,Y)), file('Problems/NUM/NUM218-1.p',not_subclass_members2)).
+cnf(subset_relation, axiom, (intersection(cross_product(universal_class,universal_class),intersection(cross_product(universal_class,universal_class),complement(compose(complement(element_relation),inverse(element_relation))))) = subset_relation), file('Problems/NUM/NUM218-1.p',subset_relation)).
 cnf(identity_relation, axiom, (intersection(inverse(subset_relation),subset_relation) = identity_relation), file('Problems/NUM/NUM218-1.p',identity_relation)).
 cnf(compose1, axiom, (subclass(compose(Yr,Xr),cross_product(universal_class,universal_class))), file('Problems/NUM/NUM218-1.p',compose1)).
+cnf(rest_of3, axiom, (~ member(ordered_pair(U,V),rest_of(X)) | restrict(X,U,universal_class) = V), file('Problems/NUM/NUM218-1.p',rest_of3)).
+cnf(not_subclass_members2, axiom, (~ member(not_subclass_element(X,Y),Y) | subclass(X,Y)), file('Problems/NUM/NUM218-1.p',not_subclass_members2)).
 cnf(function3, axiom, (~ subclass(Xf,cross_product(universal_class,universal_class)) | ~ subclass(compose(Xf,inverse(Xf)),identity_relation) | function(Xf)), file('Problems/NUM/NUM218-1.p',function3)).
-cnf(replacement, axiom, (~ function(Xf) | ~ member(X,universal_class) | member(image(Xf,X),universal_class)), file('Problems/NUM/NUM218-1.p',replacement)).
-cnf(sum_class_definition, axiom, (domain_of(restrict(element_relation,universal_class,X)) = sum_class(X)), file('Problems/NUM/NUM218-1.p',sum_class_definition)).
-cnf(unordered_pair3, axiom, (~ member(Y,universal_class) | member(Y,unordered_pair(X,Y))), file('Problems/NUM/NUM218-1.p',unordered_pair3)).
-cnf(sum_class2, axiom, (~ member(X,universal_class) | member(sum_class(X),universal_class)), file('Problems/NUM/NUM218-1.p',sum_class2)).
-cnf(inductive1, axiom, (~ inductive(X) | member(null_class,X)), file('Problems/NUM/NUM218-1.p',inductive1)).
-cnf(omega_is_inductive1, axiom, (inductive(omega)), file('Problems/NUM/NUM218-1.p',omega_is_inductive1)).
-cnf(rest_of4, axiom, (~ member(U,domain_of(X)) | restrict(X,U,universal_class) != V | member(ordered_pair(U,V),rest_of(X))), file('Problems/NUM/NUM218-1.p',rest_of4)).
+cnf(prove_rest_of_is_a_function_1, negated_conjecture, (~ function(rest_of(u))), file('Problems/NUM/NUM218-1.p',prove_rest_of_is_a_function_1)).
 cnf(rest_of1, axiom, (subclass(rest_of(X),cross_product(universal_class,universal_class))), file('Problems/NUM/NUM218-1.p',rest_of1)).
-cnf(diagonalisation, axiom, (complement(domain_of(intersection(Xr,identity_relation))) = diagonalise(Xr)), file('Problems/NUM/NUM218-1.p',diagonalisation)).
 cnf(nl, plain, (~ member(Z,null_class)), inference(lemma,[status(thm)],[regularity1,regularity2,intersection1,intersection2,intersection3,complement1,complement2,class_elements_are_sets,subclass_members])).
 cnf(sn, plain, (~ subclass(X,null_class) | X = null_class), inference(lemma,[status(thm)],[nl,not_subclass_members1,subclass_implies_equal])).
 cnf(rsx, plain, (~ member(W,restrict(X,A,B)) | member(W,X)), inference(lemma,[status(thm)],[restriction1,intersection1])).
@@ -91,63 +82,20 @@ cnf(i2b, plain, (~ member(U,universal_class) | ~ member(W,universal_class) | mem
 cnf(i2c, plain, (~ member(U,universal_class) | ~ member(W,universal_class) | ~ member(ordered_pair(W,U),X) | member(ordered_pair(ordered_pair(U,W),U),flip(cross_product(X,universal_class)))), inference(lemma,[status(thm)],[flip3,i2a,i2b])).
 cnf(i2, plain, (~ member(U,universal_class) | ~ member(W,universal_class) | ~ member(ordered_pair(W,U),X) | member(ordered_pair(U,W),inverse(X))), inference(lemma,[status(thm)],[i2c,d2,inverse,opv])).
 cnf(r1, plain, (~ member(Z,range_of(X)) | member(ordered_pair(range(inverse(X),Z,universal_class),Z),X)), inference(lemma,[status(thm)],[range_of,d1,i1])).
-cnf(r2, plain, (~ member(Z,universal_class) | ~ member(W,universal_class) | ~ member(ordered_pair(W,Z),X) | member(Z,range_of(X))), inference(lemma,[status(thm)],[range_of,d2,i2])).
 cnf(im1, plain, (~ member(Z,image(X,A)) | member(ordered_pair(range(inverse(restrict(X,A,universal_class)),Z,universal_class),Z),restrict(X,A,universal_class))), inference(lemma,[status(thm)],[image,r1])).
-cnf(im2, plain, (~ member(Z,universal_class) | ~ member(W,A) | ~ member(ordered_pair(W,Z),X) | member(Z,image(X,A))), inference(lemma,[status(thm)],[image,r2,rsi,cartesian_product3,mv])).
 cnf(cpw, plain, (~ member(Z,cross_product(A,B)) | ordered_pair(first(Z),second(Z)) = Z), inference(lemma,[status(thm)],[cartesian_product4])).
 cnf(is1, plain, (~ member(W,image(B,singleton(Y))) | member(ordered_pair(Y,W),B)), inference(lemma,[status(thm)],[im1,rsx,rsc,cartesian_product1,sg1])).
-cnf(is2, plain, (~ member(Y,universal_class) | ~ member(W,universal_class) | ~ member(ordered_pair(Y,W),B) | member(W,image(B,singleton(Y)))), inference(lemma,[status(thm)],[im2,sg2])).
 cnf(co1a, plain, (~ member(ordered_pair(Y,Z),compose(A,B)) | member(ordered_pair(range(inverse(restrict(A,image(B,singleton(Y)),universal_class)),Z,universal_class),Z),A)), inference(lemma,[status(thm)],[compose2,im1,rsx])).
 cnf(co1b, plain, (~ member(ordered_pair(Y,Z),compose(A,B)) | member(ordered_pair(Y,range(inverse(restrict(A,image(B,singleton(Y)),universal_class)),Z,universal_class)),B)), inference(lemma,[status(thm)],[compose2,im1,rsc,cartesian_product1,is1])).
-cnf(co2a, plain, (~ member(Y,universal_class) | ~ member(W,universal_class) | ~ member(Z,universal_class) | ~ member(ordered_pair(Y,W),B) | ~ member(ordered_pair(W,Z),A) | member(Z,image(A,image(B,singleton(Y))))), inference(lemma,[status(thm)],[is2,im2])).
-cnf(co2, plain, (~ member(Y,universal_class) | ~ member(W,universal_class) | ~ member(Z,universal_class) | ~ member(ordered_pair(Y,W),B) | ~ member(ordered_pair(W,Z),A) | member(ordered_pair(Y,Z),compose(A,B))), inference(lemma,[status(thm)],[co2a,compose3,cartesian_product3])).
 cnf(pvv1, plain, (~ member(ordered_pair(U,W),cross_product(A,B)) | member(U,universal_class)), inference(lemma,[status(thm)],[cartesian_product1,mv])).
-cnf(pvv2, plain, (~ member(ordered_pair(U,W),cross_product(A,B)) | member(W,universal_class)), inference(lemma,[status(thm)],[cartesian_product2,mv])).
-cnf(sr0, plain, (~ member(ordered_pair(U,W),subset_relation) | ~ member(ordered_pair(U,W),compose(complement(element_relation),inverse(element_relation)))), inference(lemma,[status(thm)],[subset_relation,intersection2,complement1])).
-cnf(sr0c, plain, (~ member(ordered_pair(U,W),subset_relation) | member(ordered_pair(U,W),cross_product(universal_class,universal_class))), inference(lemma,[status(thm)],[subset_relation,intersection1])).
-cnf(ein, plain, (~ member(Z,U) | ~ member(U,universal_class) | member(ordered_pair(U,Z),inverse(element_relation))), inference(lemma,[status(thm)],[mv,cartesian_product3,element_relation3,i2])).
-cnf(enot, plain, (member(Z,W) | ~ member(Z,universal_class) | ~ member(W,universal_class) | member(ordered_pair(Z,W),complement(element_relation))), inference(lemma,[status(thm)],[element_relation2,complement2,opv])).
-cnf(sr1, plain, (~ member(ordered_pair(U,W),subset_relation) | ~ member(Z,U) | member(Z,W)), inference(lemma,[status(thm)],[sr0,sr0c,pvv1,pvv2,ein,enot,mv,co2])).
-cnf(sr2, plain, (~ member(ordered_pair(U,W),subset_relation) | subclass(U,W)), inference(lemma,[status(thm)],[sr1,not_subclass_members1,not_subclass_members2])).
-cnf(id0, plain, (~ member(ordered_pair(U,W),identity_relation) | member(ordered_pair(U,W),subset_relation)), inference(lemma,[status(thm)],[identity_relation,intersection2])).
-cnf(id0i, plain, (~ member(ordered_pair(U,W),identity_relation) | member(ordered_pair(W,U),subset_relation)), inference(lemma,[status(thm)],[identity_relation,intersection1,i1])).
-cnf(id1, plain, (~ member(ordered_pair(U,W),identity_relation) | U = W), inference(lemma,[status(thm)],[id0,id0i,sr2,subclass_implies_equal])).
 cnf(nco, plain, (~ member(ordered_pair(U,U),compose(complement(element_relation),inverse(element_relation)))), inference(lemma,[status(thm)],[co1a,co1b,i1,element_relation2,complement1])).
 cnf(id2a, plain, (~ member(U,universal_class) | member(ordered_pair(U,U),subset_relation)), inference(lemma,[status(thm)],[nco,cartesian_product3,complement2,opv,subset_relation,intersection3])).
 cnf(id2, plain, (~ member(U,universal_class) | member(ordered_pair(U,U),identity_relation)), inference(lemma,[status(thm)],[id2a,i2,identity_relation,intersection3])).
-cnf(idc, plain, (~ member(Z,identity_relation) | member(Z,cross_product(universal_class,universal_class))), inference(lemma,[status(thm)],[identity_relation,intersection2,subset_relation,intersection1])).
-cnf(im1x, plain, (~ member(Z,image(X,A)) | member(ordered_pair(range(inverse(restrict(X,A,universal_class)),Z,universal_class),Z),X)), inference(lemma,[status(thm)],[im1,rsx])).
 cnf(cmc, plain, (~ member(W,compose(A,B)) | member(W,cross_product(universal_class,universal_class))), inference(lemma,[status(thm)],[compose1,subclass_members])).
-cnf(fr1, plain, (subclass(restrict(identity_relation,X,universal_class),cross_product(universal_class,universal_class))), inference(lemma,[status(thm)],[rsx,idc,not_subclass_members1,not_subclass_members2])).
-cnf(fr2p, plain, (~ member(ordered_pair(A,C),compose(restrict(identity_relation,X,universal_class),inverse(restrict(identity_relation,X,universal_class)))) | A = C), inference(lemma,[status(thm)],[co1a,co1b,i1,rsx,id1])).
-cnf(fr2q, plain, (~ member(ordered_pair(A,C),compose(restrict(identity_relation,X,universal_class),inverse(restrict(identity_relation,X,universal_class)))) | member(ordered_pair(A,C),identity_relation)), inference(lemma,[status(thm)],[fr2p,cmc,pvv1,id2])).
-cnf(fr2, plain, (subclass(compose(restrict(identity_relation,X,universal_class),inverse(restrict(identity_relation,X,universal_class))),identity_relation)), inference(lemma,[status(thm)],[fr2q,cmc,cpw,not_subclass_members1,not_subclass_members2])).
-cnf(fr, plain, (function(restrict(identity_relation,X,universal_class))), inference(lemma,[status(thm)],[fr1,fr2,function3])).
-cnf(ir1, plain, (~ member(Z,image(restrict(identity_relation,X,universal_class),Y)) | member(Z,X)), inference(lemma,[status(thm)],[im1x,rsx,rsc,id1,cartesian_product1])).
-cnf(ir2, plain, (~ member(Z,X) | ~ member(Z,Y) | member(Z,image(restrict(identity_relation,X,universal_class),Y))), inference(lemma,[status(thm)],[mv,id2,cartesian_product3,rsi,im2])).
-cnf(ir3, plain, (~ subclass(X,Y) | image(restrict(identity_relation,X,universal_class),Y) = X), inference(lemma,[status(thm)],[ir1,ir2,subclass_members,not_subclass_members1,not_subclass_members2,subclass_implies_equal])).
-cnf(sep, plain, (~ subclass(X,Y) | ~ member(Y,universal_class) | member(X,universal_class)), inference(lemma,[status(thm)],[ir3,fr,replacement])).
-cnf(sm1, plain, (~ member(W,Z) | ~ member(Z,X) | member(W,sum_class(X))), inference(lemma,[status(thm)],[mv,cartesian_product3,element_relation3,rsi,d2,sum_class_definition])).
-cnf(opm2, plain, (member(unordered_pair(Z,singleton(W)),ordered_pair(Z,W))), inference(lemma,[status(thm)],[ordered_pair,unordered_pair3,unordered_pairs_in_universal])).
-cnf(rss1, plain, (~ member(Z,range_of(X)) | member(unordered_pair(range(inverse(X),Z,universal_class),singleton(Z)),sum_class(X))), inference(lemma,[status(thm)],[r1,opm2,sm1])).
-cnf(rss1b, plain, (~ member(Z,range_of(X)) | member(singleton(Z),sum_class(sum_class(X)))), inference(lemma,[status(thm)],[rss1,unordered_pair3,unordered_pairs_in_universal,singleton_set,sm1])).
-cnf(rss2, plain, (~ member(Z,range_of(X)) | member(Z,sum_class(sum_class(sum_class(X))))), inference(lemma,[status(thm)],[rss1b,mv,sg2,sm1])).
-cnf(rsss, plain, (subclass(range_of(X),sum_class(sum_class(sum_class(X))))), inference(lemma,[status(thm)],[rss2,not_subclass_members1,not_subclass_members2])).
-cnf(rset, plain, (~ member(X,universal_class) | member(range_of(X),universal_class)), inference(lemma,[status(thm)],[rsss,sum_class2,sep])).
-cnf(dJ1, plain, (~ member(Z,domain_of(intersection(Y,identity_relation))) | member(ordered_pair(Z,Z),Y)), inference(lemma,[status(thm)],[d1,intersection1,intersection2,id1])).
-cnf(dJ2, plain, (~ member(Z,universal_class) | ~ member(ordered_pair(Z,Z),Y) | member(Z,domain_of(intersection(Y,identity_relation)))), inference(lemma,[status(thm)],[id2,intersection3,d2])).
-cnf(nset, plain, (member(null_class,universal_class)), inference(lemma,[status(thm)],[inductive1,omega_is_inductive1,mv])).
-cnf(rx_1, plain, (member(singleton(null_class),universal_class)), inference(lemma,[status(thm)],[unordered_pairs_in_universal,singleton_set])).
-cnf(rx_2, plain, (member(singleton(null_class),domain_of(cross_product(universal_class,universal_class)))), inference(lemma,[status(thm)],[rx_1,nset,cartesian_product3,d2])).
-cnf(rx_3, plain, (member(ordered_pair(singleton(null_class),restrict(cross_product(universal_class,universal_class),singleton(null_class),universal_class)),rest_of(cross_product(universal_class,universal_class)))), inference(lemma,[status(thm)],[rx_2,rest_of4])).
-cnf(rx_4, plain, (member(restrict(cross_product(universal_class,universal_class),singleton(null_class),universal_class),universal_class)), inference(lemma,[status(thm)],[rx_3,rest_of1,subclass_members,cartesian_product2])).
-cnf(rx_5a, plain, (~ member(Z,universal_class) | member(ordered_pair(null_class,Z),restrict(cross_product(universal_class,universal_class),singleton(null_class),universal_class))), inference(lemma,[status(thm)],[nset,sg2,cartesian_product3,rsi])).
-cnf(rx_5, plain, (subclass(universal_class,range_of(restrict(cross_product(universal_class,universal_class),singleton(null_class),universal_class)))), inference(lemma,[status(thm)],[rx_5a,nset,r2,not_subclass_members1,not_subclass_members2])).
-cnf(rx_6, plain, (member(universal_class,universal_class)), inference(lemma,[status(thm)],[rx_4,rset,rx_5,sep])).
-cnf(rx_7a, plain, (~ member(X,universal_class) | ~ member(X,diagonalise(element_relation)) | ~ member(X,X)), inference(lemma,[status(thm)],[diagonalisation,complement1,dJ2,cartesian_product3,element_relation3])).
-cnf(rx_7b, plain, (~ member(X,universal_class) | member(X,diagonalise(element_relation)) | member(X,X)), inference(lemma,[status(thm)],[diagonalisation,complement2,dJ1,element_relation2])).
-cnf(rx_7, plain, (member(diagonalise(element_relation),universal_class)), inference(lemma,[status(thm)],[rx_6,class_elements_are_sets,sep])).
-cnf(rx_false, plain, ($false), inference(lemma,[status(thm)],[rx_7,rx_7a,rx_7b])).
-cnf(done, plain, ($false), inference(lemma,[status(thm)],[rx_false])).
+cnf(k218_r1, plain, (~ member(ordered_pair(A,C),compose(rest_of(X),inverse(rest_of(X)))) | A = C), inference(lemma,[status(thm)],[co1a,co1b,i1,rest_of3])).
+cnf(k218_r2, plain, (~ member(ordered_pair(A,C),compose(rest_of(X),inverse(rest_of(X)))) | member(ordered_pair(A,C),identity_relation)), inference(lemma,[status(thm)],[cmc,id2,k218_r1,pvv1])).
+cnf(k218_r3, plain, (~ member(W,compose(rest_of(X),inverse(rest_of(X)))) | member(W,identity_relation)), inference(lemma,[status(thm)],[cmc,cpw,k218_r2])).
+cnf(k218_r4, plain, (subclass(compose(rest_of(X),inverse(rest_of(X))),identity_relation)), inference(lemma,[status(thm)],[k218_r3,not_subclass_members1,not_subclass_members2])).
+cnf(done, plain, ($false), inference(lemma,[status(thm)],[function3,k218_r4,prove_rest_of_is_a_function_1,rest_of1])).
 % SZS output end CNFRefutation for NUM218-1
 %------------------------------------------------------------------------------
