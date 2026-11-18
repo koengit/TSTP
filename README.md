@@ -63,7 +63,7 @@ solutions that anyone can verify independently.
 ## Why could no prover find these proofs?
 
 Many of the proofs are short: of the 543 proofs other than the Ramsey proofs, 42 have at most 10
-derived steps (not counting the final step to `$false`) and the median is 42; the 41 SEU proofs from
+derived steps (not counting the final step to `$false`) and the median is 41; the 41 SEU proofs from
 Mizar have a median of 9, while the Quaife NBG proofs are longer because each one carries the lemmas of
 the agent's library that it uses (numbers computed by `Tools/stats.py`). What made them hard
 for automated provers is mostly the *encoding*, not the mathematics:
