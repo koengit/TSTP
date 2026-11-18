@@ -355,7 +355,7 @@
 %   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_,
 %     ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
 %   · intro _ _; exact Iff.rfl                                         -- part_of_defn
-%   · rintro C C1 C2 ⟨P, hm⟩                                          -- sum_defn (fixed)
+%   · rintro C C1 C2 ⟨P, hm⟩                                          -- sum_defn
 %     show C = sum C1 C2 ↔ ∀ Q, (inc Q C ↔ inc Q C1 ∨ inc Q C2)
 %     constructor
 %     · intro e Q; rw [e]; exact sum_union hm Q
@@ -436,13 +436,13 @@
 %     · rintro rfl; exact fun P => (inc_uc P O).symm
 %     · intro h; exact inc_ext (fun P => (h P).symm.trans (inc_uc P O).symm)
 %   · intro _ _ _; exact Iff.rfl                                       -- connect_defn
-%   · intro A B                                                        -- symmetry
+%   · intro A B                                                        -- symmetry_of_at_the_same_time
 %     show once (ats A B) ↔ once (ats B A)
 %     rw [once_ats, once_ats]
 %     constructor
 %     · rintro ⟨rfl, h⟩; exact ⟨rfl, h⟩
 %     · rintro ⟨rfl, h⟩; exact ⟨rfl, h⟩
-%   · intro A B C                                                      -- associativity
+%   · intro A B C                                                      -- assciativity_of_at_the_same_time
 %     show once (ats (ats A B) C) ↔ once (ats A (ats B C))
 %     rw [once_ats (ats A B) C, once_ats A (ats B C)]
 %     constructor
@@ -465,8 +465,8 @@
 %         rw [h2] at e
 %         subst e
 %         exact not_once_two hA
-%   · intro A h; show once (ats A A); rw [ats_self h]; exact h         -- idempotence
-%   · intro A B h                                                      -- conjunction
+%   · intro A h; show once (ats A A); rw [ats_self h]; exact h         -- idempotence_of_at_the_same_time
+%   · intro A B h                                                      -- conjunction_at_the_same_time
 %     obtain ⟨e, hA⟩ := (once_ats A B).1 h
 %     subst e; exact ⟨hA, hA⟩
 %   · intro X P; show once (atf X P) ↔ inco P (traj X); rw [once_atf, inco_traj]   -- at_on_trajectory
