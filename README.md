@@ -19,7 +19,7 @@ short higher-order proof (see [Ramsey proofs in Lean](#ramsey-proofs-in-lean)).
 
 **Findings in one sentence:** for 846 of the hardest TPTP problems (845 rated 1.00 in TPTP v10.0.0; NUM636+4
 was rated 1.00 until v10.0.0 lowered it to 0.96), 845 of which had no solution in the TSTP, we give
-checked proofs or models, which settle 495 problems of status Unknown, show that 49 further Unknown
+checked proofs or models, which settle 495 problems of status Unknown (123 of them only through two inconsistent axiom sets), show that 49 further Unknown
 problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 42 recorded
 statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
@@ -71,7 +71,7 @@ for automated provers is mostly the *encoding*, not the mathematics:
 
 * **Large axiom sets.** The Mizar (MPTP) problems solved here have from 46 formulas (median 352 for the
   SEU problems) up to 55,482 (TOP044+4); the proof needs a handful. Each step of our proofs cites only the axioms it uses, and then E usually proves
-  it quickly; with all axioms it times out. Measured with `Tools/check_proof.py` on all 537 proofs except the
+  it quickly; with all axioms it times out. Measured with `Tools/check_proof.py` on the 537 proofs published at the time (2026-11-18; the repository has grown since) except the
   two largest Ramsey proofs: in 174 every step takes E under 1 s and in 305 under 10 s; in 49 at least one
   step exceeds E's default strategy at 30 s and is proved by E's strategy schedule or by Vampire.
 * **Missing lemmas, and cuts.** Some problems need an intermediate lemma (or a new defined predicate)
@@ -227,7 +227,7 @@ External requirements:
   Lake project with that Mathlib version built.
 
 All 131 models were checked with these tools. Most take seconds; the
-largest, [GRP738-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP738-1.p) (a 32-element loop checked by `decide`), takes about 2.5 minutes and 11 GB of memory.
+largest, [GRP738-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP738-1.p) (a 32-element loop checked by `decide`), takes about 2.5 minutes and 11 GB of memory in Lean; its finite interpretation (`SAT-FMo`) is checked by `Tools/check_finite_model.py` in under a second, so for the finite models the table is the cheaper primary certificate and Lean the second, independent check.
 
 ## How the solutions were found
 
