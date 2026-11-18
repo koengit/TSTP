@@ -533,12 +533,13 @@ These proofs and models have been independently checked (proofs step by step by 
 | [TOP044+3](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/TOP/TOP044%2B3.p) | Unknown | Theorem | [✅ GDV-checked proof (10 steps)](Solutions/TOP/TOP044+3/ClaudeOpus---5.5.THM-Ref.s) |
 | [TOP044+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/TOP/TOP044%2B4.p) | Unknown | Theorem | [✅ GDV-checked proof (10 steps)](Solutions/TOP/TOP044+4/ClaudeOpus---5.5.THM-Ref.s) |
 
-## Known status, first solution (163 problems)
+## Known status, first solution (166 problems)
 
 For these problems the TPTP v10.0.0 status is confirmed, but the TSTP has no solution with a derivation or a model (only an assurance, or nothing; folders checked on seetptp.tptp.org, 2026-11). The checked solution here would be the first one.
 
 | Problem | TPTP v10.0.0 | Our solution | In the TSTP |
 |---|---|---|---|
+| [ALG013-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG013-1.p) | Unsatisfiable | [✅ GDV-checked proof (482 steps)](Solutions/ALG/ALG013-1/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
 | [ALG229+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/ALG/ALG229%2B1.p) | Theorem | [✅ GDV-checked proof (18 steps)](Solutions/ALG/ALG229+1/ClaudeOpus---5.5.THM-Ref.s) | assurance only (Infinox) |
 | [FLD101-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD101-1.p) | Satisfiable | [✅ Lean-checked model (infinite: ℚ)](Solutions/FLD/FLD101-1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
 | [FLD102-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/FLD/FLD102-1.p) | Satisfiable | [✅ Lean-checked model (infinite: ℚ)](Solutions/FLD/FLD102-1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
@@ -621,6 +622,8 @@ For these problems the TPTP v10.0.0 status is confirmed, but the TSTP has no sol
 | [NUM784+4](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUM/NUM784%2B4.p) | Theorem | [✅ GDV-checked proof (4 steps)](Solutions/NUM/NUM784+4/ClaudeOpus---5.5.THM-Ref.s) | nothing |
 | [NUN079+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUN/NUN079%2B1.p) | CounterSatisfiable | [✅ Lean-checked model (infinite: ℕ)](Solutions/NUN/NUN079+1/ClaudeOpus---5.5.CSA-Mod.s) | nothing |
 | [NUN079+2](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/NUN/NUN079%2B2.p) | CounterSatisfiable | [✅ Lean-checked model (infinite: ℕ)](Solutions/NUN/NUN079+2/ClaudeOpus---5.5.CSA-Mod.s) | assurance only (Infinox) |
+| [PUZ052-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/PUZ/PUZ052-1.p) | Satisfiable | [✅ Lean-checked model (infinite: ℕ)](Solutions/PUZ/PUZ052-1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
+| [PUZ053-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/PUZ/PUZ053-1.p) | Satisfiable | [✅ Lean-checked model (infinite: ℕ)](Solutions/PUZ/PUZ053-1/ClaudeOpus---5.5.SAT-Mod.s) | nothing |
 | [PUZ056-10.020](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/PUZ/PUZ056-10.020.p) | Unsatisfiable | [✅ GDV-checked proof (21 steps)](Solutions/PUZ/PUZ056-10.020/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
 | [PUZ056-10.030](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/PUZ/PUZ056-10.030.p) | Unsatisfiable | [✅ GDV-checked proof (31 steps)](Solutions/PUZ/PUZ056-10.030/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
 | [PUZ056-2.020](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/PUZ/PUZ056-2.020.p) | Unsatisfiable | [✅ GDV-checked proof (21 steps)](Solutions/PUZ/PUZ056-2.020/ClaudeOpus---5.5.UNS-CRf.s) | nothing |
