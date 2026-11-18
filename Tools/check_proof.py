@@ -13,7 +13,8 @@ What is checked (exit 0 = PROOF, 1 = FAIL):
     (not in the problem and not used earlier in the derivation), not circular (p not in body), and no free
     variables in body outside Vs, so that it is a conservative extension;
   * negate_conjecture steps negate exactly their parent conjecture;
-  * every lemma step (inference(lemma,...)) follows from its parents: E proves it (Vampire as fallback);
+  * every lemma step (inference(lemma,...)) follows from its parents: E proves it (--auto, then
+    --auto-schedule=4; Vampire as fallback);
     parents must occur earlier; no lemma step cites a conjecture directly;
   * the last formula is $false (for a fof problem with a conjecture that the refutation does not use, the
     verdict says that the axioms are contradictory).
@@ -134,11 +135,18 @@ def main():
             dt = time.time() - t0
             st = re.search(r"SZS status (\w+)", r.stdout)
             st = st.group(1) if st else "none"
+            if st not in OK:   # second try: E's multi-core strategy schedule (some steps need it)
+                r = subprocess.run([E, "--auto-schedule=4", "-s", f"--cpu-limit={a.timeout}", fn],
+                                   capture_output=True, text=True)
+                s2 = re.search(r"SZS status (\w+)", r.stdout)
+                if s2 and s2.group(1) in OK:
+                    st = s2.group(1)
+            dt = time.time() - t0
             if st in OK or not V:
                 return name, st, dt, None
             r = subprocess.run([V, "--mode", "casc", "-t", str(2 * a.timeout), fn], capture_output=True, text=True)
             v = re.search(r"SZS status (\w+)", r.stdout)
-            return name, st, dt, (v.group(1) if v else "none")
+            return name, st, time.time() - t0, (v.group(1) if v else "none")
 
         with ThreadPoolExecutor(a.jobs) as ex:
             res = list(ex.map(run, jobs))
@@ -154,7 +162,7 @@ def main():
               f"proved by E: {len(jobs) - len(by_vampire) - len(failed)}, by Vampire: {len(by_vampire)}, "
               f"failed: {len(failed)}")
         if slow:
-            print(f"slowest step: {slow[0]} ({slow[2]:.2f} s with E); median {times[len(times) // 2]:.3f} s")
+            print(f"slowest step: {slow[0]} ({slow[2]:.2f} s, all attempts); median {times[len(times) // 2]:.3f} s")
         for n, s, v in failed[:20]:
             print(f"FAIL step {n}: E {s}" + (f", Vampire {v}" if v else ""))
         for pr in problems[:20]:
