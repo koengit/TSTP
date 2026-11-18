@@ -16,7 +16,14 @@
 %            the model worked out the mathematical argument and wrote the proof as a chain of lemmas;
 %            E 3.2.5 was used only as a step checker and short-timeout lemma oracle.
 %            inference(lemma,...) means: this formula is a logical consequence of its parents (no
-%            specific calculus rule).
+%            specific calculus rule). Notes: Note: this status rests only on the inconsistency. The
+%            intended theorem is "the union of two inductive classes is inductive", but the second
+%            hypothesis reads K(x) ⊆ y (with K(z) = {∅} ∪ image(successor_relation, z)) where K(y) ⊆
+%            y is surely meant. As written the problem is false in standard NBG: take x = On and y =
+%            On ∪ {a} for a set a that is not an ordinal; then K(x) ⊆ x and K(x) ⊆ y, but succ(a) is
+%            not in x ∪ y. With K(y) ⊆ y the theorem holds, since K(x ∪ y) = K(x) ∪ K(y). Suggested
+%            fix: replace image(successor_relation,x) by image(successor_relation,y) in
+%            prove_inductive_closed_under_union_2.
 % Checking : GDV (TPTP World derivation verifier, e.g. via SystemOnTSTP) with an ATP such as Vampire
 %            5.1 for the lemma steps; parents of each step are listed in its inference record.
 %            Definition steps (role definition) introduce fresh predicate symbols and are

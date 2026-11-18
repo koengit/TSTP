@@ -17,20 +17,20 @@ cluster), and every model is checked in
 the Lean 4 proof assistant. The six Ramsey problems, GRA125-1 included, are in addition certified in Lean by a
 short higher-order proof (see [Ramsey proofs in Lean](#ramsey-proofs-in-lean)).
 
-**Findings in one sentence:** for 683 of the hardest TPTP problems (682 rated 1.00 in TPTP v10.0.0; NUM636+4
-was rated 1.00 until v10.0.0 lowered it to 0.96), 682 of which had no solution in the TSTP, we give
-checked proofs or models, which settle 435 problems of status Unknown, show that 49 further Unknown
+**Findings in one sentence:** for 692 of the hardest TPTP problems (691 rated 1.00 in TPTP v10.0.0; NUM636+4
+was rated 1.00 until v10.0.0 lowered it to 0.96), 691 of which had no solution in the TSTP, we give
+checked proofs or models, which settle 444 problems of status Unknown, show that 49 further Unknown
 problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 30 recorded
 statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
 ## Contributions
 
-* **Checked solutions where none existed.** Proofs and models for 683 hard problems; for 682 of them the
+* **Checked solutions where none existed.** Proofs and models for 692 hard problems; for 691 of them the
   TSTP had no solution. Proofs are TSTP derivations verified by GDV; models are verified in Lean. All
   files use the TSTP's layout and header conventions, so they can be added to the TSTP directly.
 * **Corrections to the library.** 30 recorded statuses that appear to be wrong (each backed by a checked
   proof or model, except one literature-based entry), 49 problems that are non-theorems only because of a
-  missing axiom or hypothesis (with the cause and a suggested fix), and 435 Unknown problems settled. Among them: the axiom set SET004-0 + SET004-1 + NUM004-0 (Quaife's NBG with ordinals, included by 277 TPTP problems) is inconsistent, because of one clause of NUM004-0 (see the top of [STATUS_CHANGES.md](STATUS_CHANGES.md)).
+  missing axiom or hypothesis (with the cause and a suggested fix), and 444 Unknown problems settled. Among them: the axiom set SET004-0 + SET004-1 + NUM004-0 (Quaife's NBG with ordinals, included by 277 TPTP problems) is inconsistent, because of one clause of NUM004-0 (see the top of [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 * **A checkable TSTP format for infinite models.** Most of the models here are infinite, so they cannot
   be written as TPTP finite interpretations. Each is a Lean 4 development embedded in an ordinary TSTP
   file, checked against a Lean statement that is generated mechanically from the TPTP problem (never
@@ -63,8 +63,8 @@ solutions that anyone can verify independently.
 
 ## Why could no prover find these proofs?
 
-Many of the proofs are short: of the 546 proofs other than the Ramsey proofs, 42 have at most 10
-derived steps (not counting the final step to `$false`) and the median is 42; the 41 SEU proofs from
+Many of the proofs are short: of the 555 proofs other than the Ramsey proofs, 42 have at most 10
+derived steps (not counting the final step to `$false`) and the median is 44; the 41 SEU proofs from
 Mizar have a median of 9, while the Quaife NBG proofs are longer because each one carries the lemmas of
 the agent's library that it uses (numbers computed by `Tools/stats.py`). What made them hard
 for automated provers is mostly the *encoding*, not the mathematics:
@@ -120,7 +120,7 @@ instance of a fixed calculus rule). Definition steps (`role definition`, `introd
 introduce a fresh, non-recursive predicate symbol and are conservative. (They occur in only seven
 proofs: [GRA019+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA019%2B1.p), [SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p), [SYN986+1.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.006.p), [SYN986-10.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.005.p), [SYN986-10.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.006.p) [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p) and [GRA175-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA175-1.p). Note that GDV checks that a defined symbol is
 new, but in our tests it also accepted a circular definition such as `q <=> ~q`; our own checker rejects
-those, and all 28 definitions here are non-circular.) Checking:
+those, and all 64 definitions here are non-circular.) Checking:
 
 * every proof was checked step by step with E 3.2.5 (each step as an entailment problem from its
   parents), and
