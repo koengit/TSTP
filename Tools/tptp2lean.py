@@ -14,9 +14,15 @@ cnf clauses are universally closed; a conjecture is included *negated*, so for a
 problem with a conjecture `Satisfiable` means CounterSatisfiable.  TPTP = is Lean =.
 A model file then proves `theorem sat : TPTP.Satisfiable`.  This translator is the
 only trusted part besides Lean itself, so it is kept deliberately small.
-Symbols get a prefix (f_, c_, p_) so they cannot clash with Lean keywords.
+Symbols get a prefix (f_, c_, p_) so they cannot clash with Lean keywords; a name that is not a plain
+identifier (a quoted 'X', a number, a "distinct object") is written with Lean's «...» quoting.
+TPTP semantics of defined terms (TPTP SyntaxBNF): numbers are interpreted as themselves, so numbers with
+different values are unequal ("1 != 2 is an implicit axiom"); distinct objects ("...") are interpreted as
+themselves, so different ones are unequal. These implicit axioms are added as the first conjunct of Holds.
+(tptp4X already identifies 'abc' with abc.)
 """
-import os, subprocess, sys
+import os, re, subprocess, sys
+from fractions import Fraction
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import tptp
 
@@ -49,7 +55,18 @@ def main(problem):
     path = {}                       # symbol -> sub-structure prefix (for large signatures)
 
     def fname(n, ar, k):
-        return ("p_" if k == "pred" else "c_" if ar == 0 else "f_") + n
+        full = ("p_" if k == "pred" else "c_" if ar == 0 else "f_") + n
+        return full if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", full) else "«" + full + "»"
+
+    NUM = re.compile(r"[+-]?[0-9]+(?:/[0-9]+|\.[0-9]+(?:[Ee][+-]?[0-9]+)?|[Ee][+-]?[0-9]+)?")
+    def numval(n):
+        if "/" in n: return Fraction(n)
+        return Fraction(n) if re.fullmatch(r"[+-]?[0-9]+", n) else Fraction(float(n)).limit_denominator(10**18) if "e" in n.lower() else Fraction(n)
+    dobjs = sorted(n for n, (ar, k) in kinds.items() if ar == 0 and k == "fun" and n.startswith('"'))
+    nums = sorted(n for n, (ar, k) in kinds.items() if ar == 0 and k == "fun" and NUM.fullmatch(n))
+    for n, (ar, k) in kinds.items():
+        if (n.startswith('"') or NUM.fullmatch(n)) and (ar, k) != (0, "fun"):
+            sys.exit(f"defined term {n} used as a function or predicate")
 
     def t(x):
         if x[0] == "var":
@@ -99,6 +116,18 @@ def main(problem):
         out.append("  dummy : Unit := ()")
     out += ["", "def Holds {M : Type u} (I : Sig M) : Prop :="]
     parts, conjs = [], []
+    implicit = []
+    for i, a in enumerate(dobjs):
+        for b in dobjs[i + 1:]:
+            implicit.append(f"(¬ ({t(('fun', a, []))} = {t(('fun', b, []))}))")
+    for i, a in enumerate(nums):
+        for b in nums[i + 1:]:
+            op = "=" if numval(a) == numval(b) else "≠"
+            implicit.append(f"({t(('fun', a, []))} = {t(('fun', b, []))})" if op == "=" else
+                            f"(¬ ({t(('fun', a, []))} = {t(('fun', b, []))}))")
+    if implicit:
+        parts.append("  -- implicit TPTP axioms: distinct objects and numbers are interpreted as themselves\n  "
+                     + "(" + " ∧ ".join(implicit) + ")")
     nconj = sum(1 for _, _, role, _ in fs if role == "conjecture")
     for lang, name, role, ast in fs:
         if lang == "cnf":

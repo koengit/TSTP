@@ -19,10 +19,12 @@ python3 "$HERE/tptp2lean.py" "$TPTP/Problems/${P:0:3}/$P.p" > "$W/Statement.lean
 python3 "$HERE/lint_model.py" "$W/Model.lean" || exit 1   # forbidden constructs (see lint_model.py)
 cd "$W"
 $LEAN -o Statement.olean Statement.lean || { echo "REJECT: statement does not compile"; exit 1; }
+SH=$(sha256sum Statement.olean Statement.lean)   # must be unchanged after compiling the model
 LP=.
 if grep -q '^import Mathlib' Model.lean; then LP=.:$(cd "$MATHLIB" && lake env printenv LEAN_PATH); fi
 out=$(LEAN_PATH=$LP $LEAN -o Model.olean Model.lean 2>&1)
 echo "$out" | grep -q error && { echo "$out" | grep -A10 error | head -30; echo "REJECT: model does not compile"; exit 1; }
+[ "$(sha256sum Statement.olean Statement.lean)" = "$SH" ] || { echo "REJECT: compiling the model changed the statement"; exit 1; }
 printf 'import Statement\nimport Model\nexample : TPTP.Satisfiable ∨ TPTP.Satisfiable1 := by first | exact Or.inl sat | exact Or.inr sat\n#print axioms sat\n' > check.lean
 out=$(LEAN_PATH=$LP $LEAN check.lean 2>&1)
 echo "$out" | grep -q error && { echo "$out" | head -20; echo "REJECT"; exit 1; }
