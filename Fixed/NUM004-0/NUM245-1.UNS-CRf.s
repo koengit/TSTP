@@ -4,7 +4,7 @@
 % Result   : Unsatisfiable
 % Output   : CNFRefutation
 % Verified : GDV VerifiedGood (Vampire 5.1 as the trusted ATP), against the problem with the fixed axioms
-% Comments : hand lemma chain (attempts/num004_fixed/hand/NUM245-1.goals in the project); cites the fixed rest_of4
+% Comments : hand lemma chain (attempts/num004_fixed/hand/NUM245-1.goals in the project); cites rest_of4 (fixed form), if at all, only where the restriction is a set
 %------------------------------------------------------------------------------
 % SZS status Unsatisfiable for NUM245-1
 % SZS output start CNFRefutation for NUM245-1

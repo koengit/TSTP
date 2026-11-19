@@ -19,7 +19,7 @@ short higher-order proof (see [Ramsey proofs in Lean](#ramsey-proofs-in-lean)).
 
 **Findings in one sentence:** for 849 of the hardest TPTP problems (848 rated 1.00 in TPTP v10.0.0; NUM636+4
 was rated 1.00 until v10.0.0 lowered it to 0.96), 848 of which had no solution in the TSTP, we give
-checked proofs or models, which settle 495 problems of status Unknown (121 of them only through two inconsistent axiom sets), show that 49 further Unknown
+checked proofs or models, which settle 495 problems of status Unknown (95 of them only through two inconsistent axiom sets), show that 49 further Unknown
 problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 42 recorded
 statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 

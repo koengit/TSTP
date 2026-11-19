@@ -16,7 +16,10 @@
 %            the model worked out the mathematical argument and wrote the proof as a chain of lemmas;
 %            E 3.2.5 was used only as a step checker and short-timeout lemma oracle.
 %            inference(lemma,...) means: this formula is a logical consequence of its parents (no
-%            specific calculus rule).
+%            specific calculus rule). Notes: With the fixed axioms the conjecture does not follow
+%            (Lean model): function(z) is not enough. For z = ∅, recursion_equation_functions(∅) =
+%            {∅}, so the domain of its sum class is ∅, not ordinal_numbers (z must at least be
+%            defined on the restrictions that arise)
 % Checking : GDV (TPTP World derivation verifier, e.g. via SystemOnTSTP) with an ATP such as Vampire
 %            5.1 for the lemma steps; parents of each step are listed in its inference record.
 %            Definition steps (role definition) introduce fresh predicate symbols and are

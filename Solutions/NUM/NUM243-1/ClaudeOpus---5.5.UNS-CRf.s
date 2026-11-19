@@ -16,7 +16,12 @@
 %            the model worked out the mathematical argument and wrote the proof as a chain of lemmas;
 %            E 3.2.5 was used only as a step checker and short-timeout lemma oracle.
 %            inference(lemma,...) means: this formula is a logical consequence of its parents (no
-%            specific calculus rule).
+%            specific calculus rule). Notes: With the fixed axioms the conjecture does not follow
+%            (Lean model): rest(x) occurs in no axiom (NUM259-2's transfinite_recursion_lemma10 has
+%            rest_of(x)). Model: z maps every set to ∅ except z({∅}) = {∅}; x = On × {{∅}} and
+%            rest(x) := x, so compose(z, rest(x)) = x, while every member of
+%            recursion_equation_functions(z) takes only the value ∅ and {⟨∅,∅⟩} is one of them.
+%            Suggested fix (not checked): rest_of(x) for rest(x)
 % Checking : GDV (TPTP World derivation verifier, e.g. via SystemOnTSTP) with an ATP such as Vampire
 %            5.1 for the lemma steps; parents of each step are listed in its inference record.
 %            Definition steps (role definition) introduce fresh predicate symbols and are
