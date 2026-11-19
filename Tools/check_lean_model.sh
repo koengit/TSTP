@@ -25,6 +25,16 @@ if grep -q '^import Mathlib' Model.lean; then LP=.:$(cd "$MATHLIB" && lake env p
 out=$(LEAN_PATH=$LP $LEAN -o Model.olean Model.lean 2>&1)
 echo "$out" | grep -q error && { echo "$out" | grep -A10 error | head -30; echo "REJECT: model does not compile"; exit 1; }
 [ "$(sha256sum Statement.olean Statement.lean)" = "$SH" ] || { echo "REJECT: compiling the model changed the statement"; exit 1; }
+# kernel replay with leanchecker (shipped with the Lean toolchain; set LEANCHECKER=none to skip): catches declarations
+# that bypassed kernel checking, which #print axioms does not see
+LEANCHECKER=${LEANCHECKER:-"leanchecker +leanprover/lean4:v4.35.0"}
+KREPLAY="not run (LEANCHECKER=none)"
+if [ "$LEANCHECKER" != none ]; then
+  for m in Statement Model; do
+    kout=$(LEAN_PATH=$LP $LEANCHECKER $m 2>&1) || { echo "$kout" | tail -5; echo "REJECT: kernel replay (leanchecker) failed for $m"; exit 1; }
+  done
+  KREPLAY="kernel replay OK"
+fi
 printf 'import Statement\nimport Model\nexample : TPTP.Satisfiable ∨ TPTP.Satisfiable1 := by first | exact Or.inl sat | exact Or.inr sat\n#print axioms sat\n' > check.lean
 out=$(LEAN_PATH=$LP $LEAN check.lean 2>&1)
 echo "$out" | grep -q error && { echo "$out" | head -20; echo "REJECT"; exit 1; }
@@ -32,4 +42,4 @@ ax=$(echo "$out" | grep "depends on axioms\|does not depend on any axioms")
 bad=$(echo "$ax" | grep "depends on axioms" | sed 's/.*\[//; s/\].*//' | tr ',' '\n' | tr -d ' ' | grep -vxE 'propext|Classical.choice|Quot.sound|')
 [ -n "$bad" ] && { echo "REJECT: non-standard axioms: $bad"; exit 1; }
 [ -z "$ax" ] && { echo "REJECT: no axiom report"; exit 1; }
-echo "$P: model CERTIFIED ($ax)"
+echo "$P: model CERTIFIED ($ax; $KREPLAY)"
