@@ -17,15 +17,15 @@ cluster), and every model is checked in
 the Lean 4 proof assistant. The six Ramsey problems, GRA125-1 included, are in addition certified in Lean by a
 short higher-order proof (see [Ramsey proofs in Lean](#ramsey-proofs-in-lean)).
 
-**Findings in one sentence:** for 846 of the hardest TPTP problems (845 rated 1.00 in TPTP v10.0.0; NUM636+4
-was rated 1.00 until v10.0.0 lowered it to 0.96), 845 of which had no solution in the TSTP, we give
-checked proofs or models, which settle 495 problems of status Unknown (123 of them only through two inconsistent axiom sets), show that 49 further Unknown
+**Findings in one sentence:** for 849 of the hardest TPTP problems (848 rated 1.00 in TPTP v10.0.0; NUM636+4
+was rated 1.00 until v10.0.0 lowered it to 0.96), 848 of which had no solution in the TSTP, we give
+checked proofs or models, which settle 495 problems of status Unknown (121 of them only through two inconsistent axiom sets), show that 49 further Unknown
 problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 42 recorded
 statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
 ## Contributions
 
-* **Checked solutions where none existed.** Proofs and models for 846 hard problems; for 845 of them the
+* **Checked solutions where none existed.** Proofs and models for 849 hard problems; for 848 of them the
   TSTP had no solution. Proofs are TSTP derivations verified by GDV; models are verified in Lean. All
   files use the TSTP's layout and header conventions, so they can be added to the TSTP directly.
 * **Corrections to the library.** 42 recorded statuses that appear to be wrong (each backed by a checked
@@ -65,7 +65,7 @@ solutions that anyone can verify independently.
 
 ## Why could no prover find these proofs?
 
-Many of the proofs are short: of the 709 proofs other than the Ramsey proofs, 42 have at most 10
+Many of the proofs are short: of the 712 proofs other than the Ramsey proofs, 42 have at most 10
 derived steps (not counting the final step to `$false`) and the median is 35; the 41 SEU proofs from
 Mizar have a median of 9, while the Quaife NBG proofs are longer because each one carries the lemmas of
 the agent's library that it uses (numbers computed by `Tools/stats.py`). What made them hard

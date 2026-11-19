@@ -23,7 +23,9 @@
 %            On ∪ {a} for a set a that is not an ordinal; then K(x) ⊆ x and K(x) ⊆ y, but succ(a) is
 %            not in x ∪ y. With K(y) ⊆ y the theorem holds, since K(x ∪ y) = K(x) ∪ K(y). Suggested
 %            fix: replace image(successor_relation,x) by image(successor_relation,y) in
-%            prove_inductive_closed_under_union_2.
+%            prove_inductive_closed_under_union_2. With the fixed NUM004-0 a Lean model (x = ω, y = ω
+%            ∪ {ω}) shows that the conjecture as written does not follow, and the patched problem is
+%            proved (GDV-checked, Fixed/NUM004-0/patched/NUM163-1.UNS-CRf.s).
 % Checking : GDV (TPTP World derivation verifier, e.g. via SystemOnTSTP) with an ATP such as Vampire
 %            5.1 for the lemma steps; parents of each step are listed in its inference record.
 %            Definition steps (role definition) introduce fresh predicate symbols and are
