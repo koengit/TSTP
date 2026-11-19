@@ -22,6 +22,7 @@ for f in "$W"/*.lean; do [ "$(basename "$f")" = Statement.lean ] || python3 "$HE
 LP=.:$(cd "$MATHLIB" && lake env printenv LEAN_PATH)
 cd "$W"
 $LEAN -o Statement.olean Statement.lean || { echo "REJECT: statement does not compile"; exit 1; }
+SH=$(sha256sum Statement.olean Statement.lean)   # must be unchanged after compiling the proof
 for f in "$@"; do
   m=$(basename "$f" .lean)
   out=$(LEAN_PATH=$LP $LEAN -o "$m.olean" "$m.lean" 2>&1)
@@ -29,6 +30,16 @@ for f in "$@"; do
 done
 out=$(LEAN_PATH=$LP $LEAN -o Proof.olean Proof.lean 2>&1)
 echo "$out" | grep -q error && { echo "$out" | grep -A10 error | head -30; echo "REJECT: proof does not compile"; exit 1; }
+[ "$(sha256sum Statement.olean Statement.lean)" = "$SH" ] || { echo "REJECT: compiling the proof changed the statement"; exit 1; }
+# kernel replay with leanchecker (shipped with the Lean toolchain; LEANCHECKER=none skips)
+LEANCHECKER=${LEANCHECKER:-"leanchecker +leanprover/lean4:v4.35.0"}
+KREPLAY="not run (LEANCHECKER=none)"
+if [ "$LEANCHECKER" != none ]; then
+  for m in Statement $(for f in "$@"; do basename "$f" .lean; done) Proof; do
+    kout=$(LEAN_PATH=$LP $LEANCHECKER $m 2>&1) || { echo "$kout" | tail -5; echo "REJECT: kernel replay (leanchecker) failed for $m"; exit 1; }
+  done
+  KREPLAY="kernel replay OK"
+fi
 printf 'import Statement\nimport Proof\nexample : ¬ TPTP.SatisfiableIn.{0} ∧ ¬ TPTP.SatisfiableIn.{1} := ⟨unsat, unsat⟩\n#print axioms unsat\n' > check.lean
 out=$(LEAN_PATH=$LP $LEAN check.lean 2>&1)
 echo "$out" | grep -q error && { echo "$out" | head -20; echo "REJECT"; exit 1; }
@@ -36,4 +47,4 @@ ax=$(echo "$out" | grep "depends on axioms\|does not depend on any axioms")
 bad=$(echo "$ax" | grep "depends on axioms" | sed 's/.*\[//; s/\].*//' | tr ',' '\n' | tr -d ' ' | grep -vxE 'propext|Classical.choice|Quot.sound|')
 [ -n "$bad" ] && { echo "REJECT: non-standard axioms: $bad"; exit 1; }
 [ -z "$ax" ] && { echo "REJECT: no axiom report"; echo "$out"; exit 1; }
-echo "$P: no model (Unsatisfiable/Theorem) CERTIFIED in Lean ($ax)"
+echo "$P: no model (Unsatisfiable/Theorem) CERTIFIED in Lean ($ax; $KREPLAY)"

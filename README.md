@@ -34,7 +34,9 @@ statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 * **A checkable TSTP format for infinite models.** Most of the models here are infinite, so they cannot
   be written as TPTP finite interpretations. Each is a Lean 4 development embedded in an ordinary TSTP
   file, checked against a Lean statement that is generated mechanically from the TPTP problem (never
-  taken from the solution file), with a small checking kit (`Tools/`).
+  taken from the solution file), with a small checking kit (`Tools/`). See [Infinite models and the TPTP
+  interpretation format](#infinite-models-and-the-tptp-interpretation-format) for how this relates to the
+  TPTP's own format for infinite interpretations.
 * **Finite models in both forms.** The three finite models are also given as TPTP finite interpretations,
   printed by Lean from the certified models and re-checked by an independent evaluator.
 * **Observations about the tools.** GDV accepts circular definitions (a `q <=> ~q` "definition" yields
@@ -155,8 +157,14 @@ Tools/check_lean_model.sh SET086-6 Solutions/SET/SET086-6/ClaudeOpus---5.5.SAT-M
 The script extracts the model (`Tools/extract_lean.sh`), translates the problem into
 `Statement.lean` (`Tools/tptp2lean.py`: a structure over an arbitrary type with the problem's
 symbols, and `Satisfiable` = there is such a structure satisfying all clauses/formulae, including the
-negated conjecture), rejects constructs that could bypass the check (`Tools/lint_model.py`), compiles both with Lean 4.35.0, and prints the axioms that `sat` depends on (only
-`propext`, `Classical.choice` and `Quot.sound` are accepted). Models that import Mathlib need
+negated conjecture; the implicit TPTP axioms are included, i.e. distinct numbers and distinct "double-quoted"
+objects denote different elements), rejects constructs that could bypass the check (`Tools/lint_model.py`),
+compiles both with Lean 4.35.0, checks that compiling the model did not change the statement (hash), replays
+the statement and the model through Lean's kernel (`leanchecker`, shipped with the Lean toolchain), and
+prints the axioms that `sat` depends on (only `propext`, `Classical.choice` and `Quot.sound` are accepted).
+The kernel replay matters: a declaration added with kernel checking switched off can make `#print axioms`
+report "no axioms" for a proof of `False`, and only the replay catches it. All published models pass all
+of these checks. Models that import Mathlib need
 Mathlib v4.35.0: run `lake exe cache get` once in `Tools/mathlib` (or point `MATHLIB` at a built
 Mathlib project).
 
@@ -199,6 +207,18 @@ regenerates `Statement.lean` from the problem, lints and compiles the files, and
 `theorem unsat : ¬ TPTP.SatisfiableIn.{u}` (no model in any universe) with no axioms beyond propext,
 Classical.choice and Quot.sound. All six pass (7–30 s each); it needs Mathlib as for the models below.
 
+## Infinite models and the TPTP interpretation format
+
+The TPTP has a format for infinite interpretations (Sutcliffe, Steen, Fontaine, Kondylidou, *The TPTP Format for
+Interpretations*, arXiv:2406.06108, PAAR 2026): an interpretation is a set of TFF formulae that give the domains
+(as generated terms, or a defined type such as `$int`) and the symbol mappings, and a model is verified by
+proving the problem's formulae from it with an ATP. Our stance: we welcome the format and would like our models
+to be expressible in it, but for most of them the verification obligations are as hard as the problem itself
+(the domains are, e.g., ZFSet-based NBG classes, ℝ² or bijections between ℚ and intervals, and the ATPs had
+already failed on these problems). We therefore give each model as a Lean development, whose check is a
+kernel-checked proof that the structure satisfies every formula, embedded in a TSTP file so it travels with the
+TSTP. Translating the simpler models (over ℕ, ℤ or ℚ with arithmetic mappings) into the TPTP format is future work.
+
 ## Checking the models: what you need
 
 Everything specific to these models is in this repository; the model files import only
@@ -209,7 +229,7 @@ Files in `Tools/`:
 | File | Purpose |
 |---|---|
 | `check_lean_model.sh` | the checker: `Tools/check_lean_model.sh PROBLEM SOLUTION.s` |
-| `lint_model.py`, `whitelist_add_digit_bounds.lean` | reject constructs that could bypass the check (axiom, sorry, native_decide, unsafe, run_cmd, debug options, macro/syntax/notation/elab), except one whitelisted tactic |
+| `lint_model.py`, `whitelist_add_digit_bounds.lean` | reject constructs that could bypass the check (axiom, sorry, native_decide, unsafe, run_cmd, run_meta, initialize, #eval, debug options, macro/syntax/notation/elab), except one whitelisted tactic; an early warning only, since the kernel replay is the real safeguard |
 | `extract_lean.sh` | prints the Lean source embedded in a solution file |
 | `check_lean_proof.sh` | checks a Lean proof that a problem has no model (used for the Ramsey problems, `Lean/Ramsey/`) |
 | `tptp2lean.py`, `tptp.py` | translate the TPTP problem into `Statement.lean` (TPTP parser included) |
