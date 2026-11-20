@@ -17,16 +17,17 @@ cluster), and every model is checked in
 the Lean 4 proof assistant. The six Ramsey problems, GRA125-1 included, are in addition certified in Lean by a
 short higher-order proof (see [Ramsey proofs in Lean](#ramsey-proofs-in-lean)).
 
-**Findings in one sentence:** for 868 of the hardest TPTP problems (867 rated 1.00 in TPTP v10.0.0; NUM636+4
-was rated 1.00 until v10.0.0 lowered it to 0.96), 867 of which had no solution in the TSTP, we give
-checked proofs or models, which settle 506 problems of status Unknown or Open (95 of them only through two inconsistent axiom sets), show that 56 further Unknown
+**Findings in one sentence:** for 868 TPTP problems, 805 of them rated 1.00 in TPTP v10.0.0 and none of these 805 with a
+proof or model in the TSTP, we give checked proofs or models, which settle 506 problems of status Unknown or Open (95 of them only through two inconsistent axiom sets), show that 56 further Unknown
 problems are non-theorems only because of a formulation bug (a missing axiom or hypothesis, or a wrong definition), and indicate that 42 recorded
-statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
+statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)). The other 63 already had TSTP solutions: NUM636+4 (rated 1.00 until v10.0.0 lowered it to 0.96) and
+62 easier curve problems from GEO080 to GEO148, which are included because they use the curve axioms GEO004±0, found
+here to be inconsistent.
 
 ## Contributions
 
-* **Checked solutions where none existed.** Proofs and models for 868 hard problems; for 867 of them the
-  TSTP had no solution. Proofs are TSTP derivations verified by GDV; models are verified in Lean. All
+* **Checked solutions where none existed.** Proofs and models for 868 problems; for the 805 rated 1.00 the
+  TSTP had no proof or model (only assurances or nothing; folders checked on seetptp.tptp.org, 2026-11). Proofs are TSTP derivations verified by GDV; models are verified in Lean. All
   files use the TSTP's layout and header conventions, so they can be added to the TSTP directly.
 * **Corrections to the library.** 42 recorded statuses that appear to be wrong (each backed by a checked
   proof or model, except one literature-based entry), 56 problems that are non-theorems only because of a
@@ -88,7 +89,7 @@ for automated provers is mostly the *encoding*, not the mathematics:
   of Lean (see [Ramsey proofs in Lean](#ramsey-proofs-in-lean)).
 * **Only infinite models.** Finite model finders cannot find a model when every model is infinite;
   here the model is given in Lean (e.g. the rationals, the integers, or a model of NBG set theory).
-  Twenty-three SYO problems (Satisfiable, rated 1.00; Lampert's "infinity axioms", which the TPTP marks
+  Twenty-four SYO problems (Satisfiable, rated 1.00; Lampert's "infinity axioms", which the TPTP marks
   "Has only infinite models") consist of a few formulas about one binary relation; their models here
   are `<`, `≤` or successor on ℕ, ℤ or ℚ, or variants of `<` that also look at parity.
 
@@ -136,7 +137,8 @@ those, and all 64 definitions here are non-circular.) Checking:
 * every proof can be re-checked with the kit's own step checker `Tools/check_proof.py` (see below), which
   also checks what GDV does not: definitions must be fresh, non-circular and closed. All proofs except
   GRA019+1 and GRA125-1 (the two largest) were re-checked this way, together with a fresh GDV run, on the Vera
-  cluster (713 proofs on 2026-11-19, the 41 added or changed since then on 2026-11-20): all pass.
+  cluster: all 713 proofs published on 2026-11-19, and on 2026-11-20 the 13 proofs added since then and the 28
+  whose text had changed (726 proofs in all): all pass.
 
 **Finite models** (three problems: [GRP738-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP738-1.p), [GRP739-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP739-1.p), [GRP740-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP740-1.p)) are also given as TPTP finite
 interpretations (`SAT-FMo` files). These were not written by hand: Lean evaluated the operations of the
@@ -198,7 +200,7 @@ R(4,4) ≤ 18 and R(3,5) ≤ 14. Each `Lean/Ramsey/PROBLEM.lean` (about 30 lines
 generated statement of the problem, builds the graph on `Fin n` from the distinct constants (for GRA123±1: from
 c, f(c), f(f(c)), ...; for GRA019+1: from the ordered chain n1 < ... < n18), and refutes the clique or anticlique
 that the bound provides with the problem's axioms. The 97,661-step TSTP proof of GRA125-1 thus has a Lean
-counterpart of under 250 lines that checks in 30 s.
+counterpart of about 250 lines (224 + 29) that checks in 30 s.
 
 ```
 TPTP=/path/to/TPTP Tools/check_lean_proof.sh GRA125-1 Lean/Ramsey/GRA125-1.lean Lean/Ramsey/Ramsey.lean
@@ -254,7 +256,7 @@ largest, [GRP738-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GR
 
 The model worked out each mathematical argument itself and wrote the proof as a chain of lemmas
 (sometimes by writing a program that emits the proof, e.g. for the Ramsey and Towers of Hanoi
-problems). The 23 SYO models were produced by a small compiler the agent wrote: given a candidate
+problems). The 24 SYO models were produced by a small compiler the agent wrote: given a candidate
 relation on ℕ, ℤ or ℚ (chosen by testing the formulas on a bounded range), it emits a Lean proof with
 explicit witnesses for the existential quantifiers, case splits on parity, and `omega` for the
 quantifier-free parts. E was used only as a step checker and as a lemma oracle with short time limits. Nothing
