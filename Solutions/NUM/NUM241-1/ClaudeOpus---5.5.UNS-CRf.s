@@ -20,7 +20,9 @@
 %            (Lean model): the constant `rest` occurs in no axiom (NUM259-2's
 %            transfinite_recursion_lemma9_2 has `rest_relation`), and neither does the function
 %            symbol `comp`, so even with `rest_relation` the statement says nothing about comp(z);
-%            Lean model with rest := ∅
+%            Lean model with rest := ∅ The refutation uses no negated_conjecture clause, so the
+%            axioms alone are unsatisfiable (for a fof problem this is the status
+%            ContradictoryAxioms; TPTP gives cnf problems only the status Unsatisfiable).
 % Checking : GDV (TPTP World derivation verifier, e.g. via SystemOnTSTP) with an ATP such as Vampire
 %            5.1 for the lemma steps; parents of each step are listed in its inference record.
 %            Definition steps (role definition) introduce fresh predicate symbols and are

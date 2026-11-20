@@ -21,7 +21,10 @@
 %            rest_of(x)). Model: z maps every set to ∅ except z({∅}) = {∅}; x = On × {{∅}} and
 %            rest(x) := x, so compose(z, rest(x)) = x, while every member of
 %            recursion_equation_functions(z) takes only the value ∅ and {⟨∅,∅⟩} is one of them.
-%            Suggested fix (not checked): rest_of(x) for rest(x)
+%            Suggested fix (not checked): rest_of(x) for rest(x) The refutation uses no
+%            negated_conjecture clause, so the axioms alone are unsatisfiable (for a fof problem this
+%            is the status ContradictoryAxioms; TPTP gives cnf problems only the status
+%            Unsatisfiable).
 % Checking : GDV (TPTP World derivation verifier, e.g. via SystemOnTSTP) with an ATP such as Vampire
 %            5.1 for the lemma steps; parents of each step are listed in its inference record.
 %            Definition steps (role definition) introduce fresh predicate symbols and are

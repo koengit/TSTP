@@ -25,7 +25,10 @@
 %            fix: replace image(successor_relation,x) by image(successor_relation,y) in
 %            prove_inductive_closed_under_union_2. With the fixed NUM004-0 a Lean model (x = ω, y = ω
 %            ∪ {ω}) shows that the conjecture as written does not follow, and the patched problem is
-%            proved (GDV-checked, Fixed/NUM004-0/patched/NUM163-1.UNS-CRf.s).
+%            proved (GDV-checked, Fixed/NUM004-0/patched/NUM163-1.UNS-CRf.s). The refutation uses no
+%            negated_conjecture clause, so the axioms alone are unsatisfiable (for a fof problem this
+%            is the status ContradictoryAxioms; TPTP gives cnf problems only the status
+%            Unsatisfiable).
 % Checking : GDV (TPTP World derivation verifier, e.g. via SystemOnTSTP) with an ATP such as Vampire
 %            5.1 for the lemma steps; parents of each step are listed in its inference record.
 %            Definition steps (role definition) introduce fresh predicate symbols and are

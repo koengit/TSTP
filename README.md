@@ -19,8 +19,8 @@ short higher-order proof (see [Ramsey proofs in Lean](#ramsey-proofs-in-lean)).
 
 **Findings in one sentence:** for 868 of the hardest TPTP problems (867 rated 1.00 in TPTP v10.0.0; NUM636+4
 was rated 1.00 until v10.0.0 lowered it to 0.96), 867 of which had no solution in the TSTP, we give
-checked proofs or models, which settle 506 problems of status Unknown (97 of them only through two inconsistent axiom sets), show that 56 further Unknown
-problems are non-theorems only because of a missing axiom or hypothesis, and indicate that 42 recorded
+checked proofs or models, which settle 506 problems of status Unknown or Open (95 of them only through two inconsistent axiom sets), show that 56 further Unknown
+problems are non-theorems only because of a formulation bug (a missing axiom or hypothesis, or a wrong definition), and indicate that 42 recorded
 statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 
 ## Contributions
@@ -30,7 +30,7 @@ statuses are wrong (see [STATUS_CHANGES.md](STATUS_CHANGES.md)).
   files use the TSTP's layout and header conventions, so they can be added to the TSTP directly.
 * **Corrections to the library.** 42 recorded statuses that appear to be wrong (each backed by a checked
   proof or model, except one literature-based entry), 56 problems that are non-theorems only because of a
-  missing axiom or hypothesis (with the cause and a suggested fix), and 506 Unknown problems settled. Among them: the axiom set SET004-0 + SET004-1 + NUM004-0 (Quaife's NBG with ordinals, included by 277 TPTP problems) is inconsistent, because of one clause of NUM004-0 (see the top of [STATUS_CHANGES.md](STATUS_CHANGES.md)).
+  formulation bug (with the cause and a suggested fix), and 506 Unknown/Open problems settled. Among them: the axiom set SET004-0 + SET004-1 + NUM004-0 (Quaife's NBG with ordinals, included by 277 TPTP problems) is inconsistent, because of one clause of NUM004-0 (see the top of [STATUS_CHANGES.md](STATUS_CHANGES.md)).
 * **A checkable TSTP format for infinite models.** Most of the models here are infinite, so they cannot
   be written as TPTP finite interpretations. Each is a Lean 4 development embedded in an ordinary TSTP
   file, checked against a Lean statement that is generated mechanically from the TPTP problem (never
@@ -103,6 +103,7 @@ Solutions/<DOMAIN>/<PROBLEM>/ClaudeOpus---5.5.<RESULT>-<OUTPUT>.s
 | Code | Meaning |
 |---|---|
 | `THM-Ref`, `UNS-Ref`, `UNS-CRf` | Theorem / Unsatisfiable, with a refutation (CRf: CNF only) in TSTP derivation format |
+| `CAX-Ref` | ContradictoryAxioms: a fof problem whose refutation does not use the conjecture, so the axioms alone are contradictory (as in the TPTP, cnf problems with such a refutation keep the status Unsatisfiable; their header says so) |
 | `SAT-Mod`, `CSA-Mod` | Satisfiable / CounterSatisfiable, with a model given as a Lean 4 development |
 | `SAT-FMo` | Satisfiable, with a finite model as a TPTP finite interpretation (printed by Lean from the Lean model) |
 
@@ -119,8 +120,7 @@ found (`% Comments`), and how to check it (`% Checking`).
 **Proofs** are derivations in the TPTP language. Each derived formula has the inference record
 `inference(lemma,[status(thm)],[parents])`: it is a logical consequence of its parents (not an
 instance of a fixed calculus rule). Definition steps (`role definition`, `introduced(definition,...)`)
-introduce a fresh, non-recursive predicate symbol and are conservative. (They occur in only seven
-proofs: [GRA019+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA019%2B1.p), [SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p), [SYN986+1.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.006.p), [SYN986-10.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.005.p), [SYN986-10.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.006.p) [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p) and [GRA175-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA175-1.p). Note that GDV checks that a defined symbol is
+introduce a fresh, non-recursive predicate symbol and are conservative. (They occur in 16 proofs: the four Orevkov proofs [SYN986+1.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.005.p), [SYN986+1.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986%2B1.006.p), [SYN986-10.005](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.005.p) and [SYN986-10.006](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/SYN/SYN986-10.006.p), the Ramsey proofs [GRA019+1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA019%2B1.p), [GRA125-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA125-1.p) and [GRA175-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRA/GRA175-1.p), and nine proofs in Tarski's geometry (GEO007-2, GEO008-2, GEO009-2, GEO012-2, GEO013-2, GEO050-2, GEO051-2, GEO052-2, GEO069-2) that introduce abbreviations such as collinearity. Note that GDV checks that a defined symbol is
 new, but in our tests it also accepted a circular definition such as `q <=> ~q`; our own checker rejects
 those, and all 64 definitions here are non-circular.) Checking:
 
@@ -134,8 +134,9 @@ those, and all 64 definitions here are non-circular.) Checking:
   that the axioms are satisfiable are unresolved; GDV gives only warnings for these in the complete runs of
   the other Ramsey proofs as well.
 * every proof can be re-checked with the kit's own step checker `Tools/check_proof.py` (see below), which
-  also checks what GDV does not: definitions must be fresh, non-circular and closed. All proofs except
-  GRA019+1 and GRA125-1 (the two largest) were re-checked this way (2026-11-18): all pass.
+  also checks what GDV does not: definitions must be fresh, non-circular and closed. The 537 proofs published on
+  2026-11-18, except GRA019+1 and GRA125-1 (the two largest), were re-checked this way: all pass. Proofs added
+  later were checked with E and GDV as above.
 
 **Finite models** (three problems: [GRP738-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP738-1.p), [GRP739-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP739-1.p), [GRP740-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP740-1.p)) are also given as TPTP finite
 interpretations (`SAT-FMo` files). These were not written by hand: Lean evaluated the operations of the

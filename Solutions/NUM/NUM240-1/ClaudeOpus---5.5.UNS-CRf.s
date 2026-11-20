@@ -20,7 +20,9 @@
 %            (Lean model): the constant `rest` occurs in no axiom (NUM259-2 states the same lemma,
 %            transfinite_recursion_lemma9_1, with `rest_relation`); with rest := ∅ the left side is
 %            ∅, while ∅ ∈ recursion_equation_functions(z). Suggested fix (not checked):
-%            `rest_relation` for `rest`
+%            `rest_relation` for `rest` The refutation uses no negated_conjecture clause, so the
+%            axioms alone are unsatisfiable (for a fof problem this is the status
+%            ContradictoryAxioms; TPTP gives cnf problems only the status Unsatisfiable).
 % Checking : GDV (TPTP World derivation verifier, e.g. via SystemOnTSTP) with an ATP such as Vampire
 %            5.1 for the lemma steps; parents of each step are listed in its inference record.
 %            Definition steps (role definition) introduce fresh predicate symbols and are

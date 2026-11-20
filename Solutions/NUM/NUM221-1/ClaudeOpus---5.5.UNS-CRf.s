@@ -18,7 +18,9 @@
 %            inference(lemma,...) means: this formula is a logical consequence of its parents (no
 %            specific calculus rule). Notes: With the fixed axioms the conjecture does not follow
 %            (Lean model with x = {∅}, which is not a relation); presumably a hypothesis "x is a
-%            function" is missing
+%            function" is missing The refutation uses no negated_conjecture clause, so the axioms
+%            alone are unsatisfiable (for a fof problem this is the status ContradictoryAxioms; TPTP
+%            gives cnf problems only the status Unsatisfiable).
 % Checking : GDV (TPTP World derivation verifier, e.g. via SystemOnTSTP) with an ATP such as Vampire
 %            5.1 for the lemma steps; parents of each step are listed in its inference record.
 %            Definition steps (role definition) introduce fresh predicate symbols and are

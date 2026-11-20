@@ -9,7 +9,9 @@
 % Output   : Refutation
 % Verified : GDV VerifiedGood with Vampire 5.1 as the trusted ATP; every inference also checked with
 %            E 3.2.5
-% Status   : agrees with TPTP v10.0.0 (Theorem)
+% Status   : agrees with TPTP v10.0.0 (Theorem); SUGGESTED REFINEMENT: Theorem -> ContradictoryAxioms
+%            (the refutation does not use the conjecture, so the axioms alone are contradictory; TPTP
+%            uses the status ContradictoryAxioms for such fof problems)
 
 % Comments : Proof written by Claude Opus 5.5 (Anthropic) working in the Claude Code agent harness:
 %            the model worked out the mathematical argument and wrote the proof as a chain of lemmas;

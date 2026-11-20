@@ -19,7 +19,9 @@
 %            specific calculus rule). Notes: With the fixed axioms the conjecture does not follow
 %            (Lean model): the hypothesis function(z) is missing. z = (V × {∅}) ∪ {⟨{∅},{∅}⟩} is not
 %            a function, so recursion_equation_functions(z) = ∅, yet x = On × {∅} is a function on
-%            the ordinals with compose(z, rest_of(x)) = x
+%            the ordinals with compose(z, rest_of(x)) = x The refutation uses no negated_conjecture
+%            clause, so the axioms alone are unsatisfiable (for a fof problem this is the status
+%            ContradictoryAxioms; TPTP gives cnf problems only the status Unsatisfiable).
 % Checking : GDV (TPTP World derivation verifier, e.g. via SystemOnTSTP) with an ATP such as Vampire
 %            5.1 for the lemma steps; parents of each step are listed in its inference record.
 %            Definition steps (role definition) introduce fresh predicate symbols and are

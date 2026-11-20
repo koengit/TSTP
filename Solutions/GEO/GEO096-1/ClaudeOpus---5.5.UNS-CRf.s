@@ -21,7 +21,10 @@
 %            the sum of two curves exists only when they meet. This 36-step refutation uses only the
 %            axioms (sum_defn, part_of_defn, end_point_defn, inner_point_defn, meet_defn, c3, c4),
 %            not the problem's own formulas: with a total sum, no curve has an endpoint, while c4
-%            splits every curve into two curves that meet at an endpoint.
+%            splits every curve into two curves that meet at an endpoint. The refutation uses no
+%            negated_conjecture clause, so the axioms alone are unsatisfiable (for a fof problem this
+%            is the status ContradictoryAxioms; TPTP gives cnf problems only the status
+%            Unsatisfiable).
 % Checking : GDV (TPTP World derivation verifier, e.g. via SystemOnTSTP) with an ATP such as Vampire
 %            5.1 for the lemma steps; parents of each step are listed in its inference record.
 %            Definition steps (role definition) introduce fresh predicate symbols and are
