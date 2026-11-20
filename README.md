@@ -134,9 +134,9 @@ those, and all 64 definitions here are non-circular.) Checking:
   that the axioms are satisfiable are unresolved; GDV gives only warnings for these in the complete runs of
   the other Ramsey proofs as well.
 * every proof can be re-checked with the kit's own step checker `Tools/check_proof.py` (see below), which
-  also checks what GDV does not: definitions must be fresh, non-circular and closed. The 537 proofs published on
-  2026-11-18, except GRA019+1 and GRA125-1 (the two largest), were re-checked this way: all pass. Proofs added
-  later were checked with E and GDV as above.
+  also checks what GDV does not: definitions must be fresh, non-circular and closed. All proofs except
+  GRA019+1 and GRA125-1 (the two largest) were re-checked this way, together with a fresh GDV run, on the Vera
+  cluster (713 proofs on 2026-11-19, the 41 added or changed since then on 2026-11-20): all pass.
 
 **Finite models** (three problems: [GRP738-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP738-1.p), [GRP739-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP739-1.p), [GRP740-1](https://seetptp.tptp.org/file/TPTPWorld/TPTP/Problems/GRP/GRP740-1.p)) are also given as TPTP finite
 interpretations (`SAT-FMo` files). These were not written by hand: Lean evaluated the operations of the
