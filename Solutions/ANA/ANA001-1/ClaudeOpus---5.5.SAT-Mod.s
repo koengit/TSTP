@@ -11,7 +11,11 @@
 %            Statement.lean generated mechanically from the TPTP file, and depends only on the axioms
 %            propext, Classical.choice, Quot.sound
 % Status   : SUGGESTED CHANGE: Unknown -> Satisfiable (TPTP v10.0.0 status is Unknown; this file
-%            contains a Lean-checked model)
+%            contains a Lean-checked model). PROBLEM FORMULATION: no clause says that f is continuous
+%            (only that equal arguments give equal values), so the extreme value theorem cannot
+%            follow; the Lean model (ℚ, [0,1], f x = 10 − x for x ≠ 1, f 1 = 10) has no minimum on
+%            the interval, as M. Raskin's claim in the header says. SUGGESTED FIX: add a continuity
+%            axiom for f (and completeness of the order).
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
 %            4 development. The model is infinite, so it cannot be given as a TPTP finite

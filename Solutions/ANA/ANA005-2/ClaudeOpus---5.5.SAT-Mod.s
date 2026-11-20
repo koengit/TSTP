@@ -11,7 +11,11 @@
 %            Statement.lean generated mechanically from the TPTP file, and depends only on the axioms
 %            propext, Classical.choice, Quot.sound
 % Status   : SUGGESTED CHANGE: Unknown -> Satisfiable (TPTP v10.0.0 status is Unknown; this file
-%            contains a Lean-checked model)
+%            contains a Lean-checked model). PROBLEM FORMULATION: the clauses contain no triangle
+%            inequality for absolute, and equalish has no substitution axioms, so the sum of the two
+%            limits cannot be related to the two limits; the Lean model (ℚ) interprets minus as
+%            negation except minus(2) = 5. SUGGESTED FIX: add the triangle inequality and the
+%            substitution axioms (as in ANA005-5, which is a theorem).
 
 % Comments : Model written by Claude Opus 5.5 (Anthropic) in the Claude Code agent harness, as a Lean
 %            4 development. The model is infinite, so it cannot be given as a TPTP finite
