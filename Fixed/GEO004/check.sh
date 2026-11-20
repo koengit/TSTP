@@ -13,4 +13,4 @@ for a in GEO004+0.ax GEO004-0.ax; do rm "$W/Axioms/$a"; cp "$HERE/$a" "$W/Axioms
 for f in "$T"/Problems/GEO/*.p; do ln -s "$f" "$W/Problems/GEO/"; done
 cp "$HERE/GEOFIX-ALL.p" "$W/Problems/GEO/"
 P=${1:-GEOFIX-ALL}
-cd "$KIT" && TPTP="$W" Tools/check_lean_model.sh "$P" "$HERE/$P.SAT-Mod.s"
+cd "$KIT" && TPTP="$W" Tools/check_lean_model.sh "$P" "$(ls "$HERE/$P".*-Mod.s | head -1)"

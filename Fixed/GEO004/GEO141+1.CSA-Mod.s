@@ -1,27 +1,28 @@
 %------------------------------------------------------------------------------
 % File     : ClaudeOpus---5.5
-% Problem  : GEO132+1, with Axioms/GEO004+0.ax replaced by the fixed version in this folder (NOT TPTP v10.0.0)
+% Problem  : GEO141+1, with Axioms/GEO004+0.ax replaced by the fixed version in this folder (NOT TPTP v10.0.0)
 % Transfm  : none
 % Format   : tptp:raw
 % Command  : none (written by the LLM agent Claude Opus 5.5 in Claude Code)
 
-% Result   : Satisfiable
+% Result   : CounterSatisfiable
 % Output   : Model (Lean 4 development, as comment lines)
 % Verified : Lean 4.35.0 with Mathlib v4.35.0: `sat : TPTP.Satisfiable` compiles against a Statement.lean
-%            generated mechanically from GEO132+1 with the fixed GEO004+0.ax, and depends only on
+%            generated mechanically from GEO141+1 with the fixed GEO004+0.ax, and depends only on
 %            the axioms propext, Classical.choice, Quot.sound
-% Comments : The fixed axioms are consistent. Domain Q; each element is a rational point, a closed rational
+% Comments : A countermodel: it satisfies the fixed axioms and the negation of the conjecture
+%            (the Lean statement includes the negated conjecture). Domain Q; each element is a rational point, a closed rational
 %            interval (a bijection Q = intervals) and an oriented interval (a bijection Q = intervals x
 %            Bool); sum is the convex hull (the union when two curves meet); every object moves through
 %            [0,1] in step. Against the unfixed TPTP v10.0.0 GEO004+0 the same model is rejected (the
 %            unguarded sum_defn fails), as it must be: those axioms are inconsistent.
-% Checking : Fixed/GEO004/check.sh GEO132+1
+% Checking : Fixed/GEO004/check.sh GEO141+1
 %------------------------------------------------------------------------------
-% SZS status Satisfiable for GEO132+1
-% SZS output start Model for GEO132+1
+% SZS status CounterSatisfiable for GEO141+1
+% SZS output start Model for GEO141+1
 % import Mathlib
 % import Statement
-% /-! GEO132+1 (FIXED axioms; between/4 is not defined by any axiom). A model of the FIXED curve axioms GEO004+0 (sum_defn guarded by `? [P] : meet(P,C1,C2)`, as in Kulik and
+% /-! GEO141+1 (FIXED axioms; between/4 is not defined by any axiom). A model of the FIXED curve axioms GEO004+0 (sum_defn guarded by `? [P] : meet(P,C1,C2)`, as in Kulik and
 % Eschenbach's partial sum) together with GEO004+1, GEO004+2 and GEO004+3 (unchanged).
 %
 % Domain ℚ. Every element plays three roles (TPTP is untyped):
@@ -439,9 +440,9 @@
 %     constructor
 %     · rintro rfl; exact fun P => (inc_uc P O).symm
 %     · intro h; exact inc_ext (fun P => (h P).symm.trans (inc_uc P O).symm)
-%   · -- theorem_4_17_1 (negated)
+%   · -- theorem_4_23_2 (negated)
 %     show ¬ _
 %     simp only [I]
-%     intro h; have := h (traj 0) (1/2) 1 0 ⟨by rw [ordb_traj]; norm_num [once], by norm_num, (inco_traj 0 0).2 (by norm_num [once])⟩; simp only [ordb_traj, once] at this; norm_num at this
-% SZS output end Model for GEO132+1
+%     intro h; have := h (traj 0) 0 1 (1/2) (by rw [ordb_traj]; norm_num [once]); simp only [ordb_traj, once] at this; norm_num at this
+% SZS output end Model for GEO141+1
 %------------------------------------------------------------------------------

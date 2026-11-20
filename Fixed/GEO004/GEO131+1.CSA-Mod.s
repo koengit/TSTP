@@ -5,19 +5,20 @@
 % Format   : tptp:raw
 % Command  : none (written by the LLM agent Claude Opus 5.5 in Claude Code)
 
-% Result   : Satisfiable
+% Result   : CounterSatisfiable
 % Output   : Model (Lean 4 development, as comment lines)
 % Verified : Lean 4.35.0 with Mathlib v4.35.0: `sat : TPTP.Satisfiable` compiles against a Statement.lean
 %            generated mechanically from GEO131+1 with the fixed GEO004+0.ax, and depends only on
 %            the axioms propext, Classical.choice, Quot.sound
-% Comments : The fixed axioms are consistent. Domain Q; each element is a rational point, a closed rational
+% Comments : A countermodel: it satisfies the fixed axioms and the negation of the conjecture
+%            (the Lean statement includes the negated conjecture). Domain Q; each element is a rational point, a closed rational
 %            interval (a bijection Q = intervals) and an oriented interval (a bijection Q = intervals x
 %            Bool); sum is the convex hull (the union when two curves meet); every object moves through
 %            [0,1] in step. Against the unfixed TPTP v10.0.0 GEO004+0 the same model is rejected (the
 %            unguarded sum_defn fails), as it must be: those axioms are inconsistent.
 % Checking : Fixed/GEO004/check.sh GEO131+1
 %------------------------------------------------------------------------------
-% SZS status Satisfiable for GEO131+1
+% SZS status CounterSatisfiable for GEO131+1
 % SZS output start Model for GEO131+1
 % import Mathlib
 % import Statement

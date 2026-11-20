@@ -1,27 +1,28 @@
 %------------------------------------------------------------------------------
 % File     : ClaudeOpus---5.5
-% Problem  : GEO142+1, with Axioms/GEO004+0.ax replaced by the fixed version in this folder (NOT TPTP v10.0.0)
+% Problem  : GEO151+1, with Axioms/GEO004+0.ax replaced by the fixed version in this folder (NOT TPTP v10.0.0)
 % Transfm  : none
 % Format   : tptp:raw
 % Command  : none (written by the LLM agent Claude Opus 5.5 in Claude Code)
 
-% Result   : Satisfiable
+% Result   : CounterSatisfiable
 % Output   : Model (Lean 4 development, as comment lines)
 % Verified : Lean 4.35.0 with Mathlib v4.35.0: `sat : TPTP.Satisfiable` compiles against a Statement.lean
-%            generated mechanically from GEO142+1 with the fixed GEO004+0.ax, and depends only on
+%            generated mechanically from GEO151+1 with the fixed GEO004+0.ax, and depends only on
 %            the axioms propext, Classical.choice, Quot.sound
-% Comments : The fixed axioms are consistent. Domain Q; each element is a rational point, a closed rational
+% Comments : A countermodel: it satisfies the fixed axioms and the negation of the conjecture
+%            (the Lean statement includes the negated conjecture). Domain Q; each element is a rational point, a closed rational
 %            interval (a bijection Q = intervals) and an oriented interval (a bijection Q = intervals x
 %            Bool); sum is the convex hull (the union when two curves meet); every object moves through
 %            [0,1] in step. Against the unfixed TPTP v10.0.0 GEO004+0 the same model is rejected (the
 %            unguarded sum_defn fails), as it must be: those axioms are inconsistent.
-% Checking : Fixed/GEO004/check.sh GEO142+1
+% Checking : Fixed/GEO004/check.sh GEO151+1
 %------------------------------------------------------------------------------
-% SZS status Satisfiable for GEO142+1
-% SZS output start Model for GEO142+1
+% SZS status CounterSatisfiable for GEO151+1
+% SZS output start Model for GEO151+1
 % import Mathlib
 % import Statement
-% /-! GEO142+1 (FIXED axioms; between/4 is not defined by any axiom). A model of the FIXED curve axioms GEO004+0 (sum_defn guarded by `? [P] : meet(P,C1,C2)`, as in Kulik and
+% /-! GEO151+1: T17 as stated does not follow. A model of the FIXED curve axioms GEO004+0 (sum_defn guarded by `? [P] : meet(P,C1,C2)`, as in Kulik and
 % Eschenbach's partial sum) together with GEO004+1, GEO004+2 and GEO004+3 (unchanged).
 %
 % Domain ℚ. Every element plays three roles (TPTP is untyped):
@@ -30,8 +31,7 @@
 % * as an oriented curve, q is an interval with a direction, eO q, where eO : ℚ ≃ {intervals} × Bool.
 % Defined predicates are interpreted by their definitions; the work is in characterising them on intervals
 % (endpoints = the two bounds, meeting = adjacent intervals, ...). sum(C1,C2) is the convex hull, which is the union
-% whenever the curves meet. Trajectories: every object moves through [0,1] in step; an event is a point of [0,1]
-% (an instant) or the "never" event 2. -/
+% whenever the curves meet. Time (for GEO151+1, T17): events are intervals of instants, see the Time section. -/
 %
 % namespace GF
 %
@@ -245,32 +245,79 @@
 %       · have iq : inco Q O := ⟨by linarith [b.1], by linarith [a.2]⟩
 %         exact Or.inr ⟨⟨b, iq, g⟩, ⟨iq, a, h⟩⟩
 %
-% /-! ### Time -/
-% def once (A : ℚ) : Prop := 0 ≤ A ∧ A ≤ 1
-% noncomputable def atf (_X P : ℚ) : ℚ := if 0 ≤ P ∧ P ≤ 1 then P else 2
-% noncomputable def ats (A B : ℚ) : ℚ := if A = B ∧ 0 ≤ A ∧ A ≤ 1 then A else 2
-% theorem once_ats (A B : ℚ) : once (ats A B) ↔ A = B ∧ once A := by
-%   unfold ats once; split_ifs with h
-%   · exact ⟨fun _ => h, fun _ => h.2⟩
-%   · constructor
-%     · intro h'; norm_num at h'
-%     · intro h'; exact absurd h' h
-% theorem atf_once {X P : ℚ} (h : once P) : atf X P = P := by
-%   unfold atf; exact if_pos (show 0 ≤ P ∧ P ≤ 1 from h)
-% theorem once_atf (X P : ℚ) : once (atf X P) ↔ once P := by
-%   unfold atf; split_ifs with h
-%   · exact Iff.rfl
-%   · unfold once; constructor
-%     · intro h'; norm_num at h'
-%     · intro h'; exact absurd h' h
-% theorem ats_self {A : ℚ} (h : once A) : ats A A = A := by
-%   unfold ats; exact if_pos (show A = A ∧ 0 ≤ A ∧ A ≤ 1 from ⟨rfl, h⟩)
-% theorem not_once_two : ¬ once 2 := by unfold once; norm_num
+% /-! ### Time
+% An event is a closed interval [ta A, tb A] of instants, coded by eT : ℚ ≃ ℚ × ℚ; it happens (`once`) when
+% 0 ≤ ta A ≤ tb A ≤ 2.  Two events are at the same time when both happen and they overlap; the joint event is
+% their intersection.  Object 0 is at point 0 during [0,1] and at P ∈ (0,1] at instant 1+P; every other object
+% is at P ∈ [0,1) at instant P and at 1 during [1,2]. -/
+% noncomputable def eT : ℚ ≃ ℚ × ℚ := (Denumerable.eqv ℚ).trans (Denumerable.eqv (ℚ × ℚ)).symm
+% attribute [irreducible] eT
+% noncomputable def ta (A : ℚ) : ℚ := (eT A).1
+% noncomputable def tb (A : ℚ) : ℚ := (eT A).2
+% noncomputable def ev (a b : ℚ) : ℚ := eT.symm (a, b)
+% @[simp] theorem ta_ev (a b : ℚ) : ta (ev a b) = a := by simp [ta, ev]
+% @[simp] theorem tb_ev (a b : ℚ) : tb (ev a b) = b := by simp [tb, ev]
+% abbrev unit (P : ℚ) : Prop := 0 ≤ P ∧ P ≤ 1
+% abbrev once (A : ℚ) : Prop := 0 ≤ ta A ∧ ta A ≤ tb A ∧ tb A ≤ 2
+% noncomputable def ats (A B : ℚ) : ℚ :=
+%   if once A ∧ once B then ev (max (ta A) (ta B)) (min (tb A) (tb B)) else ev 1 0
+% theorem once_ats (A B : ℚ) : once (ats A B) ↔ once A ∧ once B ∧ ta A ≤ tb B ∧ ta B ≤ tb A := by
+%   unfold ats; split_ifs with h
+%   · obtain ⟨⟨a1, a2, a3⟩, ⟨b1, b2, b3⟩⟩ := h
+%     simp only [once, ta_ev, tb_ev, le_max_iff, max_le_iff, le_min_iff, min_le_iff]
+%     tauto
+%   · simp only [once, ta_ev, tb_ev]; constructor
+%     · rintro ⟨_, h', _⟩; norm_num at h'
+%     · rintro ⟨hA, hB, _⟩; exact absurd ⟨hA, hB⟩ h
+% theorem once_comm (A B : ℚ) : once (ats A B) ↔ once (ats B A) := by
+%   rw [once_ats, once_ats]; tauto
+% theorem ta_ats {A B : ℚ} (h : once A ∧ once B) : ta (ats A B) = max (ta A) (ta B) := by
+%   unfold ats; rw [if_pos h]; simp
+% theorem tb_ats {A B : ℚ} (h : once A ∧ once B) : tb (ats A B) = min (tb A) (tb B) := by
+%   unfold ats; rw [if_pos h]; simp
+% theorem once_ats3 (A B C : ℚ) : once (ats (ats A B) C) ↔ once A ∧ once B ∧ once C ∧
+%     ta A ≤ tb B ∧ ta B ≤ tb A ∧ ta A ≤ tb C ∧ ta C ≤ tb A ∧ ta B ≤ tb C ∧ ta C ≤ tb B := by
+%   rw [once_ats]; constructor
+%   · rintro ⟨hab, hC, h1, h2⟩
+%     obtain ⟨hA, hB, h3, h4⟩ := (once_ats A B).1 hab
+%     rw [ta_ats ⟨hA, hB⟩, max_le_iff] at h1; rw [tb_ats ⟨hA, hB⟩, le_min_iff] at h2
+%     exact ⟨hA, hB, hC, h3, h4, h1.1, h2.1, h1.2, h2.2⟩
+%   · rintro ⟨hA, hB, hC, h3, h4, h5, h6, h7, h8⟩
+%     refine ⟨(once_ats A B).2 ⟨hA, hB, h3, h4⟩, hC, ?_, ?_⟩
+%     · rw [ta_ats ⟨hA, hB⟩, max_le_iff]; exact ⟨h5, h7⟩
+%     · rw [tb_ats ⟨hA, hB⟩, le_min_iff]; exact ⟨h6, h8⟩
+% /-- start and end of the stay of object X at point P (for P ∈ [0,1]) -/
+% def s (X P : ℚ) : ℚ := if X = 0 then (if P = 0 then 0 else 1 + P) else P
+% def e (X P : ℚ) : ℚ := if X = 0 then (if P = 0 then 1 else 1 + P) else (if P = 1 then 2 else P)
+% noncomputable def atf (X P : ℚ) : ℚ := if unit P then ev (s X P) (e X P) else ev 1 0
+% theorem ta_atf {X P : ℚ} (h : unit P) : ta (atf X P) = s X P := by unfold atf; rw [if_pos h]; simp
+% theorem tb_atf {X P : ℚ} (h : unit P) : tb (atf X P) = e X P := by unfold atf; rw [if_pos h]; simp
+% theorem once_atf (X P : ℚ) : once (atf X P) ↔ unit P := by
+%   by_cases h : unit P
+%   · refine iff_of_true ?_ h
+%     show 0 ≤ ta (atf X P) ∧ ta (atf X P) ≤ tb (atf X P) ∧ tb (atf X P) ≤ 2
+%     rw [ta_atf h, tb_atf h]
+%     obtain ⟨h0, h1⟩ := h
+%     unfold s e; split_ifs <;> refine ⟨by linarith, by linarith, by linarith⟩
+%   · refine iff_of_false ?_ h
+%     show ¬ (0 ≤ ta (atf X P) ∧ ta (atf X P) ≤ tb (atf X P) ∧ tb (atf X P) ≤ 2)
+%     unfold atf; rw [if_neg h]; simp
+% /-- the stays of one object at two points are disjoint and ordered like the points -/
+% theorem sep {X P Q : ℚ} (hP : unit P) (hQ : unit Q) (h : P < Q) : e X P < s X Q := by
+%   obtain ⟨p0, p1⟩ := hP; obtain ⟨q0, q1⟩ := hQ
+%   unfold e s; split_ifs <;> linarith
+% theorem ov2 {X P Y Q : ℚ} (hu : unit P) (hv : unit Q) (h1 : s X P ≤ e Y Q) (h2 : s Y Q ≤ e X P) :
+%     once (ats (atf X P) (atf Y Q)) :=
+%   (once_ats _ _).2 ⟨(once_atf X P).2 hu, (once_atf Y Q).2 hv, by rw [ta_atf hu, tb_atf hv]; exact h1,
+%     by rw [ta_atf hv, tb_atf hu]; exact h2⟩
+% theorem ov1 {A X P : ℚ} (hA : once A) (hu : unit P) (h1 : ta A ≤ e X P) (h2 : s X P ≤ tb A) :
+%     once (ats A (atf X P)) :=
+%   (once_ats _ _).2 ⟨hA, (once_atf X P).2 hu, by rw [tb_atf hu]; exact h1, by rw [ta_atf hu]; exact h2⟩
 %
 % def T0 : Iv := ⟨(0, 1), by norm_num⟩
 % noncomputable def traj (_X : ℚ) : ℚ := eO.symm (T0, true)
-% theorem inco_traj (P X : ℚ) : inco P (traj X) ↔ once P := by
-%   simp [inco, traj, olo, ohi, T0, once]
+% theorem inco_traj (P X : ℚ) : inco P (traj X) ↔ unit P := by
+%   simp [inco, traj, olo, ohi, T0, unit]
 % theorem odir_traj (X : ℚ) : odir (traj X) = true := by simp [odir, traj]
 %
 % def conn (X Y P : ℚ) : Prop := once (ats (atf X P) (atf Y P))
@@ -315,49 +362,37 @@
 %   apply eO.injective
 %   exact Prod.ext (Subtype.ext (Prod.ext e1 e2)) ed
 %
-% theorem same_time {X Y P Q : ℚ} (h : once (ats (atf X P) (atf Y Q))) : P = Q := by
-%   obtain ⟨e, ho⟩ := (once_ats _ _).1 h
-%   have hp : once P := (once_atf X P).1 ho
-%   rw [atf_once hp] at e
-%   have hq : once Q := (once_atf Y Q).1 (e ▸ hp)
-%   rw [atf_once hq] at e
-%   exact e
-%
-% /-! ### Helpers for the countermodels -/
-% theorem ordb_traj (X a b : ℚ) : ordb (traj X) a b ↔ once a ∧ once b ∧ a < b := by
-%   rw [ordb_t (odir_traj X)]; simp [inco_traj]
-% theorem startp_traj (X : ℚ) : startp 0 (traj X) := by
-%   refine ⟨(inco_traj 0 X).2 (by norm_num [once]), fun Q ⟨hne, hq⟩ => ?_⟩
-%   rw [ordb_traj]; have h := (inco_traj Q X).1 hq
-%   exact ⟨by norm_num [once], h, lt_of_le_of_ne h.1 hne⟩
-%
 % end GF
 %
 % open GF TPTP
 %
 %
 % noncomputable def I : Sig ℚ where
-%   p_between := fun _ _ _ _ => False
+%   f_at := atf
+%   f_at_the_same_time := ats
 %   p_between_c := bc
 %   p_between_o := bo
 %   p_closed := closedc
+%   p_connect := conn
 %   p_end_point := ept
 %   p_finish_point := finishp
 %   p_incident_c := inc
 %   p_incident_o := inco
 %   p_inner_point := inner
 %   p_meet := meet
+%   p_once := once
 %   p_open := openc
 %   p_ordered_by := ordb
 %   p_part_of := part
 %   p_start_point := startp
 %   f_sum := sum
+%   f_trajectory_of := traj
 %   f_underlying_curve := uc
 %
 % theorem sat : Satisfiable := by
 %   refine ⟨ℚ, I, ⟨0⟩, ?_⟩
 %   unfold Holds
-%   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+%   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
 %   · intro _ _; exact Iff.rfl                                         -- part_of_defn
 %   · rintro C C1 C2 ⟨P, hm⟩                                          -- sum_defn
 %     show C = sum C1 C2 ↔ ∀ Q, (inc Q C ↔ inc Q C1 ∨ inc Q C2)
@@ -439,9 +474,65 @@
 %     constructor
 %     · rintro rfl; exact fun P => (inc_uc P O).symm
 %     · intro h; exact inc_ext (fun P => (h P).symm.trans (inc_uc P O).symm)
-%   · -- theorem_4_23_3 (negated)
+%   · intro _ _ _; exact Iff.rfl                                       -- connect_defn
+%   · intro A B; exact once_comm A B                                   -- symmetry_of_at_the_same_time
+%   · intro A B C                                                      -- assciativity_of_at_the_same_time
+%     show once (ats (ats A B) C) ↔ once (ats A (ats B C))
+%     rw [once_ats3, once_comm A (ats B C), once_ats3]; tauto
+%   · intro A h; exact (once_ats A A).2 ⟨h, h, h.2.1, h.2.1⟩           -- idempotence_of_at_the_same_time
+%   · intro A B h                                                      -- conjunction_at_the_same_time
+%     obtain ⟨hA, hB, -, -⟩ := (once_ats A B).1 h; exact ⟨hA, hB⟩
+%   · intro X P; show once (atf X P) ↔ inco P (traj X); rw [once_atf, inco_traj]   -- at_on_trajectory
+%   · intro X; exact ⟨_, rfl⟩                                          -- trajectories_are_oriented_curves
+%   · rintro P1 P2 Q1 Q2 X Y ⟨h1, h2⟩ ⟨o1, o2⟩                        -- homogeneous_behaviour
+%     change once (ats (atf X P1) (atf Y P2)) at h1
+%     change once (ats (atf X Q1) (atf Y Q2)) at h2
+%     change ordb (traj X) P1 Q1 at o1
+%     change ordb (traj Y) Q2 P2 at o2
+%     obtain ⟨a1, a2, a3⟩ := (ordb_t (odir_traj X)).1 o1
+%     obtain ⟨b1, b2, b3⟩ := (ordb_t (odir_traj Y)).1 o2
+%     rw [inco_traj] at a1 a2 b1 b2
+%     obtain ⟨-, -, -, c2⟩ := (once_ats _ _).1 h1
+%     obtain ⟨-, -, d1, -⟩ := (once_ats _ _).1 h2
+%     rw [ta_atf b2, tb_atf a1] at c2
+%     rw [ta_atf a2, tb_atf b1] at d1
+%     have u := sep (X := X) a1 a2 a3
+%     have v := sep (X := Y) b1 b2 b3
+%     linarith
+%   · intro A hA X                                                     -- localization
+%     change once A at hA
+%     show ∃ P, once (ats A (atf X P))
+%     obtain ⟨a0, ab, b2⟩ := hA
+%     rcases eq_or_ne X 0 with rfl | hX
+%     · by_cases ha : ta A ≤ 1
+%       · exact ⟨0, ov1 ⟨a0, ab, b2⟩ ⟨le_refl _, by norm_num⟩ (by unfold e; simp; linarith)
+%           (by unfold s; simp; linarith)⟩
+%       · have ha' := not_le.1 ha
+%         have hne : ta A - 1 ≠ 0 := by intro h; linarith
+%         exact ⟨ta A - 1, ov1 ⟨a0, ab, b2⟩ ⟨by linarith, by linarith⟩ (by unfold e; simp [hne])
+%           (by unfold s; simp [hne]; linarith)⟩
+%     · by_cases ha : ta A < 1
+%       · have hne : ta A ≠ 1 := ne_of_lt ha
+%         exact ⟨ta A, ov1 ⟨a0, ab, b2⟩ ⟨a0, ha.le⟩ (by unfold e; simp [hX, hne])
+%           (by unfold s; simp [hX]; exact ab)⟩
+%       · have ha' := not_lt.1 ha
+%         exact ⟨1, ov1 ⟨a0, ab, b2⟩ ⟨by norm_num, le_refl _⟩ (by unfold e; simp [hX]; linarith)
+%           (by unfold s; simp [hX]; linarith)⟩
+%   · -- t17 (negated): object 0 waits at point 0 while object 1 passes 1/4 and 3/4
 %     show ¬ _
 %     simp only [I]
-%     intro h; have := h (traj 0) 0 1 (1/2) (by rw [ordb_traj]; norm_num [once]); simp only [ordb_traj, once] at this; norm_num at this
-% SZS output end Model for GEO142+1
+%     intro h
+%     have u : ∀ q : ℚ, 0 ≤ q → q ≤ 1 → inco q (traj 0) := fun q a b => (inco_traj q 0).2 ⟨a, b⟩
+%     have hbo : bo (traj 0) (1/4) (1/2) (3/4) := Or.inl
+%       ⟨(ordb_t (odir_traj 0)).2 ⟨u _ (by norm_num) (by norm_num), u _ (by norm_num) (by norm_num), by norm_num⟩,
+%        (ordb_t (odir_traj 0)).2 ⟨u _ (by norm_num) (by norm_num), u _ (by norm_num) (by norm_num), by norm_num⟩⟩
+%     have h1 : once (ats (atf 0 0) (atf 1 (1/4))) :=
+%       ov2 ⟨le_refl _, by norm_num⟩ ⟨by norm_num, by norm_num⟩ (by norm_num [s, e]) (by norm_num [s, e])
+%     have h3 : once (ats (atf 0 0) (atf 1 (3/4))) :=
+%       ov2 ⟨le_refl _, by norm_num⟩ ⟨by norm_num, by norm_num⟩ (by norm_num [s, e]) (by norm_num [s, e])
+%     have := h 0 (1/4) (1/2) (3/4) 0 1 ⟨h1, h3, hbo⟩
+%     obtain ⟨-, -, -, c⟩ := (once_ats _ _).1 this
+%     rw [ta_atf ⟨by norm_num, by norm_num⟩, tb_atf ⟨le_refl _, by norm_num⟩] at c
+%     norm_num [s, e] at c
+% SZS output end Model for GEO151+1
 %------------------------------------------------------------------------------
